@@ -1,26 +1,100 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #1f7d46;
+  --color-secondary: #f3c24b;
+  --color-accent: #79b062;
+  --color-bg-dark: #0f1822;
+  --color-bg-light: #f5f2e8;
+  --color-text-dark: #172432;
+  --color-surface: #fffdf7;
+}
+.testBorder {
+  border: 2px solid red;
+}
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --primary: #1f7d46;
+  --secondary: #f3c24b;
+  --accent: #79b062;
+  --bg-dark: #0f1822;
+  --bg-light: #f5f2e8;
+  --text-dark: #172432;
+  --surface: #fffdf7;
+  --white: #ffffff;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(
+      circle at 12% 10%,
+      rgba(243, 194, 75, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(circle at 88% 8%, rgba(31, 125, 70, 0.12), transparent 35%),
+    linear-gradient(180deg, #f7f4ea 0%, var(--bg-light) 45%, #f1ecde 100%);
+  color: var(--text-dark);
+  font-family:
+    var(--font-inter),
+    system-ui,
+    -apple-system,
+    sans-serif;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family:
+    var(--font-poppins),
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.glass {
+  background: rgba(255, 253, 247, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(23, 36, 50, 0.08);
+}
+
+.btn-primary {
+  background: linear-gradient(140deg, #1f7d46 0%, #1a6539 100%);
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 0.625rem;
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(17, 77, 44, 0.25);
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 28px rgba(17, 77, 44, 0.3);
+}
+
+.btn-primary:active {
+  transform: scale(0.95);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #f3c24b 0%, #e8b132 100%);
+  color: #172432;
+  padding: 1rem 2rem;
+  border-radius: 0.625rem;
+  font-weight: 700;
+  box-shadow: 0 10px 22px rgba(211, 154, 12, 0.24);
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 28px rgba(211, 154, 12, 0.3);
+}
+
+.btn-secondary:active {
+  transform: scale(0.95);
 }
