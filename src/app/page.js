@@ -5,6 +5,29 @@ const highlights = [
   "No harmful shortcuts",
   "Practical farm guidance",
   "Long-term cattle wellness",
+  "Breed-wise nutrition plans",
+];
+
+const trustStats = [
+  { label: "Villages reached", value: "240+" },
+  { label: "Active farmer partners", value: "3,500+" },
+  { label: "Average repeat purchase", value: "82%" },
+  { label: "Field consultation days", value: "365" },
+];
+
+const impactPoints = [
+  {
+    title: "Milk Consistency",
+    desc: "Reduce day-to-day fluctuation through stable mineral and digestion support.",
+  },
+  {
+    title: "Reproductive Health",
+    desc: "Targeted trace minerals and vitamins for better fertility and heat expression.",
+  },
+  {
+    title: "Immunity Readiness",
+    desc: "Feed strategies built for seasonal stress, heat load and infection pressure.",
+  },
 ];
 
 const categories = [
@@ -12,11 +35,61 @@ const categories = [
     title: "Milk Let Down Support",
     desc: "Hormone-free support for smoother milking and better daily yield.",
     image: "/images/products/mld.png",
+    points: ["Supports calm milking", "Helps reduce stress", "Daily-use friendly"],
   },
   {
     title: "Mineral Balance",
     desc: "Complete mineral coverage for fertility, immunity and milk quality.",
     image: "/images/products/mineral.png",
+    points: ["Macro + trace support", "Palatable intake profile", "Year-round protocol"],
+  },
+];
+
+const processSteps = [
+  {
+    step: "01",
+    title: "Farm Assessment",
+    desc: "We understand ration, breed mix, stage of lactation and current bottlenecks.",
+  },
+  {
+    step: "02",
+    title: "Nutrition Recommendation",
+    desc: "A practical plan is prepared with clear quantity, timing and expected results.",
+  },
+  {
+    step: "03",
+    title: "On-Field Follow-up",
+    desc: "Our team tracks changes in yield, body condition and reproductive indicators.",
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "Milk yield became more stable within a month. The best part is consistent guidance, not just product selling.",
+    name: "Rajveer Singh",
+    location: "Dairy Farmer, Karnal",
+  },
+  {
+    quote:
+      "We saw better feed response and animal energy. Team support is practical and very farmer-friendly.",
+    name: "Mahesh Yadav",
+    location: "Farm Owner, Alwar",
+  },
+];
+
+const faqs = [
+  {
+    q: "How quickly can I see results after starting a plan?",
+    a: "Most farms observe visible stability in appetite and milk pattern within 2-4 weeks, depending on animal condition and baseline nutrition.",
+  },
+  {
+    q: "Do you provide guidance for small farms too?",
+    a: "Yes. We work with both small and medium farms and suggest affordable, stage-based feeding protocols.",
+  },
+  {
+    q: "Can I combine your products with my current feed routine?",
+    a: "In most cases, yes. We map the existing routine and then suggest additive support without unnecessary overlap.",
   },
 ];
 
@@ -44,6 +117,19 @@ export default function Home() {
               Not just selling products. We partner with dairy farmers for
               healthy cattle, safer milk and stable long-term profit.
             </p>
+
+            <div className="mt-7 flex flex-wrap gap-2">
+              {["Farmer-first model", "Field-tested products", "Daily support team"].map(
+                (item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-primary/20 bg-[var(--surface)] px-4 py-2 text-xs font-bold tracking-wide text-primary"
+                  >
+                    {item}
+                  </span>
+                ),
+              )}
+            </div>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link href="/products" className="btn-primary text-center">
@@ -96,6 +182,21 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="px-6 py-12">
+        <div className="mx-auto max-w-7xl rounded-3xl border border-primary/10 bg-[var(--surface)] p-6 shadow-xl md:p-8">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            {trustStats.map((item) => (
+              <div key={item.label} className="rounded-2xl bg-bg-light p-4 text-center">
+                <p className="text-3xl font-black text-primary md:text-4xl">{item.value}</p>
+                <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-text-dark/70">
+                  {item.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="px-6 py-20 bg-[var(--surface)]">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center">
@@ -141,6 +242,35 @@ export default function Home() {
 
       <section className="px-6 py-24">
         <div className="mx-auto max-w-7xl">
+          <div className="mb-10 text-center">
+            <h2 className="text-4xl font-black text-text-dark md:text-5xl">
+              What Improves On Ground
+            </h2>
+            <p className="mx-auto mt-3 max-w-3xl text-text-dark/70">
+              We focus on practical outcomes that matter for farm economics,
+              animal comfort and long-term sustainability.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {impactPoints.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-2xl border border-primary/10 bg-[var(--surface)] p-6 shadow-md"
+              >
+                <p className="text-xs font-bold uppercase tracking-widest text-primary">
+                  Performance Area
+                </p>
+                <h3 className="mt-2 text-2xl font-black text-text-dark">{item.title}</h3>
+                <p className="mt-3 text-text-dark/70">{item.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-24">
+        <div className="mx-auto max-w-7xl">
           <div className="mb-10 flex items-end justify-between gap-6">
             <div>
               <h2 className="text-4xl font-black text-text-dark md:text-5xl">
@@ -168,6 +298,16 @@ export default function Home() {
                       {item.title}
                     </h3>
                     <p className="mt-3 text-text-dark/70">{item.desc}</p>
+                    <div className="mt-4 space-y-2">
+                      {item.points.map((point) => (
+                        <p
+                          key={point}
+                          className="text-sm font-semibold text-text-dark/75"
+                        >
+                          • {point}
+                        </p>
+                      ))}
+                    </div>
                     <Link
                       href="/products"
                       className="mt-6 inline-flex font-bold text-primary"
@@ -190,6 +330,63 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="px-6 py-24 bg-[var(--surface)]">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 flex flex-col gap-3 text-center">
+            <h2 className="text-4xl font-black text-text-dark md:text-5xl">
+              How We Work With Farmers
+            </h2>
+            <p className="mx-auto max-w-2xl text-text-dark/70">
+              A structured process that keeps recommendations clear, measurable
+              and easy to implement on daily routines.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+            {processSteps.map((item) => (
+              <article
+                key={item.step}
+                className="rounded-2xl border border-primary/10 bg-bg-light p-6"
+              >
+                <p className="text-sm font-black text-primary">{item.step}</p>
+                <h3 className="mt-2 text-2xl font-black text-text-dark">{item.title}</h3>
+                <p className="mt-3 text-text-dark/70">{item.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 text-center">
+            <h2 className="text-4xl font-black text-text-dark md:text-5xl">
+              Voices From The Field
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-text-dark/70">
+              Direct feedback from farmers using our product protocols.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {testimonials.map((item) => (
+              <article
+                key={item.name}
+                className="rounded-3xl border border-primary/10 bg-[var(--surface)] p-7 shadow-md"
+              >
+                <p className="text-lg leading-relaxed text-text-dark/80">
+                  &ldquo;{item.quote}&rdquo;
+                </p>
+                <p className="mt-5 text-base font-black text-text-dark">{item.name}</p>
+                <p className="text-sm font-semibold text-primary">{item.location}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+    
 
       <section className="px-6 pb-24">
         <div className="relative mx-auto max-w-5xl overflow-hidden rounded-3xl bg-primary p-12 text-center text-white">

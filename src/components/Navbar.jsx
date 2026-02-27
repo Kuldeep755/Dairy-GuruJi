@@ -79,9 +79,9 @@ const Navbar = () => {
 
 
         <div className="flex items-center gap-4">
-          <Button asChild className="hidden sm:inline-flex text-xs uppercase tracking-widest shadow-lg shadow-yellow-500/20">
+          {/* <Button asChild className="hidden sm:inline-flex text-xs uppercase tracking-widest shadow-lg shadow-yellow-500/20">
             <Link href="/contact">Enquire Now</Link>
-          </Button>
+          </Button> */}
 
           <Sheet>
             <SheetTrigger asChild>
