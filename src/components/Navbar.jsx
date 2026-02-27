@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { SheetClose } from "@/components/ui/sheet";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu } from "lucide-react";
@@ -100,13 +101,14 @@ const Navbar = () => {
               </SheetHeader>
               <div className="mt-6 flex flex-col gap-1">
                 {navItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="rounded-md px-3 py-2 text-sm font-semibold uppercase tracking-wider text-white/85 hover:bg-white/10 hover:text-secondary transition-colors"
-                  >
-                    {item.label}
-                  </Link>
+                  <SheetClose asChild key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="rounded-md px-3 py-2 text-sm font-semibold uppercase tracking-wider text-white/85 hover:bg-white/10 hover:text-secondary transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  </SheetClose>
                 ))}
               </div>
             </SheetContent>

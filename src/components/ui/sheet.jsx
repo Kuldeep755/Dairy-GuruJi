@@ -32,7 +32,7 @@ function SheetContent({ className, side = "right", children, ...props }) {
       <SheetOverlay />
       <DialogPrimitive.Content
         className={cn(
-          "fixed z-50 bg-bg-dark p-6 text-white shadow-2xl",
+          "fixed z-50 bg-bg-dark p-6 text-white shadow-2xl transition-transform duration-300 ease-in-out",
           sideClasses[side],
           className,
         )}
