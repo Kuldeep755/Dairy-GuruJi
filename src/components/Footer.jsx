@@ -2,124 +2,157 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin, Globe } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-bg-dark border-t border-secondary/20 pt-20 pb-10 text-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <Image
-          src="/images/logo-dairy-guruji.png"
-          alt="Dairy Guru Ji logo"
-          width={60}
-          height={60}
-          className="h-20 w-18 w-auto rounded-md"
-          priority
-        />
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div className="col-span-1 md:col-span-2">
-            <div className="text-3xl font-black text-secondary mb-4">
-              DAIRY GURU JI
+    <footer className="bg-bg-dark border-t border-white/10 pt-24 pb-8 text-white relative overflow-hidden">
+      {/* Background accents */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-secondary/50 to-transparent"></div>
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-secondary/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+          <div className="col-span-1 lg:col-span-2 md:pr-12">
+            <Link href="/" className="inline-block mb-8 group">
+              <div className="flex items-center gap-4">
+                <div className="bg-white/5 p-2 rounded-xl border border-white/10 group-hover:border-secondary/30 transition-colors">
+                  <Image
+                    src="/images/logo-dairy-guruji.png"
+                    alt="Dairy Guru Ji logo"
+                    width={60}
+                    height={60}
+                    className="h-14 w-auto object-contain"
+                    priority
+                  />
+                </div>
+                <div className="text-3xl font-black text-white tracking-tight group-hover:text-secondary transition-colors">
+                  DAIRY GURU Ji
+                </div>
+              </div>
+            </Link>
+
+            <div className="bg-white/5 border border-white/10 p-5 rounded-2xl mb-8 transform -rotate-1 hover:rotate-0 transition-transform duration-300">
+              <p className="text-secondary text-xl font-bold mb-1">
+                “व्यापार नहीं, रिश्ते बनाते हैं”
+              </p>
+              <p className="text-sm text-white/70">Not Just Business, Building Relationships.</p>
             </div>
-            <p className="text-white/80 text-lg leading-relaxed mb-6 max-w-md">
-              “व्यापार नहीं, रिश्ते बनाते हैं”
-            </p>
-            <div className="flex flex-col gap-2 text-white/70">
-              <p className="font-bold">ISO 9001:2015 Certified Company</p>
-              <p className="text-sm">Head Office: South, WA (Australia)</p>
-              <p className="text-sm">Branch Office: Sonipat, Haryana</p>
+
+            <div className="flex items-center gap-3 mb-8">
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-500/20 text-green-400">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <p className="font-semibold text-white/90 tracking-wide text-sm">ISO 9001:2015 Certified Company</p>
+            </div>
+
+            <div className="flex gap-4">
+              {[
+                { icon: Facebook, href: "#", label: "Facebook" },
+                { icon: Instagram, href: "#", label: "Instagram" },
+                { icon: Twitter, href: "#", label: "Twitter" },
+                { icon: Linkedin, href: "#", label: "LinkedIn" },
+              ].map((social) => (
+                <a 
+                  key={social.label}
+                  href={social.href} 
+                  aria-label={social.label}
+                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:bg-secondary hover:border-secondary hover:text-bg-dark transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(var(--color-secondary),0.5)]"
+                >
+                  <social.icon className="w-4 h-4" />
+                </a>
+              ))}
             </div>
           </div>
 
-          <div>
-            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">
+          <div className="col-span-1">
+            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-sm relative inline-block">
               Quick Links
+              <span className="absolute -bottom-3 left-0 w-1/2 h-1 bg-secondary rounded-full"></span>
             </h4>
-            <ul className="space-y-4 text-white/70 text-sm font-medium">
-              <li>
-                <Link
-                  href="/"
-                  className="hover:text-secondary transition-colors"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="hover:text-secondary transition-colors"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/products"
-                  className="hover:text-secondary transition-colors"
-                >
-                  Products
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="hover:text-secondary transition-colors"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/careers"
-                  className="hover:text-secondary transition-colors"
-                >
-                  Careers
-                </Link>
-              </li>
+            <ul className="space-y-4 text-white/70 text-[15px] font-medium">
+              {[
+                { name: "Home", href: "/" },
+                { name: "About Us", href: "/about" },
+                { name: "Products", href: "/products" },
+                { name: "Manufacturing", href: "/manufacturing/third-party-manufacturing" },
+                { name: "Become a Dealer", href: "/dealer" },
+                { name: "Blog", href: "/blog" },
+                { name: "Careers", href: "/careers" },
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="hover:text-secondary hover:translate-x-2 inline-flex items-center gap-2 transition-all duration-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">
-              Support
+          <div className="col-span-1">
+            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-sm relative inline-block">
+              Contact Info
+              <span className="absolute -bottom-3 left-0 w-1/2 h-1 bg-secondary rounded-full"></span>
             </h4>
-            <ul className="space-y-4 text-white/70 text-sm font-medium">
-              <li>
-                <Link
-                  href="/contact"
-                  className="hover:text-secondary transition-colors"
-                >
-                  Contact Us
-                </Link>
+            <ul className="space-y-5 text-white/70 text-[15px]">
+              <li className="flex items-start gap-4 group">
+                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-secondary/10 transition-colors">
+                  <MapPin className="w-5 h-5 text-secondary" />
+                </div>
+                <div className="pt-1">
+                  <p className="font-semibold text-white mb-0.5 text-sm uppercase tracking-wider">Head Office</p>
+                  <p className="leading-relaxed">South, WA (Australia)</p>
+                </div>
               </li>
-              <li>
-                Web:{" "}
-                <a
-                  href="https://www.dairyguruji.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-secondary transition-colors"
-                >
-                  www.dairyguruji.com
+              
+              <li className="flex items-start gap-4 group">
+                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-secondary/10 transition-colors">
+                  <MapPin className="w-5 h-5 text-secondary" />
+                </div>
+                <div className="pt-1">
+                  <p className="font-semibold text-white mb-0.5 text-sm uppercase tracking-wider">Branch Office</p>
+                  <p className="leading-relaxed">Sonipat, Haryana</p>
+                </div>
+              </li>
+
+              <li className="flex items-center gap-4 group mt-6">
+                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-secondary/10 transition-colors">
+                  <Phone className="w-5 h-5 text-secondary" />
+                </div>
+                <a href="tel:+918168048260" className="hover:text-secondary font-medium transition-colors">+91 81680-48260</a>
+              </li>
+
+              <li className="flex items-center gap-4 group">
+                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-secondary/10 transition-colors">
+                  <Mail className="w-5 h-5 text-secondary" />
+                </div>
+                <a href="mailto:dairyguruji@gmail.com" className="hover:text-secondary font-medium transition-colors break-all">dairyguruji@gmail.com</a>
+              </li>
+
+              <li className="flex items-center gap-4 group">
+                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-secondary/10 transition-colors">
+                  <Globe className="w-5 h-5 text-secondary" />
+                </div>
+                <a href="https://www.dairyguruji.com" target="_blank" rel="noopener noreferrer" className="hover:text-secondary font-medium transition-colors text-secondary">
+                  dairyguruji.com
                 </a>
               </li>
-              <li>M: +91 81680-48260</li>
-              <li>Email: dairyguruji@gmail.com</li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-white/45 text-xs font-medium">
-          <p>
-            &copy; {new Date().getFullYear()} Dairy Guru Ji. Not Just Business,
-            Building Relationships.
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-white/50 text-sm font-medium">
+          <p className="text-center md:text-left">
+            &copy; 2024 Dairy Guru Ji. All rights reserved.
           </p>
-          <div className="flex gap-8">
-            <a href="#" className="hover:text-secondary transition-colors">
+          <div className="flex gap-6">
+            <Link href="/privacy" className="hover:text-secondary transition-colors">
               Privacy Policy
-            </a>
-            <a href="#" className="hover:text-secondary transition-colors">
+            </Link>
+            <Link href="/terms" className="hover:text-secondary transition-colors">
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>

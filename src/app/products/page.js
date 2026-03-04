@@ -11,8 +11,12 @@ import {
   Search,
   ShieldCheck,
   Sparkles,
+  Users,
+  TrendingUp,
+  Heart,
 } from "lucide-react";
 import { products } from "@/lib/productData";
+import { ProductCardSkeleton } from "@/components/ui/skeleton";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -51,6 +55,7 @@ export default function ProductsPage() {
       {/* Decorative blobs */}
       <div className="pointer-events-none absolute -top-32 left-[-10%] h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
       <div className="pointer-events-none absolute top-24 right-[-12%] h-[28rem] w-[28rem] rounded-full bg-secondary/25 blur-3xl" />
+
 
       {/* ================= HERO ================= */}
       <section className="relative max-w-7xl mx-auto px-6">
@@ -162,7 +167,7 @@ export default function ProductsPage() {
       </section>
 
       {/* ================= PRODUCTS ================= */}
-      <section className="relative max-w-7xl mx-auto px-6 mt-20 space-y-16">
+      <section className="relative max-w-7xl mx-auto px-6 mt-20 space-y-24">
         {filteredProducts.map((product, index) => (
           <motion.article
             key={product.name}
@@ -170,95 +175,126 @@ export default function ProductsPage() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={popIn}
-            transition={{ duration: 0.6 }}
-            className="rounded-3xl border border-primary/10 bg-white/80 backdrop-blur shadow-lg hover:shadow-2xl transition-all duration-500 p-6 md:p-10"
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="group relative"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Image */}
-              <div className={index % 2 !== 0 ? "lg:order-2" : ""}>
+            {/* Background decorative element for each card */}
+            <div className={`absolute -inset-4 rounded-[4rem] bg-gradient-to-r ${index % 2 === 0 ? 'from-primary/5 to-transparent' : 'from-transparent to-primary/5'} opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10`} />
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              {/* Image side */}
+              <div className={`${index % 2 !== 0 ? "lg:order-2" : ""} relative`}>
                 <Link
                   href={`/products/${product.id}`}
-                  className="block rounded-3xl focus:outline-none focus:ring-2 focus:ring-primary/40"
+                  className="block group/img focus:outline-none"
                 >
-                  <div className="rounded-3xl bg-gradient-to-br from-white via-[#f9f7ef] to-[#efe8d7] border border-primary/10 p-4 relative overflow-hidden">
-                    <div className="absolute -top-20 -right-20 h-44 w-44 rounded-full bg-primary/10" />
+                  <div className="relative aspect-[4/5] md:aspect-[1/1] rounded-[3rem] bg-gradient-to-br from-white via-[#fdfcf8] to-[#f4f1e6] border border-primary/10 p-6 md:p-10 shadow-xl overflow-hidden group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
+                    {/* Animated glow background */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary/10 blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                    
                     <Image
                       src={product.image}
                       alt={product.name}
-                      width={460}
-                      height={560}
-                      className="mx-auto h-[300px] md:h-[440px] w-auto object-contain drop-shadow-2xl relative z-10 rounded-2xl"
+                      width={600}
+                      height={700}
+                      className="mx-auto h-full w-auto object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.15)] relative z-10 transition-transform duration-700 group-hover/img:scale-105"
                     />
+                    
+                    {/* Floating label */}
+                    <div className="absolute top-6 left-6 z-20">
+                      <span className="px-4 py-1.5 rounded-full bg-white/90 backdrop-blur shadow-sm text-[10px] font-black uppercase tracking-[0.2em] text-primary border border-primary/10">
+                        Premium Quality
+                      </span>
+                    </div>
                   </div>
                 </Link>
               </div>
 
-              {/* Content */}
-              <div className={index % 2 !== 0 ? "lg:order-1" : ""}>
-                <span className="inline-flex rounded-full bg-secondary/25 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-text-dark">
-                  {product.tag}
-                </span>
+              {/* Content side */}
+              <div className={`${index % 2 !== 0 ? "lg:order-1" : ""} space-y-6 md:space-y-8`}>
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="inline-flex rounded-full bg-secondary/30 px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.2em] text-text-dark border border-secondary/20">
+                      {product.tag}
+                    </span>
+                    {product.problem && (
+                      <span className="text-[10px] font-bold text-primary/70 uppercase tracking-widest flex items-center gap-1.5">
+                        <TrendingUp className="h-3 w-3" /> Solves {product.problem.split(' ')[0]}
+                      </span>
+                    )}
+                  </div>
 
-                <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-text-dark leading-tight">
-                  {product.name}
-                </h2>
+                  <h2 className="text-4xl md:text-5xl font-black text-text-dark leading-[1.1] tracking-tight">
+                    {product.name}
+                  </h2>
+                </div>
 
-                {/* Problem */}
-                <div className="mt-6 rounded-xl border-l-4 border-primary bg-primary/5 px-4 py-3">
-                  <p className="text-xs uppercase tracking-[0.18em] font-bold text-text-dark/70">
-                    Problem It Solves
+                {/* Refined Problem box */}
+                <div className="relative overflow-hidden rounded-2xl bg-white border border-primary/10 p-5 shadow-sm group-hover:shadow-md transition-shadow">
+                  <div className="absolute top-0 left-0 w-1.5 h-full bg-primary" />
+                  <p className="text-[10px] uppercase tracking-[0.2em] font-black text-primary mb-2">
+                    Primary Solution
                   </p>
-                  <p className="mt-1 text-sm md:text-base font-semibold text-text-dark">
+                  <p className="text-base md:text-lg font-bold text-text-dark leading-snug">
                     {product.problem}
                   </p>
                 </div>
 
-                <p className="mt-6 text-sm md:text-base text-text-dark/75 leading-7">
+                <p className="text-lg text-text-dark/70 leading-relaxed font-medium">
                   {product.description}
                 </p>
 
-                {/* Benefits */}
-                <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {product.benefits.map((benefit) => (
-                    <li
-                      key={benefit}
-                      className="rounded-lg border border-primary/15 bg-primary/5 px-4 py-3 text-sm font-semibold hover:bg-primary/10 transition"
-                    >
-                      <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary text-white text-xs mr-2">
-                        ✓
-                      </span>
-                      {benefit}
-                    </li>
-                  ))}
-                </ul>
+                {/* Farmer Success Story - Retained but improved visually */}
+                {product.farmerStory && (
+                  <div className="relative p-6 rounded-2xl bg-[#fdfaf2] border border-secondary/10 overflow-hidden">
+                    <div className="absolute -top-4 -left-2 text-7xl text-secondary/10 font-serif leading-none">“</div>
+                    <div className="relative z-10">
+                      <p className="text-base font-bold text-text-dark italic leading-relaxed mb-4">
+                        {product.farmerStory.quote}
+                      </p>
+                      <div className="flex items-center gap-3">
+                        <div className="h-0.5 w-8 bg-primary/30" />
+                        <div>
+                          <p className="text-xs font-black text-text-dark uppercase tracking-wider">
+                            {product.farmerStory.name}
+                          </p>
+                          <p className="text-[10px] font-bold text-text-dark/50 uppercase">
+                            {product.farmerStory.location}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
-                {/* Dosage & Pack */}
-                <div className="mt-7 flex flex-col sm:flex-row gap-3 text-sm">
-                  <div className="rounded-xl border border-primary/15 bg-white px-4 py-3 shadow-sm">
-                    <span className="font-extrabold text-text-dark">
-                      Dosage:
-                    </span>{" "}
-                    {product.dosage}
-                  </div>
-                  <div className="rounded-xl border border-primary/15 bg-white px-4 py-3 shadow-sm">
-                    <span className="font-extrabold text-text-dark">Pack:</span>{" "}
-                    {product.pack}
-                  </div>
+                {/* Key Benefits Grid - Cleaner */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {product.benefits.slice(0, 4).map((benefit) => (
+                    <div
+                      key={benefit}
+                      className="flex items-center gap-2.5 py-1"
+                    >
+                      <div className="flex-shrink-0 h-5 w-5 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+                        <BadgeCheck className="h-3.5 w-3.5" />
+                      </div>
+                      <span className="text-sm font-bold text-text-dark/80">{benefit}</span>
+                    </div>
+                  ))}
                 </div>
 
-                <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
                   <Link
                     href={`/products/${product.id}`}
-                    className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-extrabold text-white hover:opacity-90 transition"
+                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-2xl bg-primary px-8 py-4 text-base font-black text-white hover:bg-text-dark shadow-lg shadow-primary/20 hover:shadow-xl transition-all duration-300 group/btn"
                   >
-                    View Product Details
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                    Product Details
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover/btn:translate-x-1" />
                   </Link>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center rounded-md border border-primary/30 px-6 py-3 text-sm font-bold text-primary hover:bg-primary/5 transition"
+                    className="w-full sm:w-auto inline-flex items-center justify-center rounded-2xl border-2 border-primary/20 bg-white px-8 py-4 text-base font-black text-primary hover:bg-primary/5 hover:border-primary/40 transition-all duration-300"
                   >
-                    Ask for Recommendation
+                    Order Now
                   </Link>
                 </div>
               </div>
@@ -267,13 +303,20 @@ export default function ProductsPage() {
         ))}
 
         {filteredProducts.length === 0 && (
-          <div className="rounded-2xl border border-primary/10 bg-white/80 p-8 text-center">
-            <p className="text-lg font-extrabold text-text-dark">
-              No matching products found
+          <div className="rounded-[3rem] border-2 border-dashed border-primary/20 bg-white/50 p-16 text-center">
+            <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-primary/10 text-primary mb-6">
+              <Search className="h-10 w-10" />
+            </div>
+            <h3 className="text-2xl font-black text-text-dark">No Products Found</h3>
+            <p className="mt-2 text-text-dark/60 max-w-sm mx-auto font-medium">
+              We couldn't find any products matching your current filters. Try adjusting your search term or category.
             </p>
-            <p className="mt-2 text-sm text-text-dark/70">
-              Try another search or switch to a different category tag.
-            </p>
+            <button 
+              onClick={() => { setQuery(""); setActiveTag("All"); }}
+              className="mt-8 text-primary font-black uppercase tracking-widest text-sm hover:underline"
+            >
+              Clear All Filters
+            </button>
           </div>
         )}
       </section>

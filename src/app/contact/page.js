@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import {
   PhoneCall,
   MessageCircle,
@@ -8,7 +8,18 @@ import {
   Clock3,
   Globe,
   Building2,
+  DollarSign,
+  TrendingUp,
+  Map,
+  Truck as TruckIcon,
+  Users as UsersIcon,
+  Shield,
+  Star,
+  ArrowRight,
 } from "lucide-react";
+import { Input, Textarea, Select, FormField } from "@/components/ui/input";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 const ContactPage = () => {
   return (
@@ -113,10 +124,11 @@ const ContactPage = () => {
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Farmer Support Section */}
           <div className="space-y-4 lg:col-span-1">
             <div className="rounded-2xl border border-primary/15 bg-white p-6 shadow-lg shadow-green-900/5">
               <p className="text-xs font-black uppercase tracking-widest text-primary">
-                Quick Reach
+                किसान सहायता
               </p>
               <h3 className="mt-2 text-2xl font-black text-text-dark">
                 Speak To Our Team
@@ -142,8 +154,49 @@ const ContactPage = () => {
                 </a>
               </div>
             </div>
+
+            {/* Dealer Opportunities */}
+            <div className="rounded-2xl border border-secondary/15 bg-white p-6 shadow-lg shadow-green-900/5">
+              <p className="text-xs font-black uppercase tracking-widest text-secondary">
+                डीलर अवसर
+              </p>
+              <h3 className="mt-2 text-2xl font-black text-text-dark">
+                Dealer Partnership
+              </h3>
+              <p className="mt-2 text-sm text-text-dark/70">
+                अपना व्यवसाय बढ़ाएं, किसानों की मदद करें
+              </p>
+              <div className="mt-4 space-y-3">
+                <div className="flex items-center gap-3 text-sm">
+                  <DollarSign className="h-4 w-4 text-secondary" />
+                  <span>अच्छे मार्जिन</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm">
+                  <TrendingUp className="h-4 w-4 text-secondary" />
+                  <span>व्यवसाय वृद्धि</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm">
+                  <Map className="h-4 w-4 text-secondary" />
+                  <span>क्षेत्र सुरक्षा</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm">
+                  <TruckIcon className="h-4 w-4 text-secondary" />
+                  <span>लॉजिस्टिक समर्थन</span>
+                </div>
+                <div className="mt-4">
+                  <Link
+                    href="/dealer"
+                    className="inline-flex items-center gap-2 rounded-md bg-secondary px-4 py-3 text-sm font-bold text-white transition hover:bg-secondary/90"
+                  >
+                    डीलर बनें
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
 
+          {/* Contact Form */}
           <div className="lg:col-span-2 rounded-2xl border border-green-100 bg-white p-8 md:p-10 shadow-xl shadow-green-900/5">
             <h2 className="text-3xl font-black text-text-dark uppercase tracking-tight">
               Send an Enquiry
@@ -152,64 +205,72 @@ const ContactPage = () => {
               Fill in your details and our team will connect with you shortly.
             </p>
 
-            <form className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
-              <div>
-                <label className="mb-2 block text-xs font-black uppercase tracking-widest text-text-dark/40">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  className="w-full rounded-md border border-green-100 bg-bg-light/60 px-4 py-3 focus:border-primary focus:outline-none"
-                  placeholder="Enter full name"
+            <form 
+              action="https://formsubmit.co/dairyguruji@gmail.com" 
+              method="POST"
+              className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5"
+            >
+              <input type="hidden" name="_form" value="contact-form" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_autoresponse" value="Thank you for your enquiry! We will get back to you shortly." />
+              <input type="hidden" name="_next" value="https://www.dairyguruji.com/contact?success=true" />
+
+              <FormField label="Your Name">
+                <Input 
+                  type="text" 
+                  name="name"
+                  placeholder="Enter full name" 
                   required
                 />
-              </div>
-              <div>
-                <label className="mb-2 block text-xs font-black uppercase tracking-widest text-text-dark/40">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  className="w-full rounded-md border border-green-100 bg-bg-light/60 px-4 py-3 focus:border-primary focus:outline-none"
-                  placeholder="Enter mobile number"
+              </FormField>
+              <FormField label="Phone Number">
+                <Input 
+                  type="tel" 
+                  name="phone"
+                  placeholder="Enter mobile number" 
                   required
                 />
+              </FormField>
+              <div className="md:col-span-2">
+                <FormField label="Email Address">
+                  <Input 
+                    type="email" 
+                    name="email"
+                    placeholder="Enter your email"
+                  />
+                </FormField>
               </div>
               <div className="md:col-span-2">
-                <label className="mb-2 block text-xs font-black uppercase tracking-widest text-text-dark/40">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  className="w-full rounded-md border border-green-100 bg-bg-light/60 px-4 py-3 focus:border-primary focus:outline-none"
-                  placeholder="Enter your email"
-                />
+                <FormField label="I Am A...">
+                  <select 
+                    name="business_type"
+                    className="w-full rounded-lg border border-primary/15 bg-bg-light px-4 py-3 text-sm placeholder:text-text-dark/45 focus:outline-none focus:ring-2 focus:ring-primary/35"
+                  >
+                    <option value="Dairy Farmer">Dairy Farmer</option>
+                    <option value="Distributor / Wholesaler">Distributor / Wholesaler</option>
+                    <option value="Feed Manufacturing Partner">Feed Manufacturing Partner</option>
+                    <option value="Sales Officer Aspirant">Sales Officer Aspirant</option>
+                    <option value="General Business Enquiry">General Business Enquiry</option>
+                  </select>
+                </FormField>
               </div>
               <div className="md:col-span-2">
-                <label className="mb-2 block text-xs font-black uppercase tracking-widest text-text-dark/40">
-                  I Am A...
-                </label>
-                <select className="w-full rounded-md border border-green-100 bg-bg-light/60 px-4 py-3 focus:border-primary focus:outline-none">
-                  <option>Dairy Farmer</option>
-                  <option>Distributor / Wholesaler</option>
-                  <option>Feed Manufacturing Partner</option>
-                  <option>Sales Officer Aspirant</option>
-                  <option>General Business Enquiry</option>
-                </select>
+                <FormField label="Your Message">
+                  <Textarea 
+                    name="message"
+                    placeholder="Tell us how we can help you..." 
+                  />
+                </FormField>
               </div>
               <div className="md:col-span-2">
-                <label className="mb-2 block text-xs font-black uppercase tracking-widest text-text-dark/40">
-                  Your Message
-                </label>
-                <textarea
-                  className="h-32 w-full rounded-md border border-green-100 bg-bg-light/60 px-4 py-4 focus:border-primary focus:outline-none"
-                  placeholder="Tell us how we can help you..."
-                />
-              </div>
-              <div className="md:col-span-2">
-                <button type="submit" className="w-full btn-primary uppercase tracking-widest">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  type="submit" 
+                  className="w-full btn-primary uppercase tracking-widest"
+                >
                   Submit Enquiry
-                </button>
+                </motion.button>
               </div>
             </form>
           </div>

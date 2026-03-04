@@ -1,9 +1,10 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
-import { SheetClose } from "@/components/ui/sheet";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Menu, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -17,103 +18,169 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
+  SheetClose,
 } from "@/components/ui/sheet";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/products", label: "Products" },
+  { href: "/manufacturing/third-party-manufacturing", label: "Manufacturing" },
   { href: "/blog", label: "Blog" },
   { href: "/careers", label: "Careers" },
   { href: "/contact", label: "Contact" },
+  { href: "/products", label: "Products" },
 ];
 
-
 const Navbar = () => {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      const totalHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+      const progress = (window.scrollY / totalHeight) * 100;
+      setScrollProgress(progress);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-bg-dark/95  shadow-xl shadow-black/25 border-b border-white/10" : "bg-bg-dark/80  border-b border-white/5 backdrop-blur-md"}`}
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        isScrolled
+          ? "bg-black/60 backdrop-blur-2xl border-b border-white/10 py-2"
+          : "bg-gradient-to-b from-black/80 to-transparent py-4"
+      }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between ">
-        <Link href="/" className="flex items-center gap-2 ">
+      {/* Scroll Progress Bar */}
+      <div
+        className="absolute bottom-0 left-0 h-[2px] bg-secondary transition-all duration-300"
+        style={{ width: `${scrollProgress}%` }}
+      />
+
+      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2 group">
           <Image
             src="/images/logo-dairy-guruji.png"
             alt="Dairy Guru Ji logo"
             width={60}
             height={60}
-            className="h-20 w-18 w-auto rounded-md"
+            className="h-14 w-auto object-contain drop-shadow-lg transition-transform group-hover:scale-105"
             priority
           />
         </Link>
 
-        <div className="hidden lg:block">
+        {/* Desktop Nav */}
+        <div className="hidden lg:flex items-center gap-6">
           <NavigationMenu>
-            <NavigationMenuList>
-              {navItems.map((item) => (
-                <NavigationMenuItem key={item.href}>
-                  <NavigationMenuLink asChild>
-                    <Link href={item.href}>{item.label}</Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ))}
+            <NavigationMenuList className="flex gap-2">
+              {navItems.map((item) => {
+                const isActive =
+                  pathname === item.href ||
+                  (item.href !== "/" && pathname?.startsWith(item.href));
+
+                return (
+                  <NavigationMenuItem key={item.href}>
+                    <NavigationMenuLink asChild>
+                      <Link
+                        href={item.href}
+                        className={`px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full hover:-translate-y-0.5 ${
+                          isActive
+                            ? "bg-secondary/20 text-secondary"
+                            : "text-white/80 hover:text-white"
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                );
+              })}
+
+              {/* Products Dropdown */}
             </NavigationMenuList>
           </NavigationMenu>
+
+          {/* CTA */}
+          <Link href="/dealer">
+            <Button className="bg-secondary text-black font-semibold px-5 hover:scale-105 transition-transform">
+              Become Dealer
+            </Button>
+          </Link>
         </div>
 
+        {/* Mobile Menu */}
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="lg:hidden text-white"
+            >
+              <Menu />
+            </Button>
+          </SheetTrigger>
 
+          <SheetContent
+            side="right"
+            className="w-[320px] bg-black/95 border-l border-white/10"
+          >
+            <SheetHeader className="border-b border-white/10 pb-4">
+              <SheetTitle className="flex items-center gap-3 text-white">
+                <Image
+                  src="/images/logo-dairy-guruji.png"
+                  alt="Dairy Guru Ji"
+                  width={40}
+                  height={40}
+                />
+                Dairy Guru Ji
+              </SheetTitle>
+            </SheetHeader>
 
-        <div className="flex items-center gap-4">
-          {/* <Button asChild className="hidden sm:inline-flex text-xs uppercase tracking-widest shadow-lg shadow-yellow-500/20">
-            <Link href="/contact">Enquire Now</Link>
-          </Button> */}
+            <div className="mt-6 flex flex-col gap-2">
+              {[...navItems, { href: "/products", label: "Products" }].map(
+                (item) => {
+                  const isActive =
+                    pathname === item.href ||
+                    (item.href !== "/" && pathname?.startsWith(item.href));
 
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="lg:hidden text-white"
-                aria-label="Open menu"
-              >
-                <Menu className="h-5 w-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-72">
-              <SheetHeader>
-                <SheetTitle>Menu</SheetTitle>
-              </SheetHeader>
-              <div className="mt-6 flex flex-col gap-1">
-                {navItems.map((item) => (
-                  <SheetClose asChild key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="rounded-md px-3 py-2 text-sm font-semibold uppercase tracking-wider text-white/85 hover:bg-white/10 hover:text-secondary transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  </SheetClose>
-                ))}
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
+                  return (
+                    <SheetClose asChild key={item.href}>
+                      <Link
+                        href={item.href}
+                        className={`px-4 py-3 rounded-lg text-sm font-semibold transition-all ${
+                          isActive
+                            ? "bg-secondary/20 text-secondary"
+                            : "text-white/80 hover:bg-white/10 hover:text-white"
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    </SheetClose>
+                  );
+                },
+              )}
+
+              {/* Mobile CTA */}
+              <SheetClose asChild>
+                <Link href="/dealer">
+                  <Button className="mt-4 w-full bg-secondary text-black font-semibold">
+                    Become Dealer
+                  </Button>
+                </Link>
+              </SheetClose>
+            </div>
+          </SheetContent>
+        </Sheet>
       </div>
     </nav>
   );

@@ -12,10 +12,28 @@ const baseProducts = [
       "Improves udder gland health",
       "Safe alternative to oxytocin injections",
     ],
-    dosage: "50–100 ml, twice daily, 1 hour before milking",
-    pack: "1 Litre Bottle",
+    benefitsHindiTitle: "फायदे :-",
+    benefitsHindi: [
+      "दूध को उतारने में मदद करता है।",
+      "दूध का उत्पादन बढ़ाता है।",
+      "दूध ग्रंथियों के स्वास्थ्य ऊतकों का विकास करता है।",
+      "तंत्रिका टॉनिक के रूप में कार्य करता है।",
+      "चिड़चिड़ापन एवं तनाव को रोकता है।",
+      "ऑक्सिटोसिन इंजेक्शन लगाने की जरूरत नहीं पड़ती, सेफ प्रोडक्ट है।",
+    ],
+    feedingInstructions: {
+      large: "50–100 मि.ली. सस्पेंशन दिन में दो बार दूध दुहने से एक घंटे पहले।",
+    },
+    packaging: "सस्पेंशन : 1 लीटर की बोतल में",
     tag: "Hormone-Free",
     problem: "Incomplete or delayed milk let-down",
+    specialNote: "यह फीड फॉर्मूलेशन ऑस्ट्रेलिया में विशेष रूप से भारत की पशु नस्लों को ध्यान में रखकर तैयार की गई है। इसके परिणाम बहुत ही शानदार देखने को मिलेंगे।",
+    farmerStory: {
+      quote: "पहले दूध निकलने में 15 मिनट लगते थे, अब सिर्फ 8 मिनट में पूरा दूध निकल जाता है। गायें भी शांत रहती हैं।",
+      name: "राजेश कुमार",
+      location: "दूध फार्म, उत्तर प्रदेश",
+      result: "दूध निकलने का समय 47% कम हुआ, दूध की मात्रा में 18% वृद्धि"
+    }
   },
 
   {
@@ -31,10 +49,46 @@ const baseProducts = [
       "Improves milk fat and SNF",
       "Enhances digestion",
     ],
+    benefitsHindiTitle: "मिनरल मिक्सचर के फायदे :-",
+    benefitsHindi: [
+      "पशु का बार-बार रिपीट होने की समस्या का जड़ से इलाज।",
+      "कीटोसिस जैसी मेटाबोलिक बीमारी का इलाज।",
+      "बीमारियों से लड़ने की शक्ति प्रदान करता है।",
+      "बछड़े, बछड़ी का तीव्र विकास करता है।",
+      "दूध छुड़वाने के समय तनाव को कम करता है।",
+      "दूध के उत्पादन में वृद्धि करता है, फैट व SNF को बढ़ाता है।",
+      "पशु का डाइजेशन सही करता है।",
+      "इससे आपका पशु समय पर गर्मी में आयेगा।",
+    ],
+    nutritionalValue: [
+      { label: "CALCIUM", value: "26%" },
+      { label: "PHOSPHORUS", value: "13%" },
+      { label: "COBALT", value: "150 (MG)" },
+      { label: "COPPER", value: "1200(MG)" },
+      { label: "IODINE", value: "325(MG)" },
+      { label: "IRON", value: "1500 (MG)" },
+      { label: "MAGNESIUM", value: "6000 (MG)" },
+      { label: "MANGANESE", value: "1500 (MG)" },
+      { label: "ZINC", value: "9600 (MG)" },
+      { label: "DL-METHIONINE", value: "1920 (MG)" },
+      { label: "SULPHUR", value: "0.72%" },
+    ],
+    feedingInstructions: {
+      large: "100 ग्राम रोजाना",
+      small: "50 ग्राम रोजाना",
+    },
+    packaging: "पॉउडर 1 किग्रा व 5 किग्रा में उपलब्ध",
+    specialNote: "यह फीड फॉर्मूलेशन ऑस्ट्रेलिया में विशेष रूप से भारत की पशु नस्लों को ध्यान में रखकर तैयार की गई है। इसके परिणाम बहुत ही शानदार देखने को मिलेंगे।",
     dosage: "Adult: 100 g/day | Young: 50 g/day",
     pack: "1 kg & 5 kg",
     tag: "Daily Nutrition",
     problem: "Mineral deficiency and fertility issues",
+    farmerStory: {
+      quote: "6 महीने तक गायें गर्भवती नहीं हो रही थीं। खनिज मिश्रण शुरू करने के 2 महीने बाद सभी गायें गर्भवती हो गईं।",
+      name: "सुरेश पांडे",
+      location: "दूध उत्पादक, मध्य प्रदेश",
+      result: "प्रजनन दर 92% बढ़ी, दूध में वसा 15% बढ़ी"
+    }
   },
 
   {
@@ -50,10 +104,47 @@ const baseProducts = [
       "Supports early development",
       "Boosts overall health",
     ],
+    benefitsHindiTitle: "निम्नलिखित परिस्थितियों में डेयरी गुरुजी काफ सप्लीमेंट का इस्तेमाल करें।",
+    benefitsHindi: [
+      "बछड़ों के समग्र स्वास्थ्य के लिए लाभकारी !",
+      "शारीरिक विकास और प्रतिरक्षा प्रणाली को मजबूत बनाता है।",
+      "यह आवश्यक खनिजों और विटामिनों की आपूर्ति करता है।",
+      "जिससे हड्डियां मजबूत होती हैं और बीमारी से बचाव होता है, जो स्वास्थ्य और तेजी से वृद्धि के लिए महत्वपूर्ण है।",
+      "बछिया/कटड़ी के जनन अंगों के जल्दी विकास के लिए।",
+      "सांड झोटे से जल्दी सर्विस लेने के लिए।",
+    ],
+    composition: [
+      { label: "Each 1 kg provides", value: "" },
+      { label: "Dicalcium Phosphate", value: "300 gm" },
+      { label: "Zinc Amino Acid Chelate", value: "8 gm" },
+      { label: "Manganese Amino Acid Chelate", value: "3.50 gm" },
+      { label: "Copper Amino Acid Chelate", value: "0.5 gm" },
+      { label: "Vitamin A", value: "10,00,000 I.U." },
+      { label: "Vitamin D3", value: "2,00,000 I.U." },
+      { label: "Vitamin E", value: "800 I.U." },
+      { label: "Fermented Yeast Culture", value: "60 gm" },
+      { label: "Curcuma longa", value: "25 gm" },
+      { label: "Bypass Fat", value: "100 gm" },
+      { label: "Base", value: "q.s." },
+    ],
+    feedingInstructions: {
+      items: [
+        { label: "बछिया / सांड", value: "40 ग्राम रोजाना" },
+        { label: "कटड़ी / झोटा", value: "40 ग्राम रोजाना" },
+      ]
+    },
+    packaging: "पॉउडर 1 किग्रा में उपलब्ध",
     dosage: "Calf/Bull: 40 g daily",
     pack: "1 kg",
     tag: "Growth Support",
     problem: "Weak growth and low immunity in calves",
+    specialNote: "यह फीड फॉर्मूलेशन ऑस्ट्रेलिया में विशेष रूप से भारत की पशु नस्लों को ध्यान में रखकर तैयार की गई है। इसके परिणाम बहुत ही शानदार देखने को मिलेंगे।",
+    farmerStory: {
+      quote: "मेरे बछड़े पहले बीमार रहते थे और धीरे बढ़ते थे। अब 4 महीने में ही पहले साल भर का वजन बढ़ गया है।",
+      name: "अनिल यादव",
+      location: "पशुपालक, बिहार",
+      result: "बछड़ों का वजन 60% तेजी से बढ़ा, बीमारियां 80% कम हुईं"
+    }
   },
 
   {
@@ -69,10 +160,46 @@ const baseProducts = [
       "Enhances feed conversion ratio",
       "Improves udder tissue recovery",
     ],
+    benefitsHindiTitle: "डेयरी गुरुजी एच. के फायदे :-",
+    benefitsHindi: [
+      "थन की सूजन को कम करने में मदद करता है।",
+      "खुरों की विकृतियों से बचाव करता है।",
+      "दूध में सोमेटिक सेल काउंट को कम करता है।",
+      "वजन बढ़ाने और फीड कन्वर्जन रेशियो (FCR) को बेहतर बनाता है।",
+      "थन नलिका की एपिथीलियम की पुनः वृद्धि को प्रोत्साहित करता है।",
+      "स्तनशोथ (मैस्टाइटिस) और अन्य थनों की बीमारियों से बचाव करता है।",
+      "थन को खराब होने से बचाता है।",
+      "अडर का विकास करता है।",
+    ],
+    composition: [
+      { label: "Each 1 ml Contains", value: "" },
+      { label: "Vitamin A", value: "22000 IU" },
+      { label: "Vitamin D3", value: "10000 IU" },
+      { label: "Vitamin H (Biotin)", value: "500 mcg" },
+      { label: "Vitamin B12", value: "20 mcg" },
+      { label: "Vitamin E", value: "30 mg" },
+      { label: "Selenium", value: "10 mcg" },
+      { label: "Zinc", value: "40mg" },
+    ],
+    feedingInstructions: {
+      items: [
+        { label: "बड़े पशु : (गाय, भैस और घोड़े)", value: "10-20 मि.ली. रोजाना" },
+        { label: "छोटे पशु : (कटड़ी, बछड़ी, बकरी और भेड़)", value: "5 मि.ली. रोजाना" },
+        { label: "मुर्गी पालन", value: "5-10 मि.ली. प्रत्येक 100 पक्षी रोजाना" },
+      ]
+    },
+    packaging: "सस्पेंशन : 500 मि.ली. की बोतल में",
     dosage: "Large animals: 10–20 ml/day | Small animals: 5 ml/day",
     pack: "500 ml Bottle",
     tag: "Udder Health",
     problem: "Mastitis and udder infections",
+    specialNote: "यह फीड फॉर्मूलेशन ऑस्ट्रेलिया में विशेष रूप से भारत की पशु नस्लों को ध्यान में रखकर तैयार की गई है। इसके परिणाम बहुत ही शानदार देखने को मिलेंगे।",
+    farmerStory: {
+      quote: "मस्तितिस की समस्या से छुटकारा पाया। दूध की गुणवत्ता बेहतर हुई और दूध का रंग भी सफेद हो गया।",
+      name: "महेश शर्मा",
+      location: "डेयरी फार्म, राजस्थान",
+      result: "मस्तितिस के मामले 95% कम हुए, दूध SNF 12% बढ़ा"
+    }
   },
 
   {
@@ -88,10 +215,42 @@ const baseProducts = [
       "Provides high energy",
       "Supports post-calving recovery",
     ],
+    benefitsHindiTitle: "बाईपास फैट के फायदे :-",
+    benefitsHindi: [
+      "कीटोसिस से बचाता हैं।",
+      "दूध से फैट कि रिकवरी के लिए।",
+      "मिल्क फीवर से बचाता है।",
+      "दूध बढ़ाने में मदद करता है।",
+      "नव ब्याने के बाद पशु बिल्कुल भी दूध न दे, या जब पिछले ब्यात से कम दूध दे तब आप बाईपास फैट का प्रयोग करें।",
+    ],
+    composition: [
+      { label: "Each 100 gm Provides", value: "" },
+      { label: "Rumen bypass fat", value: "15 g" },
+      { label: "Rumen bypass protein", value: "1 g" },
+      { label: "Calcium propionate", value: "2 g" },
+      { label: "Fermented Yeast culture", value: "5 g" },
+      { label: "Available Calcium", value: "1.5 g" },
+    ],
+    feedingInstructions: {
+      items: [
+        { label: "बड़े पशु", value: "100 gm रोजाना 15 दिन तक पशु के ब्याने से पहले" },
+        { label: "", value: "100 gm दिन में 2 बार 7 दिन तक ब्याने के तुरंत बाद" },
+        { label: "छोटे पशु", value: "50 gm रोजाना 15 दिन तक पशु के ब्याने से पहले" },
+        { label: "", value: "50 gm दिन में 2 बार 7 दिन तक ब्याने के तुरंत बाद" },
+      ]
+    },
+    packaging: "सस्पेंशन : 10 किग्रा. की बाल्टी में",
     dosage: "Large animals: 100 g/day | Small animals: 50 g/day",
     pack: "10 kg Bucket",
     tag: "High Energy",
     problem: "Low milk fat and energy deficiency",
+    specialNote: "यह फीड फॉर्मूलेशन ऑस्ट्रेलिया में विशेष रूप से भारत की पशु नस्लों को ध्यान में रखकर तैयार की गई है। इसके परिणाम बहुत ही शानदार देखने को मिलेंगे।",
+    farmerStory: {
+      quote: "प्रसव के बाद गायें कमजोर हो जाती थीं। बायपास फैट ने ऊर्जा दी, दूध में वसा 22% बढ़ी और लाभ में 30% वृद्धि हुई।",
+      name: "विजय सिंह",
+      location: "दूध उत्पादक, हरियाणा",
+      result: "दूध वसा 22% बढ़ी, प्रसव के बाद स्वस्थ्य 95% सुधरा"
+    }
   },
 
   {
@@ -107,10 +266,41 @@ const baseProducts = [
       "Improves milk yield and fat",
       "Supports post-calving recovery",
     ],
+    benefitsHindiTitle: "डेयरी गुरुजी Gel के फायदे :-",
+    benefitsHindi: [
+      "बच्चा देने के समय कैल्शियम की कमी को पूरा करता है, जब गाय या भैंस बच्चा देती है, तब उसके शरीर में कैल्शियम की मात्रा तेजी से कम हो जाती है। Dairy Guruji Gel उस समय शरीर में कैल्शियम की कमी को तुरंत पूरा करता है।",
+      "मिल्क फीवर (Milk Fever) से बचाव करता है, दूध देने के शुरुआती समय में कई बार गाय या भैंस को Milk Fever हो जाता है। यह Gel उस बीमारी से बचाव में मदद करता है।",
+      "पशु को ताकत और एनर्जी देता है, यह Gel देने से पाचन ठीक रहता है, थकान दूर होती है और पशु फिर से एक्टिव महसूस करता है।",
+      "दूध की मात्रा और फैट बढ़ाने में मददगार जब शरीर में कैल्शियम संतुलित रहता है तो पशु का दूध उत्पादन बढ़ता है और फैट लेवल भी सुधरता है।",
+      "सुरक्षित और असरदार फॉर्मूला, यह Gel पूरी तरह हर्बल और रासायनिक रूप से सुरक्षित होता है, जिससे किसी तरह का नुकसान नहीं होता।",
+      "यात्रा या थकान की स्थिति में बेहद उपयोगी, अगर आपका पशु किसी कारणवश गाड़ी से लाया गया हो या लंबे सफर के बाद थका हुआ महसूस कर रहा हो, या दूध की मात्रा कम हो गई हो, तो ऐसी स्थिति में Dairy Guruji Gel आपके पशु के लिए रामबाण इलाज साबित होता है। यह तुरंत एनर्जी देता है और दूध उत्पादन को सामान्य करता है",
+    ],
+    composition: [
+      { label: "Each 100 ml Contains", value: "" },
+      { label: "Calcium", value: "10000 mg" },
+      { label: "Phosphorus", value: "5000 mg" },
+      { label: "Vitamin D", value: "32000 LU" },
+      { label: "Pueraria mirifica ext.", value: "200 mg" },
+      { label: "Clematis mandshurica", value: "2g" },
+      { label: "Trichosanthes kirilowi", value: "2g" },
+      { label: "Prunella vulgaris", value: "5g" },
+      { label: "Chlorophytum borivilianum", value: "12 g" },
+    ],
+    feedingInstructions: {
+      note: "नियमित उपयोग:- अधिक दूध उत्पादन के लिए, प्रतिदिन प्रत्येक पशु को एक बोतल 5 से 10 दिनों तक दे या पशु चिकित्सक के निर्देशानुसार हो",
+    },
+    packaging: "सस्पेंशन : 300 मि.ली. की बोतल में",
     dosage: "1 bottle daily for 5–10 days or as advised",
     pack: "300 ml Bottle",
     tag: "Calcium Boost",
     problem: "Milk fever and calcium deficiency",
+    specialNote: "यह फीड फॉर्मूलेशन ऑस्ट्रेलिया में विशेष रूप से भारत की पशु नस्लों को ध्यान में रखकर तैयार की गई है। इसके परिणाम बहुत ही शानदार देखने को मिलेंगे।",
+    farmerStory: {
+      quote: "प्रसव के बाद गायें बुखार और कमजोरी से परेशान होती थीं। जेल ने 24 घंटे में ही ऊर्जा वापस लाई।",
+      name: "रमेश चंद",
+      location: "पशुपालक, उत्तराखंड",
+      result: "दूध ज्वर के मामले 100% कम हुए, दूध उत्पादन 18% बढ़ा"
+    }
   },
 
   {
@@ -126,10 +316,46 @@ const baseProducts = [
       "Enhances digestion",
       "Boosts animal strength",
     ],
+    benefitsHindiTitle: "निम्नलिखित परिस्थितियों में डेयरी गुरुजी कैल्शियम का इस्तेमाल करें।",
+    benefitsHindi: [
+      "पशुओं की हड्डियों व दांतों को मजबूत बनाता है।",
+      "पशुओं का मिल्क फीवर से बचाव करता है।",
+      "पशुओं में दूध का उत्पादन एवं दूध में फैट की मात्रा बढ़ाता है।",
+      "पाचन में सुधार करता है।",
+      "कमजोर वजन न बढ़ने वाले या सुस्त पशुओं के लिए उनकी ताकत व शरीर की चमक को बढ़ाता है।",
+    ],
+    nutritionalValue: [
+      { label: "Calcium", value: "6000 mg" },
+      { label: "Phosphorus", value: "3000 mg" },
+      { label: "Vitamin A", value: "12000 IU" },
+      { label: "Vitamin D3", value: "50,000 IU" },
+      { label: "Vitamin E", value: "4,500 IU" },
+      { label: "Vitamin B12", value: "400 mcg" },
+      { label: "Vitamin H", value: "200 mcg" },
+      { label: "Magnesium", value: "400 mg" },
+      { label: "Zinc Sulphate", value: "1500 mg" },
+      { label: "Selenium", value: "250 mcg" },
+      { label: "Cobalt Chloride", value: "100 mg" },
+      { label: "Shatawari Ext", value: "1000 mg" },
+      { label: "Jiwanti Ext", value: "1000 mg" },
+      { label: "Safed Jeera Ext", value: "500 mg" },
+      { label: "Safed Musli Ext", value: "500 mg" },
+    ],
+    feedingInstructions: {
+      large: "दूध देने वाले पशु के लिए : 100 मि.ली. प्रति दिन",
+    },
+    packaging: "सस्पेंशन : 5 लीटर व 20 लीटर के कंटेनर में",
     dosage: "100 ml per day for milking animals",
     pack: "5 L & 20 L",
     tag: "Bone Strength",
     problem: "Calcium deficiency",
+    specialNote: "यह फीड फॉर्मूलेशन ऑस्ट्रेलिया में विशेष रूप से भारत की पशु नस्लों को ध्यान में रखकर तैयार की गई है। इसके परिणाम बहुत ही शानदार देखने को मिलेंगे।",
+    farmerStory: {
+      quote: "हड्डियां कमजोर होने से गायें चलने में तकलीफ महसूस करती थीं। कैल्शियम सस्पेंशन ने हड्डियां मजबूत कीं और दूध भी बढ़ा।",
+      name: "सतीश कुमार",
+      location: "दूध फार्म, झारखंड",
+      result: "हड्डियां 85% मजबूत हुईं, दूध उत्पादन 20% बढ़ा"
+    }
   },
 
   {
@@ -145,10 +371,53 @@ const baseProducts = [
       "Improves digestion",
       "Protects from fatty liver",
     ],
+    benefitsHindiTitle: "निम्नलिखित परिस्थितियों में डेयरी गुरुजी लीवर टॉनिक का इस्तेमाल करें।",
+    benefitsHindi: [
+      "फैटी लीवर (चर्बी का जमजाना) के लिए।",
+      "हेपोटाइटिस (लीवर में सूजन) के लिए।",
+      "दवाइयों के साइड-इफेक्ट्स से लीवर का कमजोर होने से बचाना।",
+      "आक्सीडेशन के कारण लीवर का डैमेज होने से रोकना।",
+      "भूख को बढ़ाने में मदद करता है।",
+      "दूध में फैट और SNF को बढ़ाता है।",
+      "लीवर के कार्य को बेहतर बनाता है।",
+    ],
+    composition: [
+      { label: "Each 20 ml contains", value: "" },
+      { label: "Ferrous Gluconate", value: "230 mg" },
+      { label: "Ferrous Chloride", value: "100 mg" },
+      { label: "Thiamine Hydrochloride", value: "5 mg" },
+      { label: "Riboflavin", value: "5 mg" },
+      { label: "Nicotinic Acid", value: "25 mg" },
+      { label: "Nicotinamide", value: "50 mg" },
+      { label: "Calcium Lactate", value: "500 mg" },
+      { label: "Tricholine Citrate", value: "750 mg" },
+      { label: "Yeast Extract", value: "1.2 gm" },
+      { label: "Silymarine", value: "150 mg" },
+      { label: "Liver Extract", value: "3.25 gm" },
+      { label: "Lysine Mono HCI", value: "60 mg" },
+      { label: "Fortified with Herbal Extracts", value: "q.s." },
+    ],
+    feedingInstructions: {
+      items: [
+        { label: "बड़े पशु", value: "प्रतिदिन 100 मि.ली." },
+        { label: "छोटे पशु", value: "प्रतिदिन 50 मि.ली." },
+        { label: "चूजे एवं बढ़ते पक्षी", value: "100 पक्षियों पर 10 मि.ली." },
+        { label: "अंडे देने वाली मुर्गियाँ", value: "100 पक्षियों पर 20 मि.ली." },
+      ],
+      note: "पशु चिकित्सक के निर्देशानुसार।",
+    },
+    packaging: "सस्पेंशन : 500 मि.ली. की बोतल में",
     dosage: "Large animals: 100 ml/day | Small animals: 50 ml/day",
     pack: "500 ml Bottle",
     tag: "Digestive Health",
     problem: "Poor digestion and liver disorders",
+    specialNote: "यह फीड फॉर्मूलेशन ऑस्ट्रेलिया में विशेष रूप से भारत की पशु नस्लों को ध्यान में रखकर तैयार की गई है। इसके परिणाम बहुत ही शानदार देखने को मिलेंगे।",
+    farmerStory: {
+      quote: "गायों का पाचन खराब था, खाना खाने के बाद भी कमजोर दिखती थीं। लिवर टॉनिक ने पाचन सुधारा और दूध में वसा बढ़ाई।",
+      name: "अरुण पांडे",
+      location: "पशुपालक, छत्तीसगढ़",
+      result: "पाचन 90% सुधरा, दूध वसा 16% बढ़ी"
+    }
   },
 
   {
@@ -164,10 +433,38 @@ const baseProducts = [
       "Enhances body condition",
       "Safe herbal formulation",
     ],
+    benefitsHindiTitle: "डेयरी गुरुजी डिवर्मिंग बोलस के फायदे।",
+    benefitsHindi: [
+      "पेट और आंतों के सभी कीड़े खत्म करती है।",
+      "दूध बढ़ाने में मदद (कीड़े खत्म होने से पोषण सही लगता है)।",
+      "भूख बढ़ाती है।",
+      "गैस, कब्ज और अपच से राहत दिलाती है।",
+      "ढीला गोबर ठीक करती है।",
+      "जानवर की बॉडी कंडीशन सुधारती है।",
+    ],
+    composition: [
+      { label: "Composition", value: "" },
+      { label: "Ingredients", value: "Pudina, Hard, Saunf, Jeera, Alsi, Senna Leaves, Palash Beej, Macca, Madhumalti, Gulab, Ajwain, Amaltas, Harmal, Neem Leaf, Babul, Chandarsuralndrayan." },
+    ],
+    feedingInstructions: {
+      items: [
+        { label: "बड़े पशु", value: "1 बोलस" },
+        { label: "छोटे पशु", value: "1/2 बोलस" },
+      ],
+      note: "सावधानियाँ: 24 घण्टे तक कोई दूसरी दवा न दें। 6 महीने से कम उम्र वाले पशु को न दें। दवा देने के बाद 1-2 घण्टे तक पानी कम दें। बहुत कमजोर, बीमार या तेज बुखार वाले पशु को न दें। गर्भवती पशु को पहले 2-3 महीने और आखिरी के 2 महीने में न दें।",
+    },
+    packaging: "1 बॉक्स में 10 बोलस",
     dosage: "Large animals: 1 bolus | Small animals: ½ bolus",
     pack: "Box of 10 Bolus",
     tag: "Herbal Dewormer",
     problem: "Worm infestation",
+    specialNote: "यह फीड फॉर्मूलेशन ऑस्ट्रेलिया में विशेष रूप से भारत की पशु नस्लों को ध्यान में रखकर तैयार की गई है। इसके परिणाम बहुत ही शानदार देखने को मिलेंगे।",
+    farmerStory: {
+      quote: "बच्चे पहले पतले and कमजोर रहते थे। दीमक की दवा ने कीड़े निकाले, अब बच्चे मोटे-तंदुरुस्त हैं।",
+      name: "रामकिशन",
+      location: "पशुपालक, उत्तर प्रदेश",
+      result: "कीड़े 100% खत्म, बच्चों का वजन 45% बढ़ा"
+    }
   },
 
   {
@@ -183,10 +480,53 @@ const baseProducts = [
       "Enhances digestion",
       "Reduces repeat breeding",
     ],
-    dosage: "1 kg feed per 2–2.5 litres of milk",
+    benefitsHindiTitle: "डेयरी गुरुजी फीड क्यों अलग है, इसके फायदे :-",
+    benefitsHindi: [
+      "पशु रिपीट ब्रीडिंग पर वरदान।",
+      "हीट समय पर आयेगी व हीट साफ दिखाई देगी।",
+      "दूध के उत्पादन में वृद्धि करता हैं।",
+      "फैट व S.N.F. को बढ़ाता है।",
+      "पशु को स्वस्थ रखता हैं।",
+      "पाचन तंत्र को मजबूत करता है।",
+      "रोग प्रतिरोधक क्षमता को बढ़ाता है।",
+      "खराब दाने / फंगल टॉक्सिन से सुरक्षा देता है।",
+    ],
+    nutritionalValue: [
+      { label: "Value per Kg", value: "" },
+      { label: "Crude Protein", value: "20.3%" },
+      { label: "Fat", value: "3.2%" },
+      { label: "NaHCO3", value: "2000mg" },
+      { label: "Calcium (Ca)", value: "7700mg" },
+      { label: "Phosphoreus (P)", value: "5140mg" },
+      { label: "Magnesium (Mg)", value: "1500mg" },
+      { label: "Sulphur (S)", value: "1300mg" },
+      { label: "Sodium (Na)", value: "5550mg" },
+      { label: "Chloride (Cl)", value: "3700mg" },
+      { label: "Choline Chloride", value: "100mg" },
+      { label: "L-Lysine Hcl", value: "700mg" },
+      { label: "Toxin Binder", value: "1950mg" },
+      { label: "Moisture", value: "11.3%" },
+      { label: "NPN, if present", value: "1%" },
+    ],
+    feedingInstructions: {
+      items: [
+        { label: "रोज का दूध: 5-7 लीटर", value: "रोज की फीड: 2-2.5 किलो" },
+        { label: "रोज का दूध: 8-10 लीटर", value: "रोज की फीड: 3-3.5 किलो" },
+        { label: "रोज का दूध: 11-13 लीटर", value: "रोज की फीड: 4-4.5 किलो" },
+      ],
+      note: "हर 2.5 लीटर दूध पर 1 किलो फीड दें।",
+    },
+    dosage: "1 kg feed per 2.5 litres of milk",
     pack: "Bag",
     tag: "Balanced Feed",
     problem: "Low milk production",
+    specialNote: "यह फीड फॉर्मूलेशन ऑस्ट्रेलिया में विशेष रूप से भारत की पशु नस्लों को ध्यान में रखकर तैयार की गई है। इसके परिणाम बहुत ही शानदार देखने को मिलेंगे।",
+    farmerStory: {
+      quote: "पहले 10 लीटर दूध आता था, अब 13 लीटर आता है। गायों का स्वास्थ्य भी बेहतर हुआ है।",
+      name: "हरीश चंद",
+      location: "दूध उत्पादक, पंजाब",
+      result: "दूध उत्पादन 30% बढ़ा, गायों का स्वास्थ्य 80% सुधरा"
+    }
   },
 
   {
@@ -202,10 +542,74 @@ const baseProducts = [
       "Supports digestion",
       "Boosts body strength",
     ],
-    dosage: "1 kg feed per 2–2.5 litres of milk",
+    benefitsHindiTitle: "डेयरी गुरुजी फीड क्यों अलग है, इसके फायदे :-",
+    benefitsHindi: [
+      "पशु रिपीट ब्रीडिंग पर वरदान।",
+      "हीट समय पर आयेगी व हीट साफ दिखाई देगी।",
+      "दूध के उत्पादन में वृद्धि करता हैं।",
+      "फैट व S.N.F. को बढ़ाता है।",
+      "पशु को स्वस्थ रखता हैं।",
+      "पाचन तंत्र को मजबूत करता है।",
+      "रोग प्रतिरोधक क्षमता को बढ़ाता है।",
+      "खराब दाने / फंगल टॉक्सिन से सुरक्षा देता है।",
+    ],
+    nutritionalValue: [
+      { label: "Value per Kg", value: "" },
+      { label: "Crude Protein", value: "23%" },
+      { label: "Fat", value: "5%" },
+      { label: "NaHCO3", value: "8000 mg" },
+      { label: "Calcium (Ca)", value: "7700 mg" },
+      { label: "Phosphoreus (P)", value: "5140 mg" },
+      { label: "Magnesium (Mg)", value: "3540 mg" },
+      { label: "Sulphur (S)", value: "2780 mg" },
+      { label: "Sodium (Na)", value: "5700 mg" },
+      { label: "Chloride (Cl)", value: "3820 mg" },
+      { label: "Choline Chloride", value: "750 mg" },
+      { label: "L-Lysine Hcl", value: "2000 mg" },
+      { label: "DI-Methionine", value: "13.44 mg" },
+      { label: "Cobalt (Co)", value: "1.20 mg" },
+      { label: "Copper (Cu)", value: "15.79 mg" },
+      { label: "Iodine (I)", value: "2.32 mg" },
+      { label: "Iron (Fe)", value: "91.95 mg" },
+      { label: "Manganese (Mn)", value: "41.75 mg" },
+      { label: "Zinc (Zn)", value: "95.96 mg" },
+      { label: "Selenium (Se)", value: "0.20 mg" },
+      { label: "Vitamin A", value: "15000 IU" },
+      { label: "Vitamin D3", value: "3000 IU" },
+      { label: "Vitamin E", value: "30 mg" },
+      { label: "Vitamin K", value: "2.25 mg" },
+      { label: "Thiamine (B1)", value: "2.25 mg" },
+      { label: "Riboflavin (B2)", value: "4.50 mg" },
+      { label: "Niacin (B3)", value: "30 mg" },
+      { label: "Pyridoxine (B6)", value: "2.25 mg" },
+      { label: "Pantothenic Acid", value: "12 mg" },
+      { label: "Folic Acid", value: "0.75 mg" },
+      { label: "Biotin", value: "0.015 mg" },
+      { label: "Vitamin B12", value: "0.0075 mg" },
+      { label: "Toxin Binder", value: "4000 mg" },
+      { label: "Yeast Powder", value: "4000 mg" },
+      { label: "Moisture", value: "10.2%" },
+    ],
+    feedingInstructions: {
+      items: [
+        { label: "रोज का दूध: 5-7 लीटर", value: "रोज की फीड: 2-2.5 किलो" },
+        { label: "रोज का दूध: 8-10 लीटर", value: "रोज की फीड: 3-3.5 किलो" },
+        { label: "रोज का दूध: 11-13 लीटर", value: "रोज की फीड: 4-4.5 किलो" },
+        { label: "रोज का दूध: 14-16 लीटर", value: "रोज की फीड: 5-5.5 किलो" },
+      ],
+      note: "हर 2.5 लीटर दूध पर 1 किलो फीड दें।",
+    },
+    dosage: "1 kg feed per 2.5 litres of milk",
     pack: "Bag",
     tag: "Premium Feed",
     problem: "High nutritional demand",
+    specialNote: "यह फीड फॉर्मूलेशन ऑस्ट्रेलिया में विशेष रूप से भारत की पशु नस्लों को ध्यान में रखकर तैयार की गई है। इसके परिणाम बहुत ही शानदार देखने को मिलेंगे।",
+    farmerStory: {
+      quote: "हाई-परफॉरमेंस फीड ने मेरी गायों का दूध 18 लीटर से 24 लीटर तक पहुंचा दिया। लाभ में 40% वृद्धि हुई।",
+      name: "सुभाष यादव",
+      location: "डेयरी फार्म, गुजरात",
+      result: "दूध उत्पादन 33% बढ़ा, लाभ 40% बढ़ा"
+    }
   },
 ];
 

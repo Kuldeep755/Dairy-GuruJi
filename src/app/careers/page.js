@@ -220,13 +220,24 @@ const CareersPage = () => {
               will contact you quickly.
             </p>
 
-            <form className="mt-6 space-y-4">
+            <form 
+              action="https://formsubmit.co/dairyguruji@gmail.com" 
+              method="POST"
+              encType="multipart/form-data"
+              className="mt-6 space-y-4"
+            >
+              <input type="hidden" name="_form" value="career-application" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_autoresponse" value="Thank you for your application! We will review your resume and contact you if there's a match." />
+              <input type="hidden" name="_next" value="https://www.dairyguruji.com/careers?success=true" />
+
               <div>
                 <label className="mb-2 block text-xs font-black uppercase tracking-widest text-text-dark/50">
                   Full Name
                 </label>
                 <input
                   type="text"
+                  name="name"
                   placeholder="Enter your full name"
                   required
                   className="w-full rounded-lg border border-primary/15 bg-bg-light px-4 py-3 text-sm placeholder:text-text-dark/45 focus:outline-none focus:ring-2 focus:ring-primary/35"
@@ -239,6 +250,7 @@ const CareersPage = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="name@email.com"
                   required
                   className="w-full rounded-lg border border-primary/15 bg-bg-light px-4 py-3 text-sm placeholder:text-text-dark/45 focus:outline-none focus:ring-2 focus:ring-primary/35"
@@ -249,11 +261,14 @@ const CareersPage = () => {
                 <label className="mb-2 block text-xs font-black uppercase tracking-widest text-text-dark/50">
                   Role Interested In
                 </label>
-                <select className="w-full rounded-lg border border-primary/15 bg-bg-light px-4 py-3 text-sm text-text-dark focus:outline-none focus:ring-2 focus:ring-primary/35">
-                  <option>Area Sales Officer</option>
-                  <option>Technical Dairy Advisor</option>
-                  <option>Marketing Executive</option>
-                  <option>Operations Coordinator</option>
+                <select 
+                  name="role"
+                  className="w-full rounded-lg border border-primary/15 bg-bg-light px-4 py-3 text-sm text-text-dark focus:outline-none focus:ring-2 focus:ring-primary/35"
+                >
+                  <option value="Area Sales Officer">Area Sales Officer</option>
+                  <option value="Technical Dairy Advisor">Technical Dairy Advisor</option>
+                  <option value="Marketing Executive">Marketing Executive</option>
+                  <option value="Operations Coordinator">Operations Coordinator</option>
                 </select>
               </div>
 
@@ -265,6 +280,7 @@ const CareersPage = () => {
                   <CircleDollarSign className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-text-dark/45" />
                   <input
                     type="text"
+                    name="ctc"
                     placeholder="Enter annual CTC"
                     className="w-full rounded-lg border border-primary/15 bg-bg-light py-3 pl-9 pr-4 text-sm placeholder:text-text-dark/45 focus:outline-none focus:ring-2 focus:ring-primary/35"
                   />
@@ -277,7 +293,8 @@ const CareersPage = () => {
                 </label>
                 <input
                   type="file"
-                  accept=".pdf"
+                  name="resume"
+                  accept=".pdf,.doc,.docx"
                   required
                   className="w-full rounded-lg border border-dashed border-primary/25 bg-primary/5 px-4 py-3 text-sm text-text-dark/80 file:mr-4 file:rounded-md file:border-0 file:bg-secondary file:px-3 file:py-1.5 file:font-bold file:text-text-dark"
                 />
