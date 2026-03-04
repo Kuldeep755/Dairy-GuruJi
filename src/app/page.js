@@ -22,7 +22,7 @@ export default function Home() {
       <BreedFocus />
       <ProductRange />
       <WhyChooseUs />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <DealerOpportunity />
       <CareersSection />
     </main>
