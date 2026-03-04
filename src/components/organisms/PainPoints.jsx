@@ -17,7 +17,7 @@ export default function PainPoints() {
               Solving Farm Challenges
             </span>
           </div>
-          <h2 className="text-4xl font-black text-text-dark md:text-6xl tracking-tight">
+          <h2 className="text-3xl font-black text-text-dark md:text-6xl tracking-tight">
             Struggling with these{" "}
             <span className="text-primary">Challenges?</span>
           </h2>

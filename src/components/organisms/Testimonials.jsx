@@ -15,14 +15,14 @@ export default function Testimonials() {
                 Trusted by 3,500+ Farmers
               </span>
             </div>
-            <h2 className="text-5xl font-black text-text-dark md:text-6xl leading-tight tracking-tight">
+            <h2 className="text-3xl font-black text-text-dark md:text-6xl leading-tight tracking-tight">
               Farmer{" "}
               <span className="bg-gradient-to-r from-primary to-green-700 bg-clip-text text-transparent">
                 Success
               </span>{" "}
               Stories
             </h2>
-            <p className="mt-6 text-xl text-text-dark/70 leading-relaxed font-medium">
+            <p className="mt-6 text-lg text-text-dark/70 leading-relaxed font-medium">
               Farmers associated with us have seen a massive shift in their
               livelihood and farm economics.
             </p>
@@ -59,7 +59,7 @@ export default function Testimonials() {
                 ))}
               </div>
 
-              <p className="mb-10 text-xl font-medium leading-relaxed text-text-dark/80 italic">
+              <p className="mb-10 text-lg md:text-xl font-medium leading-relaxed text-text-dark/80 italic">
                 &ldquo;{item.quote}&rdquo;
               </p>
 
@@ -67,7 +67,7 @@ export default function Testimonials() {
                 <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">
                   Key Impact
                 </p>
-                <p className="text-xl font-black text-text-dark">{item.beforeAfter}</p>
+                <p className="text-lg md:text-xl font-black text-text-dark">{item.beforeAfter}</p>
               </div>
 
               <div className="flex items-center gap-5 mt-auto">

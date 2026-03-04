@@ -30,11 +30,11 @@ export default function BreedFocus() {
                 Breed-Specific Nutrition
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-white mb-8">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-white mb-8">
               Real Farms. Real <span className="text-secondary">Breeds.</span><br />
               Scientific <span className="bg-gradient-to-r from-secondary to-yellow-200 bg-clip-text text-transparent">Results.</span>
             </h2>
-            <p className="text-xl text-white/60 leading-relaxed font-medium">
+            <p className="text-lg text-white/60 leading-relaxed font-medium">
               Nutrition is never one-size-fits-all. We design support by breed,
               climate and farm conditions for maximum efficacy and livestock
               longevity.
@@ -79,7 +79,7 @@ export default function BreedFocus() {
                   </motion.div>
                 </div>
                 
-                <h3 className="text-4xl font-black tracking-tight mb-4 group-hover:text-secondary transition-colors duration-300">
+                <h3 className="text-2xl md:text-4xl font-black tracking-tight mb-4 group-hover:text-secondary transition-colors duration-300">
                   {item.breed}
                 </h3>
                 

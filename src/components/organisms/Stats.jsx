@@ -21,7 +21,7 @@ export default function Stats() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="text-center p-6 rounded-[2rem] bg-white/10 backdrop-blur-md border border-white/20 transition-transform duration-300 hover:scale-105"
             >
-              <div className="text-4xl md:text-5xl font-black text-secondary mb-3 tracking-tighter">
+              <div className="text-3xl md:text-5xl font-black text-secondary mb-3 tracking-tighter">
                 {stat.value}
               </div>
               <div className="text-sm md:text-base font-bold uppercase tracking-widest text-white/80">

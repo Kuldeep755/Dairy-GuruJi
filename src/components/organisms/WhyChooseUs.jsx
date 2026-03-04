@@ -13,10 +13,10 @@ export default function WhyChooseUs() {
               The Dairy Guru Ji Edge
             </span>
           </div>
-          <h2 className="text-5xl font-black text-text-dark md:text-6xl tracking-tight">
+          <h2 className="text-3xl font-black text-text-dark md:text-6xl tracking-tight">
             Why <span className="text-secondary">Choose Us?</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-xl text-text-dark/70 leading-relaxed font-medium">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-text-dark/70 leading-relaxed font-medium">
             The core reasons behind the unwavering trust of thousands of dairy
             farmers across India.
           </p>

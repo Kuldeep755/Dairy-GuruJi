@@ -21,13 +21,13 @@ export default function ProductRange() {
                 Our Formulations
               </span>
             </div>
-            <h2 className="text-5xl font-black text-text-dark md:text-6xl tracking-tight">
+            <h2 className="text-3xl font-black text-text-dark md:text-6xl tracking-tight">
               Science-Backed{" "}
               <span className="bg-gradient-to-r from-primary to-green-700 bg-clip-text text-transparent">
                 Nutrition
               </span>
             </h2>
-            <p className="mt-6 text-xl text-text-dark/70 leading-relaxed font-medium">
+            <p className="mt-6 text-lg text-text-dark/70 leading-relaxed font-medium">
               Products built around farm realities, not just lab theory.
               Designed for practical day-to-day dairy performance and animal longevity.
             </p>
@@ -52,7 +52,7 @@ export default function ProductRange() {
               className="group flex flex-col-reverse overflow-hidden rounded-[3rem] bg-white border border-primary/10 shadow-2xl shadow-primary/5 sm:flex-row h-full transition-all duration-500 hover:shadow-primary/10 hover:-translate-y-2"
             >
               <div className="flex flex-1 flex-col justify-center p-10 sm:p-12">
-                <h3 className="text-3xl font-black text-text-dark leading-tight mb-4">
+                <h3 className="text-2xl font-black text-text-dark leading-tight mb-4">
                   {item.title}
                 </h3>
                 <p className="text-lg text-text-dark/70 leading-relaxed mb-10">

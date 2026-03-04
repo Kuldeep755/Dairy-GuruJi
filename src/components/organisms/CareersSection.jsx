@@ -20,7 +20,7 @@ export default function CareersSection() {
               Careers
             </span>
 
-            <h2 className="mt-4 text-4xl md:text-5xl font-bold leading-tight text-gray-900">
+            <h2 className="mt-4 text-3xl md:text-5xl font-bold leading-tight text-gray-900">
               Join Dairy Guru Ji
             </h2>
 

@@ -105,8 +105,6 @@ const Navbar = () => {
                   </NavigationMenuItem>
                 );
               })}
-
-              {/* Products Dropdown */}
             </NavigationMenuList>
           </NavigationMenu>
 
@@ -147,28 +145,26 @@ const Navbar = () => {
             </SheetHeader>
 
             <div className="mt-6 flex flex-col gap-2">
-              {[...navItems, { href: "/products", label: "Products" }].map(
-                (item) => {
-                  const isActive =
-                    pathname === item.href ||
-                    (item.href !== "/" && pathname?.startsWith(item.href));
+              {[...navItems].map((item) => {
+                const isActive =
+                  pathname === item.href ||
+                  (item.href !== "/" && pathname?.startsWith(item.href));
 
-                  return (
-                    <SheetClose asChild key={item.href}>
-                      <Link
-                        href={item.href}
-                        className={`px-4 py-3 rounded-lg text-sm font-semibold transition-all ${
-                          isActive
-                            ? "bg-secondary/20 text-secondary"
-                            : "text-white/80 hover:bg-white/10 hover:text-white"
-                        }`}
-                      >
-                        {item.label}
-                      </Link>
-                    </SheetClose>
-                  );
-                },
-              )}
+                return (
+                  <SheetClose asChild key={item.href}>
+                    <Link
+                      href={item.href}
+                      className={`px-4 py-3 rounded-lg text-sm font-semibold transition-all ${
+                        isActive
+                          ? "bg-secondary/20 text-secondary"
+                          : "text-white/80 hover:bg-white/10 hover:text-white"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  </SheetClose>
+                );
+              })}
 
               {/* Mobile CTA */}
               <SheetClose asChild>

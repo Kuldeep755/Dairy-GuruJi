@@ -43,11 +43,11 @@ export default function HeroCarousel() {
                       </span>
                     </div>
 
-                    <h1 className="text-5xl md:text-7xl font-black leading-[1.1] tracking-tight">
+                    <h1 className="text-3xl md:text-7xl font-black leading-[1.1] tracking-tight">
                       {slide.title}
                     </h1>
 
-                    <p className="mt-6 text-xl md:text-2xl text-white/80 max-w-xl leading-relaxed">
+                    <p className="mt-6 text-lg md:text-2xl text-white/80 max-w-xl leading-relaxed">
                       {slide.subtitle}
                     </p>
 

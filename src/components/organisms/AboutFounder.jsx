@@ -21,12 +21,12 @@ export default function AboutFounder() {
             </span>
           </div>
 
-          <h2 className="text-5xl font-black leading-[1.1] text-text-dark md:text-7xl tracking-tight mb-8">
+          <h2 className="text-3xl font-black leading-[1.1] text-text-dark md:text-7xl tracking-tight mb-8">
             व्यापार नहीं,
             <span className="mt-2 block text-primary font-bold italic">रिश्ते बनाते हैं</span>
           </h2>
 
-          <p className="max-w-xl text-xl leading-relaxed text-text-dark/75 md:text-2xl font-medium mb-10">
+          <p className="max-w-xl text-lg leading-relaxed text-text-dark/75 md:text-2xl font-medium mb-10">
             We're not just selling products. We partner with dairy farmers for
             healthy cattle, safer milk and stable long-term profit with trust.
           </p>
@@ -80,7 +80,7 @@ export default function AboutFounder() {
 
         <div className="relative group">
           <div className="absolute -inset-4 bg-primary/10 rounded-[4rem] rotate-3 blur-2xl opacity-50 group-hover:rotate-6 transition-transform duration-1000" />
-          <div className="relative overflow-hidden rounded-[3rem] border-8 border-white shadow-[0_50px_100px_rgba(0,0,0,0.15)] bg-white h-[650px]">
+          <div className="relative overflow-hidden rounded-[3rem] border-8 border-white shadow-[0_50px_100px_rgba(0,0,0,0.15)] bg-white h-[400px] md:h-[650px]">
             <Image
               src="/images/about/hero.jpeg"
               alt="Dairy farm with healthy cows"

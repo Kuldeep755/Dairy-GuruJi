@@ -23,12 +23,12 @@ export default function DealerOpportunity() {
               </span>
             </div>
             
-            <h2 className="text-5xl font-black text-text-dark md:text-6xl leading-[1.1] tracking-tight mb-8">
+            <h2 className="text-3xl font-black text-text-dark md:text-6xl leading-[1.1] tracking-tight mb-8">
               Golden Opportunity for{" "}
               <span className="text-secondary">Dealers</span>
             </h2>
             
-            <p className="text-xl text-text-dark/70 mb-10 max-w-lg leading-relaxed font-medium">
+            <p className="text-lg text-text-dark/70 mb-10 max-w-lg leading-relaxed font-medium">
               Join hands with us to scale your business, assist local
               farmers, and establish yourself as a trusted name in your
               region with high-performing products.
@@ -44,7 +44,7 @@ export default function DealerOpportunity() {
                   <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-secondary text-white shadow-lg shadow-secondary/20 transition-transform group-hover:scale-110">
                     <CheckCircle2 className="h-5 w-5" />
                   </div>
-                  <span className="text-xl font-bold text-text-dark/80 group-hover:text-text-dark transition-colors">
+                  <span className="text-lg md:text-xl font-bold text-text-dark/80 group-hover:text-text-dark transition-colors">
                     {benefit}
                   </span>
                 </div>
@@ -73,7 +73,7 @@ export default function DealerOpportunity() {
                 className="relative rounded-[3rem] bg-gradient-to-br from-[#fcfbf7] to-[#f4eee0] p-12 sm:p-16 shadow-2xl border border-white/50"
               >
                 <Quote className="absolute right-12 top-12 h-24 w-24 text-text-dark/5" />
-                <p className="mb-10 text-3xl font-bold leading-tight text-text-dark tracking-tight">
+                <p className="mb-10 text-xl md:text-3xl font-bold leading-tight text-text-dark tracking-tight">
                   &ldquo;{item.quote}&rdquo;
                 </p>
                 
@@ -81,7 +81,7 @@ export default function DealerOpportunity() {
                   <p className="text-xs font-bold uppercase tracking-widest text-secondary mb-2">
                     Verified Performance
                   </p>
-                  <p className="text-3xl font-black text-text-dark tracking-tighter">
+                  <p className="text-2xl md:text-3xl font-black text-text-dark tracking-tighter">
                     {item.growth}
                   </p>
                 </div>
