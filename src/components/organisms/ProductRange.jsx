@@ -41,7 +41,9 @@ export default function ProductRange() {
 
             <h2 className="mt-5 text-3xl font-black leading-tight tracking-tight text-text-dark md:text-5xl">
               Science-Backed Nutrition
-              <span className="block text-secondary">Built for Real Dairy Farms</span>
+              <span className="block text-secondary">
+                Built for Real Dairy Farms
+              </span>
             </h2>
 
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-text-dark/70 md:text-lg">
@@ -124,9 +126,6 @@ export default function ProductRange() {
               </CarouselItem>
             ))}
           </CarouselContent>
-
-          <CarouselPrevious className="-left-4 hidden h-11 w-11 border border-primary/20 bg-white text-primary shadow-lg hover:bg-primary hover:text-white md:flex" />
-          <CarouselNext className="-right-4 hidden h-11 w-11 border border-primary/20 bg-white text-primary shadow-lg hover:bg-primary hover:text-white md:flex" />
         </Carousel>
       </div>
     </section>
