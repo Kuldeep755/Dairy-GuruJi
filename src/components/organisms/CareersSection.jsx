@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function CareersSection() {
   return (
-    <section className="w-full py-24 bg-white">
+    <section className="w-full relative py-24">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* LEFT CONTENT */}

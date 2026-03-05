@@ -8,7 +8,7 @@ import { breeds } from "@/lib/data"
 
 export default function BreedFocus() {
   return (
-    <section className="bg-[#0f1822] text-white relative overflow-hidden py-32">
+    <section className="relative overflow-hidden py-10">
       {/* Decorative Orbs */}
       <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
@@ -30,11 +30,11 @@ export default function BreedFocus() {
                 Breed-Specific Nutrition
               </span>
             </div>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-white mb-8">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-text-dark mb-8">
               Real Farms. Real <span className="text-secondary">Breeds.</span><br />
-              Scientific <span className="bg-gradient-to-r from-secondary to-yellow-200 bg-clip-text text-transparent">Results.</span>
+              Scientific <span className="text-primary hover:text-green-700 transition">Results.</span>
             </h2>
-            <p className="text-lg text-white/60 leading-relaxed font-medium">
+            <p className="text-lg text-text-dark/70 leading-relaxed font-medium">
               Nutrition is never one-size-fits-all. We design support by breed,
               climate and farm conditions for maximum efficacy and livestock
               longevity.

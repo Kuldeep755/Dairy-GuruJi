@@ -15,7 +15,7 @@ function useCarousel() {
   return context;
 }
 
-function Carousel({ opts, plugins, orientation = "horizontal", className, children }) {
+function Carousel({ opts, plugins, orientation = "horizontal", className, children, ...props }) {
   const [carouselRef, api] = useEmblaCarousel(
     {
       ...opts,
@@ -50,7 +50,7 @@ function Carousel({ opts, plugins, orientation = "horizontal", className, childr
     <CarouselContext.Provider
       value={{ carouselRef, api, orientation, scrollPrev, scrollNext, canScrollPrev, canScrollNext }}
     >
-      <div className={cn("relative", className)} role="region" aria-roledescription="carousel">
+      <div className={cn("relative", className)} role="region" aria-roledescription="carousel" {...props}>
         {children}
       </div>
     </CarouselContext.Provider>

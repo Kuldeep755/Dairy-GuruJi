@@ -25,7 +25,7 @@ export default function ProductRange() {
   );
 
   return (
-    <section className="relative overflow-hidden bg-bg-light px-6 py-24 md:py-28">
+    <section className="relative overflow-hidden px-6 py-24 md:py-28">
       <div className="pointer-events-none absolute -left-20 top-8 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
       <div className="pointer-events-none absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-secondary/10 blur-3xl" />
 

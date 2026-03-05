@@ -6,7 +6,7 @@ import { farmerTestimonials } from "@/lib/data";
 
 export default function Testimonials() {
   return (
-    <section className="px-6 py-32 bg-gradient-to-b from-bg-light to-white overflow-hidden">
+    <section className="px-6 py-32 relative overflow-hidden">
       <div className="mx-auto max-w-7xl">
         <div className="mb-20 md:flex md:items-end md:justify-between text-center md:text-left">
           <div className="max-w-2xl">

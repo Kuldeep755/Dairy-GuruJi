@@ -14,7 +14,7 @@ import CareersSection from "@/components/organisms/CareersSection";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-bg-light">
+    <main className="relative min-h-screen">
       <HeroCarousel />
       <AboutFounder />
       <Stats />

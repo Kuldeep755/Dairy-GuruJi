@@ -1,24 +1,41 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import { heroSlides } from "@/lib/data";
 
 export default function HeroCarousel() {
+  const autoplay = useRef(
+    Autoplay({
+      delay: 4500,
+      stopOnInteraction: false,
+      stopOnMouseEnter: true,
+    }),
+  );
+
   return (
     <Carousel
       opts={{
         align: "start",
         loop: true,
       }}
+      plugins={[autoplay.current]}
       className="w-full"
+      onMouseEnter={autoplay.current.stop}
+      onMouseLeave={autoplay.current.play}
     >
       <CarouselContent>
         {heroSlides.map((slide, index) => (
           <CarouselItem key={index}>
-            <div className="relative h-[85vh] w-full overflow-hidden">
+            <div className="relative h-[65vh] w-full overflow-hidden">
               {/* Background Image */}
               <Image
                 src={slide.image}
@@ -36,14 +53,7 @@ export default function HeroCarousel() {
               <div className="absolute inset-0 flex items-center">
                 <div className="mx-auto max-w-7xl px-6 text-white w-full">
                   <div className="max-w-3xl">
-                    <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-secondary/20 px-4 py-2 backdrop-blur-md border border-secondary/30">
-                      <span className="h-2 w-2 rounded-full bg-secondary animate-pulse" />
-                      <span className="text-xs font-bold uppercase tracking-widest text-secondary">
-                        Dairy Guru Ji Excellence
-                      </span>
-                    </div>
-
-                    <h1 className="text-3xl md:text-7xl font-black leading-[1.1] tracking-tight">
+                    <h1 className="text-2xl md:text-7xl font-black leading-[1.1] tracking-tight">
                       {slide.title}
                     </h1>
 
@@ -73,10 +83,7 @@ export default function HeroCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
-
       {/* Navigation Buttons - Hidden on small screens, better styled on large */}
-      <CarouselPrevious className="hidden md:flex left-8 h-12 w-12 bg-white/10 text-white border-white/20 backdrop-blur-md hover:bg-secondary hover:text-text-dark hover:border-secondary transition-all" />
-      <CarouselNext className="hidden md:flex right-8 h-12 w-12 bg-white/10 text-white border-white/20 backdrop-blur-md hover:bg-secondary hover:text-text-dark hover:border-secondary transition-all" />
     </Carousel>
   );
 }

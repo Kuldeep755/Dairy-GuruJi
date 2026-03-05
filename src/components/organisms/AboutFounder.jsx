@@ -6,7 +6,7 @@ import { highlights } from "@/lib/data";
 
 export default function AboutFounder() {
   return (
-    <section className="relative overflow-hidden px-6 py-28 bg-white">
+    <section className="relative overflow-hidden px-6 py-28">
       {/* Soft Background */}
       <div className="absolute -top-32 left-[-10%] h-[400px] w-[400px] rounded-full bg-primary/10 blur-[120px]" />
       <div className="absolute bottom-[-20%] right-[-10%] h-[500px] w-[500px] rounded-full bg-secondary/10 blur-[140px]" />

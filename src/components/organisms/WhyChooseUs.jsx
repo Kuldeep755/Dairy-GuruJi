@@ -13,7 +13,7 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-white px-6 py-28">
+    <section className="relative overflow-hidden px-6 py-28">
       <div className="absolute -left-28 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-primary/10 blur-3xl" />
       <div className="absolute -right-28 top-16 h-80 w-80 rounded-full bg-secondary/15 blur-3xl" />
 
