@@ -55,7 +55,7 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="relative bg-gradient-to-b from-[#FAFAFA] via-[#F6FBF8] to-white pt-28">
+    <div className="relative pt-28">
       <section className="relative px-6 py-24 overflow-hidden">
         <div className="absolute -top-32 -right-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -88,7 +88,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-white">
+      <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
             <h2 className="text-3xl md:text-5xl font-black text-text-dark mb-6">
@@ -121,7 +121,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-bg-light">
+      <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-black mb-4 text-text-dark">
             🎯 Our Purpose <span className="text-primary">(हम क्यों बने)</span>
@@ -140,7 +140,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-white">
+      <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {[
             {
@@ -178,7 +178,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-bg-light">
+      <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-black mb-14 text-center text-text-dark">
             🐄 Breed-Specific Nutrition{" "}
@@ -207,7 +207,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-white">
+      <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className="bg-bg-light p-10 rounded-3xl border border-primary/10">
             <h3 className="text-primary font-black uppercase tracking-widest mb-5">
@@ -241,7 +241,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-white">
+      <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-3xl md:text-5xl font-black mb-8 text-text-dark">
@@ -269,7 +269,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-bg-light">
+      <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <Image
             src="/images/about/founder.jpg"
@@ -303,7 +303,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-white">
+      <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-5xl font-black text-text-dark">

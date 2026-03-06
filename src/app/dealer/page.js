@@ -53,7 +53,7 @@ export default function DealerPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Dealer application submitted:", formData);
+    // In production, this would be handled by FormSubmit or an API
   };
 
   const differences = [

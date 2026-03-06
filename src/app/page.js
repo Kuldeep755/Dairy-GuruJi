@@ -7,9 +7,7 @@ import BreedFocus from "@/components/organisms/BreedFocus";
 import ProductRange from "@/components/organisms/ProductRange";
 import WhyChooseUs from "@/components/organisms/WhyChooseUs";
 import Stats from "@/components/organisms/Stats";
-import Testimonials from "@/components/organisms/Testimonials";
 import DealerOpportunity from "@/components/organisms/DealerOpportunity";
-import FAQ from "@/components/organisms/FAQ";
 import CareersSection from "@/components/organisms/CareersSection";
 
 export default function Home() {

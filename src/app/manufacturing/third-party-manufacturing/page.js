@@ -51,7 +51,7 @@ export default function ThirdPartyManufacturingPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Manufacturing inquiry submitted:", formData);
+    // In production, this would be handled by FormSubmit or an API
   };
 
   const services = [

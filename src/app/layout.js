@@ -15,10 +15,9 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-export const metadata = {
-  title: "Dairy Guru Ji | व्यापार नहीं, रिश्ते बनाते हैं",
-  description: "Farmer-first dairy nutrition brand focusing on long-term animal health and honest guidance.",
-};
+import { constructMetadata } from "@/lib/seo";
+
+export const metadata = constructMetadata();
 
 export default function RootLayout({ children }) {
   return (

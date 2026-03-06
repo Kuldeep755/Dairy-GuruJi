@@ -1,4 +1,4 @@
-"use client";
+// AboutFounder is now a Server Component
 
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
@@ -62,8 +62,9 @@ export default function AboutFounder() {
           <div className="relative overflow-hidden rounded-[2.5rem] shadow-2xl h-[420px] md:h-[620px]">
             <Image
               src="/images/about/hero.jpeg"
-              alt="Dairy farm"
+              alt="Dairy farm cows in a clean environment"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
             />
 
@@ -75,8 +76,9 @@ export default function AboutFounder() {
               <div className="relative h-38 w-full rounded-xl overflow-hidden">
                 <Image
                   src="/images/about/founder.jpg"
-                  alt="Founder"
+                  alt="Himanshu, Founder of Dairy Guru Ji"
                   fill
+                  sizes="260px"
                   className="object-cover"
                 />
               </div>

@@ -1,4 +1,4 @@
-"use client";
+// Footer is now a Server Component
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
