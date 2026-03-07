@@ -9,6 +9,7 @@ import WhyChooseUs from "@/components/organisms/WhyChooseUs";
 import Stats from "@/components/organisms/Stats";
 import DealerOpportunity from "@/components/organisms/DealerOpportunity";
 import CareersSection from "@/components/organisms/CareersSection";
+import SocialImpact from "@/components/organisms/SocialImpact";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <PainPoints />
       <BreedFocus />
       <ProductRange />
+      <SocialImpact />
       <WhyChooseUs />
       <DealerOpportunity />
       <CareersSection />

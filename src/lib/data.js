@@ -118,7 +118,7 @@ export const heroSlides = [
     title: "Build Your Own Dairy Feed Brand",
     subtitle: "Third Party Manufacturing Across India.",
     cta: "Start Your Brand",
-    link: "/third-party-manufacturing",
+    link: "/manufacturing/third-party-manufacturing",
   },
   {
     image: "/images/hero/slide3.png",
@@ -128,6 +128,18 @@ export const heroSlides = [
     link: "/dealer",
   },
 ];
+
+export const aboutHero = {
+  image: "/images/about/hero.png",
+  title: "About Dairy Guru Ji",
+  subtitle: "More than just nutrition—a movement for scientific dairy farming in India.",
+};
+
+export const manufacturingHero = {
+  image: "/images/hero/slide2.png",
+  title: "Third Party Manufacturing",
+  subtitle: "Build your own premium dairy feed brand with our ISO certified facility.",
+};
 
 export const processSteps = [
   {
@@ -242,6 +254,91 @@ export const whyChooseUs = [
     title: "365-Day Ground Support",
     desc: "Field guidance, usage correction, and follow-up for measurable on-farm outcomes.",
     icon: <Headset className="h-8 w-8 text-current" />,
+  },
+];
+
+export const teamMembers = [
+  {
+    name: "Dr. Arvind Kumar",
+    role: "Chief Nutrition Scientist",
+    bio: "With over 20 years in bovine nutrition, Dr. Kumar leads our R&D, ensuring every product is scientifically balanced for Indian breeds.",
+    image: "/images/team/member1.jpg", // Placeholder until specific member images are provided
+  },
+  {
+    name: "Himanshu",
+    role: "Founder & Visionary",
+    bio: "Driven by the mission to empower farmers, Himanshu focuses on building long-term relationships and sustainable farm growth.",
+    image: "/images/about/founder.jpg",
+  },
+  {
+    name: "Sandeep Singh",
+    role: "Head of Field Operations",
+    bio: "Sandeep manages our 365-day ground support team, bringing practical farm solutions directly to the cattle sheds.",
+  },
+  {
+    name: "Meenakshi Sharma",
+    role: "Lead Quality Controller",
+    bio: "Ensures that every batch of Dairy Guru Ji feed meets our rigorous ISO 9001:2015 standards.",
+  },
+];
+
+export const csrInitiatives = [
+  {
+    id: "green-planet",
+    title: "Project Green Planet",
+    desc: "Our commitment to environmental sustainability through manure management and renewable energy integration in dairy farms.",
+    fullDesc: "We believe that dairy farming should be in harmony with nature. Project Green Planet focuses on educating farmers about efficient waste management, converting manure into bio-fertilizer, and integrating solar energy to power cattle sheds. This reduced carbon footprint ensures a healthier planet for the next generation of farmers.",
+    image: "/images/impact/impact_green.png",
+    stats: "50+ Solar-Ready Sheds Installed",
+  },
+  {
+    id: "health-happiness",
+    title: "Netra Jyoti Sewa",
+    desc: "A health-first approach for our farmer partners, providing free eye checkups and general medical camps.",
+    fullDesc: "A healthy farmer is the backbone of a successful farm. Through our 'Health & Happiness' initiative, we organize regular medical camps in rural hubs. We provide free eye screenings, general checkups, and distribute essential medicines. To date, we have supported over 2,000 farmer families through these camps.",
+    image: "/images/impact/impact_health.png",
+    stats: "2,000+ Families Supported",
+  },
+  {
+    id: "digital-education",
+    title: "Digital Dairy Hubs",
+    desc: "Empowering rural youth with digital tools for modern cattle health monitoring and farm management.",
+    fullDesc: "The future of dairy is digital. Our Digital Dairy Hubs program provides tablets and training to rural youth, teaching them how to track milk yield fluctuations, reproductive cycles, and nutrition schedules using modern software. This empowerment creates tech-savvy leaders in the rural community.",
+    image: "/images/impact/impact_education.png",
+    stats: "15+ Digital Hubs Established",
+  },
+];
+
+export const socialImpact = [
+  {
+    id: "environment",
+    title: "Green Planet",
+    subtitle: "Sustainability",
+    desc: "Beyond feed, we focus on the ecosystem. We're investing in greener dairy farms by promoting manure management and solar-ready cattle sheds to reduce carbon footprints.",
+    image: "/images/impact/impact_green.png",
+    icon: "Leaf",
+    color: "from-green-500/20 to-emerald-500/20",
+    textColor: "text-emerald-700",
+  },
+  {
+    id: "health",
+    title: "Health & Happiness",
+    subtitle: "Farmer Wellness",
+    desc: "A healthy farm starts with a healthy farmer. Our 'Netra Jyoti' initiative provides free eye checkups and general health camps for our farmer families.",
+    image: "/images/impact/impact_health.png",
+    icon: "HeartPulse",
+    color: "from-yellow-400/20 to-orange-400/20",
+    textColor: "text-orange-700",
+  },
+  {
+    id: "education",
+    title: "Digital Dairy Hubs",
+    subtitle: "Rural Education",
+    desc: "Empowering the next generation with technology. We provide digital training on cattle health monitoring and farm management software to rural youth.",
+    image: "/images/impact/impact_education.png",
+    icon: "GraduationCap",
+    color: "from-blue-500/20 to-indigo-500/20",
+    textColor: "text-indigo-700",
   },
 ];
 

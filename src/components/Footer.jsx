@@ -76,6 +76,8 @@ const Footer = () => {
                 { name: "About Us", href: "/about" },
                 { name: "Products", href: "/products" },
                 { name: "Manufacturing", href: "/manufacturing/third-party-manufacturing" },
+                { name: "CSR", href: "/csr" },
+                { name: "Our Team", href: "/team" },
                 { name: "Become a Dealer", href: "/dealer" },
                 { name: "Blog", href: "/blog" },
                 { name: "Careers", href: "/careers" },

@@ -15,6 +15,9 @@ import {
   TrendingUp,
 } from "lucide-react";
 
+import { aboutHero } from "@/lib/data";
+import PageHero from "@/components/organisms/PageHero";
+
 const AboutPage = () => {
   const whyFarmersLose = [
     "Wrong feeding practices",
@@ -53,41 +56,14 @@ const AboutPage = () => {
       img: "/images/breeds/jersey.jpeg",
     },
   ];
-
   return (
-    <div className="relative pt-28">
-      <section className="relative px-6 py-24 overflow-hidden">
-        <div className="absolute -top-32 -right-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <h1 className="text-4xl md:text-7xl font-extrabold leading-tight text-text-dark">
-              ABOUT DAIRY GURU JI
-            </h1>
-            <p className="mt-4 text-lg md:text-2xl font-semibold text-primary">
-              व्यापार नहीं, रिश्ते बनाते हैं
-            </p>
-            <div className="h-1 w-20 bg-primary my-7 rounded-full" />
-
-            <p className="text-lg md:text-xl text-text-dark/75 leading-relaxed max-w-2xl">
-              Dairy Guru Ji is not just a dairy nutrition brand. It is a
-              movement for Indian dairy farmers built on correct nutrition,
-              honest guidance, and scientific knowledge.
-            </p>
-          </div>
-
-          <div className="relative rounded-3xl overflow-hidden shadow-xl">
-            <Image
-              src="/images/about/hero.jpeg"
-              alt="Indian Dairy Farm"
-              width={700}
-              height={500}
-              className="object-cover w-full h-full"
-              priority
-            />
-          </div>
-        </div>
-      </section>
-
+    <div className="relative pt-20">
+      <PageHero 
+        image={aboutHero.image}
+        title={aboutHero.title}
+        subtitle={aboutHero.subtitle}
+      />
+      
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
