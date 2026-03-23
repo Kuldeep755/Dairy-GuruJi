@@ -90,7 +90,7 @@ const CareersPage = () => {
       <div className="pointer-events-none absolute -top-24 left-[-10%] h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
       <div className="pointer-events-none absolute top-10 right-[-10%] h-[28rem] w-[28rem] rounded-full bg-secondary/30 blur-3xl" />
 
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <section className="relative overflow-hidden rounded-3xl border border-primary/15 bg-white p-8 shadow-xl md:p-12">
           <div className="absolute -right-24 -top-20 h-64 w-64 rounded-full bg-primary/10" />
           <div className="absolute -bottom-28 left-20 h-56 w-56 rounded-full bg-secondary/20" />

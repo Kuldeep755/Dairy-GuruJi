@@ -29,7 +29,7 @@ const ContactPage = () => {
         <div className="absolute top-40 right-0 h-96 w-96 rounded-full bg-primary/15 blur-3xl" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <header className="mb-12 overflow-hidden rounded-3xl border border-primary/20 bg-white shadow-xl shadow-green-900/10">
           <div className="grid grid-cols-1 lg:grid-cols-3">
             <div className="lg:col-span-2 p-8 md:p-12">

@@ -152,7 +152,7 @@ export default function ThirdPartyManufacturingPage() {
       />
 
       {/* Services Section - Integrated Layout */}
-      <section className="relative max-w-7xl mx-auto px-6 py-20 md:py-32">
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 py-20 md:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial="hidden"
@@ -204,7 +204,7 @@ export default function ThirdPartyManufacturingPage() {
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -256,7 +256,7 @@ export default function ThirdPartyManufacturingPage() {
       </section>
 
       {/* ROI & Profit - Typographic Comparison */}
-      <section className="max-w-7xl mx-auto px-6 py-24 md:py-32">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-24 md:py-32">
         <div className="flex flex-col lg:flex-row gap-20 items-center">
           <div className="w-full lg:w-1/2">
             <motion.div
@@ -335,7 +335,7 @@ export default function ThirdPartyManufacturingPage() {
 
       {/* Brand Journey - Timeline Flow */}
       <section className="bg-slate-50 py-24 md:py-32 relative">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -389,7 +389,7 @@ export default function ThirdPartyManufacturingPage() {
       </section>
 
       {/* Partners & Advantages - Fluid Layout */}
-      <section className="max-w-7xl mx-auto px-6 py-24 md:py-32">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-24 md:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-5">
             <h2 className="text-4xl font-black text-text-dark mb-10">
@@ -459,7 +459,7 @@ export default function ThirdPartyManufacturingPage() {
 
       {/* Division of Labor - Integrated */}
       <section className="bg-white py-24 border-y border-black/5">
-        <div className="max-w-5xl mx-auto px-6 text-center">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-3xl md:text-5xl font-black text-text-dark mb-16">
             Focused Partnership
           </h2>
@@ -493,7 +493,7 @@ export default function ThirdPartyManufacturingPage() {
       {/* Inquiry Form Section - Integrated Glassmorphism */}
       <section
         id="inquiry"
-        className="max-w-7xl mx-auto px-6 py-24 md:py-32 mb-20"
+        className="max-w-7xl mx-auto px-4 sm:px-6 py-24 md:py-32 mb-20"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           <div className="lg:col-span-7">

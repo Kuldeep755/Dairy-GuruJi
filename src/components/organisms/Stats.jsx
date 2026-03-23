@@ -5,7 +5,7 @@ import { trustStats } from "@/lib/data";
 
 export default function Stats() {
   return (
-    <section className="px-6 py-20 relative overflow-hidden">
+    <section className="px-4 sm:px-6 py-20 relative overflow-hidden">
       {/* Decorative Circles */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/5 rounded-full translate-y-1/2 -translate-x-1/2 blur-2xl" />

@@ -26,7 +26,7 @@ export default function TeamPage() {
         />
         <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px]" />
         
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ export default function TeamPage() {
       </section>
 
       {/* Team Grid Section */}
-      <section className="py-24 px-6">
+      <section className="py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {teamMembers.map((member, index) => (
@@ -94,7 +94,7 @@ export default function TeamPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-24 px-6 bg-white border-t border-gray-100">
+      <section className="py-24 px-4 sm:px-6 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto">
            <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>

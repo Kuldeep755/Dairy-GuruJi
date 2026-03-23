@@ -10,7 +10,7 @@ export default function BreedFocus() {
       <div className="absolute -top-40 left-[-10%] h-[400px] w-[400px] rounded-full bg-secondary/10 blur-[120px]" />
       <div className="absolute bottom-[-30%] right-[-10%] h-[500px] w-[500px] rounded-full bg-primary/10 blur-[140px]" />
 
-      <div className="mx-auto max-w-7xl px-6 relative z-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
         {/* Heading */}
         <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 mb-5">

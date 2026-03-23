@@ -130,7 +130,7 @@ export default function DealerPage() {
       <div className="pointer-events-none absolute top-40 right-0 h-[30rem] w-[30rem] rounded-full bg-blue-500/10 blur-[100px]" />
 
       {/* Hero Section */}
-      <section className="relative max-w-7xl mx-auto px-6 pt-24 pb-16">
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 pt-24 pb-16">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -181,7 +181,7 @@ export default function DealerPage() {
       </section>
 
       {/* The Real Opportunity */}
-      <section className="relative max-w-7xl mx-auto px-6 py-16">
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16">
         <div className="bg-white/80 backdrop-blur-xl border border-primary/10 rounded-3xl p-8 md:p-12 shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -252,7 +252,7 @@ export default function DealerPage() {
       </section>
 
       {/* What makes us different */}
-      <section className="relative max-w-7xl mx-auto px-6 py-16">
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -292,7 +292,7 @@ export default function DealerPage() {
       </section>
 
       {/* Story / A day in the life */}
-      <section className="relative max-w-5xl mx-auto px-6 py-16">
+      <section className="relative max-w-5xl mx-auto px-4 sm:px-6 py-16">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -330,7 +330,7 @@ export default function DealerPage() {
       </section>
 
       {/* Benefits in Detail */}
-      <section className="relative max-w-7xl mx-auto px-6 py-16">
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -370,7 +370,7 @@ export default function DealerPage() {
       </section>
 
       {/* Two columns: Who we are looking for + Investment */}
-      <section className="relative max-w-7xl mx-auto px-6 py-16">
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Who we are looking for */}
           <motion.div
@@ -442,7 +442,7 @@ export default function DealerPage() {
       </section>
 
       {/* Process Section */}
-      <section className="relative max-w-7xl mx-auto px-6 py-16 bg-white/50 backdrop-blur rounded-[3rem] my-16 border border-white">
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 bg-white/50 backdrop-blur rounded-[3rem] my-16 border border-white">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -485,7 +485,7 @@ export default function DealerPage() {
       </section>
 
       {/* Vision & Application Form */}
-      <section id="apply" className="relative max-w-7xl mx-auto px-6 py-16 mb-20">
+      <section id="apply" className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 mb-20">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           
           {/* Form */}

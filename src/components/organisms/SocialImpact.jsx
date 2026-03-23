@@ -14,7 +14,7 @@ const iconMap = {
 
 export default function SocialImpact() {
   return (
-    <section className="relative overflow-hidden px-6 py-24 md:py-32 bg-white">
+    <section className="relative overflow-hidden px-4 sm:px-6 py-24 md:py-32 bg-white">
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />

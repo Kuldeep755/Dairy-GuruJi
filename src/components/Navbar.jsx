@@ -131,7 +131,7 @@ const Navbar = () => {
 
           <SheetContent
             side="right"
-            className="w-[320px] bg-black/95 border-l border-white/10"
+            className="w-[88vw] max-w-[320px] bg-black/95 border-l border-white/10"
           >
             <SheetHeader className="border-b border-white/10 pb-4">
               <SheetTitle className="flex items-center gap-3 text-white">

@@ -13,7 +13,7 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="relative overflow-hidden px-6 py-28">
+    <section className="relative overflow-hidden px-4 sm:px-6 py-28">
       <div className="absolute -left-28 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-primary/10 blur-3xl" />
       <div className="absolute -right-28 top-16 h-80 w-80 rounded-full bg-secondary/15 blur-3xl" />
 
@@ -83,14 +83,14 @@ export default function WhyChooseUs() {
         <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
           <Link
             href="/products"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold text-white transition hover:bg-primary/90"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-4 sm:px-6 py-3 text-sm font-bold text-white transition hover:bg-primary/90"
           >
             Explore Products
             <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-6 py-3 text-sm font-bold text-primary transition hover:bg-primary/5"
+            className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-4 sm:px-6 py-3 text-sm font-bold text-primary transition hover:bg-primary/5"
           >
             Talk to Our Team
           </Link>

@@ -25,7 +25,7 @@ export default function ProductRange() {
   );
 
   return (
-    <section className="relative overflow-hidden px-6 py-24 md:py-28">
+    <section className="relative overflow-hidden px-4 sm:px-6 py-24 md:py-28">
       <div className="pointer-events-none absolute -left-20 top-8 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
       <div className="pointer-events-none absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-secondary/10 blur-3xl" />
 
@@ -54,7 +54,7 @@ export default function ProductRange() {
 
           <Link
             href="/products"
-            className="group inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-6 py-3 font-semibold text-primary shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-white"
+            className="group inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-4 sm:px-6 py-3 font-semibold text-primary shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-white"
           >
             Explore all products
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

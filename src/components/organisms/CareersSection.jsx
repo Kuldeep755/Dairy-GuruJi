@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 export default function CareersSection() {
   return (
     <section className="w-full relative py-24">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* LEFT CONTENT */}
           <motion.div
@@ -33,7 +33,7 @@ export default function CareersSection() {
             <div className="mt-8">
               <Link
                 href="/careers"
-                className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition"
+                className="inline-flex items-center gap-2 bg-primary text-white px-4 sm:px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition"
               >
                 View Open Positions
                 <ArrowRight size={18} />

@@ -32,7 +32,7 @@ export default function PageCarousel({ slides }) {
       <CarouselContent>
         {slides.map((slide, index) => (
           <CarouselItem key={index}>
-            <div className="relative h-[50vh] md:h-[60vh] w-full overflow-hidden">
+            <div className="relative h-[54vh] min-h-[380px] md:h-[60vh] md:min-h-0 w-full overflow-hidden">
               {/* Background Image */}
               <Image
                 src={slide.image}
@@ -48,13 +48,13 @@ export default function PageCarousel({ slides }) {
 
               {/* Content */}
               <div className="absolute inset-0 flex items-center">
-                <div className="mx-auto max-w-7xl px-6 text-white w-full">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 text-white w-full">
                   <div className="max-w-3xl">
-                    <h1 className="text-3xl md:text-6xl font-black leading-[1.1] tracking-tight mb-4">
+                    <h1 className="text-3xl sm:text-4xl md:text-6xl font-black leading-[1.1] tracking-tight mb-4">
                       {slide.title}
                     </h1>
 
-                    <p className="text-lg md:text-2xl text-white/90 max-w-xl leading-relaxed">
+                    <p className="text-base sm:text-lg md:text-2xl text-white/90 max-w-xl leading-relaxed">
                       {slide.subtitle}
                     </p>
                   </div>

@@ -58,7 +58,7 @@ export default function ProductsPage() {
 
 
       {/* ================= HERO ================= */}
-      <section className="relative max-w-7xl mx-auto px-6">
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -113,7 +113,7 @@ export default function ProductsPage() {
         </motion.div>
       </section>
 
-      <section className="relative max-w-7xl mx-auto px-6 mt-14">
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 mt-14">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -167,7 +167,7 @@ export default function ProductsPage() {
       </section>
 
       {/* ================= PRODUCTS ================= */}
-      <section className="relative max-w-7xl mx-auto px-6 mt-20 space-y-24">
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 mt-20 space-y-24">
         {filteredProducts.map((product, index) => (
           <motion.article
             key={product.name}
@@ -322,7 +322,7 @@ export default function ProductsPage() {
       </section>
 
       {/* ================= FINAL CTA ================= */}
-      <section className="relative max-w-6xl mx-auto px-6 mt-24">
+      <section className="relative max-w-6xl mx-auto px-4 sm:px-6 mt-24">
         <motion.div
           initial="hidden"
           whileInView="visible"

@@ -5,7 +5,7 @@ import { faqs } from "@/lib/data";
 
 export default function FAQ() {
   return (
-    <section className="px-6 py-32 relative overflow-hidden">
+    <section className="px-4 sm:px-6 py-32 relative overflow-hidden">
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/4" />

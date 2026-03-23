@@ -64,7 +64,7 @@ const AboutPage = () => {
         subtitle={aboutHero.subtitle}
       />
       
-      <section className="py-24 px-6">
+      <section className="py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
             <h2 className="text-3xl md:text-5xl font-black text-text-dark mb-6">
@@ -97,7 +97,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="py-24 px-6">
+      <section className="py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-black mb-4 text-text-dark">
             🎯 Our Purpose <span className="text-primary">(हम क्यों बने)</span>
@@ -116,7 +116,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="py-24 px-6">
+      <section className="py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {[
             {
@@ -154,7 +154,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="py-24 px-6">
+      <section className="py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-black mb-14 text-center text-text-dark">
             🐄 Breed-Specific Nutrition{" "}
@@ -183,7 +183,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="py-24 px-6">
+      <section className="py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className="bg-bg-light p-10 rounded-3xl border border-primary/10">
             <h3 className="text-primary font-black uppercase tracking-widest mb-5">
@@ -217,7 +217,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="py-24 px-6">
+      <section className="py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-3xl md:text-5xl font-black mb-8 text-text-dark">
@@ -245,7 +245,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="py-24 px-6">
+      <section className="py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <Image
             src="/images/about/founder.jpg"
@@ -279,7 +279,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="py-24 px-6">
+      <section className="py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-5xl font-black text-text-dark">

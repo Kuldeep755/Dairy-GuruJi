@@ -26,7 +26,7 @@ const posts = [
 const BlogPage = () => {
     return (
         <div className="relative min-h-screen bg-bg-light pt-32 pb-20">
-            <div className="max-w-7xl mx-auto px-6">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <header className="mb-16">
                     <h1 className="text-4xl md:text-7xl font-black text-text-dark mb-6">
                         डेयरी ज्ञान <br />

@@ -6,7 +6,7 @@ import { highlights } from "@/lib/data";
 
 export default function AboutFounder() {
   return (
-    <section className="relative overflow-hidden px-6 py-28">
+    <section className="relative overflow-hidden px-4 sm:px-6 py-28">
       {/* Soft Background */}
       <div className="absolute -top-32 left-[-10%] h-[400px] w-[400px] rounded-full bg-primary/10 blur-[120px]" />
       <div className="absolute bottom-[-20%] right-[-10%] h-[500px] w-[500px] rounded-full bg-secondary/10 blur-[140px]" />
@@ -14,7 +14,7 @@ export default function AboutFounder() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-20 lg:grid-cols-2 relative z-10">
         {/* LEFT CONTENT */}
         <div>
-          <h2 className="text-4xl md:text-6xl font-black leading-tight text-text-dark mb-8">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black leading-tight text-text-dark mb-8">
             व्यापार नहीं,
             <span className="block text-primary italic">रिश्ते बनाते हैं</span>
           </h2>
@@ -59,7 +59,7 @@ export default function AboutFounder() {
         {/* RIGHT IMAGE */}
         <div className="relative">
           {/* Main Image */}
-          <div className="relative overflow-hidden rounded-[2.5rem] shadow-2xl h-[420px] md:h-[620px]">
+          <div className="relative overflow-hidden rounded-[2.5rem] shadow-2xl h-[420px] sm:h-[520px] md:h-[620px]">
             <Image
               src="/images/about/hero.jpeg"
               alt="Dairy farm cows in a clean environment"
@@ -72,7 +72,7 @@ export default function AboutFounder() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
             {/* Founder Card */}
-            <div className="absolute bottom-8 right-4 w-[260px] rounded-2xl bg-white p-1 shadow-xl ">
+            <div className="absolute bottom-4 left-4 right-4 sm:left-auto sm:bottom-8 sm:right-4 sm:w-[260px] rounded-2xl bg-white p-1 shadow-xl">
               <div className="relative h-38 w-full rounded-xl overflow-hidden">
                 <Image
                   src="/images/about/founder.jpg"

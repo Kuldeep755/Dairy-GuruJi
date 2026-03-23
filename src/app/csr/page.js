@@ -26,7 +26,7 @@ export default function CSRPage() {
         />
         <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
         
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ export default function CSRPage() {
       </section>
 
       {/* Initiatives Section */}
-      <section className="py-24 px-6 bg-surface">
+      <section className="py-24 px-4 sm:px-6 bg-surface">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 gap-32">
             {csrInitiatives.map((item, index) => {
@@ -113,7 +113,7 @@ export default function CSRPage() {
       </section>
 
       {/* Quote Section */}
-      <section className="py-24 px-6 bg-primary overflow-hidden relative">
+      <section className="py-24 px-4 sm:px-6 bg-primary overflow-hidden relative">
         <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-[100px]" />
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
