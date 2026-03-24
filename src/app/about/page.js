@@ -58,56 +58,51 @@ const AboutPage = () => {
   ];
   return (
     <div className="relative pt-20">
-      <PageHero 
+      <PageHero
         image={aboutHero.image}
         title={aboutHero.title}
         subtitle={aboutHero.subtitle}
       />
-      
+
       <section className="py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <h2 className="text-3xl md:text-5xl font-black text-text-dark mb-6">
-              🌱 Who We Are <span className="text-primary">(हम कौन हैं)</span>
+            <h2 className="text-3xl md:text-5xl font-black text-primary mb-6">
+              Who We Are
             </h2>
             <p className="text-lg text-text-dark/75 mb-6 leading-relaxed">
-              In India, dairy farming is not only a business. It is a way of
-              life, a family responsibility, and a daily struggle. Dairy Guru Ji
-              exists to change that reality.
+              Dairy Guruji Company(Bijendera Group) भारत में cattle feed और
+              nutritional supplements का निर्माण और supply करती है। लेकिन हमारी
+              पहचान सिर्फ products से नहीं है — हमारी असली पहचान है किसानों के
+              साथ खड़े रहना, उनके साथ चलना, और उनके साथ grow करना।
             </p>
             <p className="text-lg text-text-dark/75 mb-6 leading-relaxed">
-              We help farmers grow sustainably, ethically, and profitably through
-              science that works on the ground.
+              हम Dairy farms को adopt करके उनके साथ partner नहीं, परिवार की तरह
+              जुड़ते हैं — उनका मुनाफा बढ़ाने और खर्च कम करने के लिए। Veterinary
+              doctors और LSA के through हर पशुपालक तक सही जानकारी पहुँचाते हैं
+              Affordable और effective cattle feed & supplements देते हैं — कम
+              खर्च, ज्यादा फायदा आसान और practical knowledge देते हैं — जो सच
+              में रोज़ काम आए और सबसे जरूरी — हम हर स्थिति में साथ खड़े रहते
+              हैं, ताकि किसान कभी अकेला महसूस न करे।
             </p>
-          </div>
-
-          <div className="bg-bg-light p-8 md:p-10 rounded-3xl border border-primary/10">
-            <h3 className="text-2xl font-black text-text-dark mb-6">
-              Why farmers lose money
-            </h3>
-            <div className="space-y-4">
-              {whyFarmersLose.map((issue) => (
-                <div key={issue} className="flex items-start gap-3">
-                  <CircleHelp className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                  <p className="text-text-dark/75">{issue}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
 
       <section className="py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-black mb-4 text-text-dark">
-            🎯 Our Purpose <span className="text-primary">(हम क्यों बने)</span>
+          <h2 className="text-3xl md:text-5xl font-black mb-4 text-primary">
+            The Reason behind Dairy Guruji
           </h2>
           <p className="text-lg text-text-dark/75 max-w-5xl leading-relaxed">
-            The Indian dairy industry has products, but it lacks guidance.
-            Farmers were buying feed, but no one was solving their real
-            problems. So we built Dairy Guru Ji around one belief: if farmers
-            get the right knowledge with the right nutrition, they can move
-            from loss to long-term profit.
+            मैंने हमेशा एक ही चीज़ देखी है — भारत में पशुपालक भाई मेहनत में कभी
+            पीछे नहीं रहते । फिर भी कई बार उसे वो परिणाम नहीं मिलता जिसका वो
+            हकदार है। जब मुझे Australia में dairy farming systems, Cattle Breed
+            और Higher Milk production को समझने का मौका मिला, तब मेरी सोच पूरी
+            तरह बदल गई। उसी समय मैंने decide किया — अगर ये system विदेशों में
+            काम कर सकता है, तो मेरे भारत देश में क्यों नहीं? हमारे किसानों में
+            मेहनत की कमी नहीं है, उन्हें बस सही direction और support की जरूरत
+            है। यहीं से Dairy Guruji की शुरुआत हुई
           </p>
           <p className="mt-5 text-lg font-semibold text-primary">
             “अगर किसान को सही जानकारी और सही पोषण मिले, तो क्या वह नुकसान से
@@ -117,153 +112,40 @@ const AboutPage = () => {
       </section>
 
       <section className="py-24 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          {[
-            {
-              icon: Microscope,
-              title: "International Research",
-              desc: "We follow Australian dairy nutrition standards for balanced feeding, long-term productivity, and ethical animal care.",
-            },
-            {
-              icon: Sprout,
-              title: "Indian Farm Reality",
-              desc: "We adapt nutrition to Indian climate, local feeding practices, indigenous and crossbred cattle, and small to medium farms.",
-            },
-            {
-              icon: Leaf,
-              title: "Breed-Specific Nutrition",
-              desc: "We never apply one formula to every animal. Nutrition is designed by breed, stage, and farm goal.",
-            },
-            {
-              icon: Users,
-              title: "Farmer-First Philosophy",
-              desc: "Our first question is not how much we can sell. It is whether the farmer will be profitable in the next 6 to 12 months.",
-            },
-          ].map((item) => (
-            <div
-              key={item.title}
-              className="bg-bg-light p-8 rounded-2xl border border-primary/10"
-            >
-              <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-5">
-                  <item.icon className="w-7 h-7 text-primary" />
-                </div>
-              <h3 className="text-xl font-black mb-3 text-text-dark">{item.title}</h3>
-              <p className="text-text-dark/75 leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="py-24 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-black mb-14 text-center text-text-dark">
-            🐄 Breed-Specific Nutrition{" "}
-            <span className="text-primary">(हर नस्ल के लिए अलग सोच)</span>
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {breedCards.map((breed) => (
-              <div
-                key={breed.name}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:-translate-y-1 transition"
-              >
-                <Image
-                  src={breed.img}
-                  alt={breed.name}
-                  width={420}
-                  height={280}
-                  className="w-full h-52 object-cover"
-                />
-                <div className="p-6">
-                  <h4 className="font-black text-lg text-text-dark">{breed.name}</h4>
-                  <p className="text-sm text-text-dark/70 mt-2">{breed.focus}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div className="bg-bg-light p-10 rounded-3xl border border-primary/10">
-            <h3 className="text-primary font-black uppercase tracking-widest mb-5">
-              Farmer-First
-            </h3>
-            <div className="space-y-4">
-              {[
-                "We avoid harmful hormones",
-                "We avoid shortcuts like oxytocin",
-                "We focus on fertility, immunity and longevity",
-                "We give honest advice, even if it means selling less",
-              ].map((point) => (
-                <div key={point} className="flex items-start gap-3">
-                  <HeartPulse className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                  <p className="text-text-dark/75">{point}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-primary to-green-700 text-white p-10 rounded-3xl">
-            <h3 className="font-black uppercase tracking-widest mb-5">
-              Our Belief
-            </h3>
-            <p className="text-xl leading-relaxed">
-              Healthy animals = Safe milk = Strong families.
-            </p>
-            <p className="text-white/85 mt-5">
-              Farmer trust is more valuable than short-term sales.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 className="text-3xl md:text-5xl font-black mb-8 text-text-dark">
-              🧪 Quality & Ethics{" "}
-              <span className="text-primary">(गुणवत्ता और ईमानदारी)</span>
-            </h2>
-            <div className="space-y-4">
-              {qualityPoints.map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <ShieldCheck className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                  <p className="text-text-dark/75">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="bg-bg-light p-10 rounded-3xl border border-primary/10">
-            <h3 className="text-2xl font-black mb-4 text-text-dark">
-              What this means on farm
-            </h3>
-            <p className="text-text-dark/75 leading-relaxed">
-              Consistent health, better milk quality, and safer outcomes for
-              animals, farmers, and milk consumers.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <Image
-            src="/images/about/founder.jpg"
+            src="/images/about/founder-two.jpeg"
             alt="Founder Dairy Guru Ji"
             width={500}
             height={500}
-            className="rounded-3xl shadow-xl w-full h-full object-cover"
+            className="rounded-xl shadow-xl w-full h-[85%] object-cover"
           />
 
           <div>
-            <h2 className="text-3xl md:text-5xl font-black mb-8 text-text-dark">
-              👨‍🎓 Founder’s Vision <span className="text-primary">(संस्थापक की सोच)</span>
+            <h2 className="text-3xl md:text-5xl font-black mb-8 text-primary">
+              Founder
             </h2>
 
             <p className="text-lg text-text-dark/75 leading-relaxed mb-6">
-              Himanshu, founder of Dairy Guru Ji, brings Indian farming
-              understanding, international education in animal feeding and
-              nutrition, and practical exposure to global dairy systems.
+              मैं ऑस्ट्रेलिया से आपका भाई हिमांशु, जिसे भारतीय किसान व पशुपालक
+              “Dairy Guruji” के नाम से जानते हैं
+            </p>
+            <p className="text-lg text-text-dark/75 leading-relaxed mb-6">
+              मेरे प्यारे भारत देश के पशुपालक भाइयों, मैं हिमांशु — मेरा जन्म
+              हरियाणा, भारत में हुआ। वर्तमान में मैं ऑस्ट्रेलिया में रहता हूँ।
+              मैंने Hansraj College (Delhi University) से ग्रेजुएशन किया और उसके
+              बाद उच्च शिक्षा के लिए ऑस्ट्रेलिया गया, जहाँ University of Western
+              Australia में अध्ययन किया। इसके साथ ही मैंने कृत्रिम गर्भाधान (AI)
+              और थनैला रोग रोकथाम में विशेषज्ञता हासिल की और ऑस्ट्रेलिया की
+              प्रमुख संस्था Dairy Australia से डेयरी फार्मिंग में CERT 3 प्राप्त
+              किया। वर्ष 2024 में मैंने animal feeding and nutrition तथा dairy
+              feed formulation पर गहन अध्ययन किया।
+            </p>
+
+            <p className="text-lg text-text-dark/75 leading-relaxed mb-6">
+              डेयरी इंडस्ट्री में मेरे काम और समर्पण को देखते हुए भारत ही नहीं,
+              ऑस्ट्रेलिया के बड़े-बड़े डॉक्टरों, सीनियर एक्सपर्ट्स और संस्थाओं
+              ने भी सराहना की है।
             </p>
             <p className="text-lg text-primary font-semibold italic leading-relaxed">
               “No Indian dairy farmer should suffer losses because of lack of
@@ -272,7 +154,7 @@ const AboutPage = () => {
             <div className="mt-8 flex items-center gap-3">
               <CheckCircle className="text-primary" />
               <span className="font-bold tracking-wide text-text-dark">
-                Himanshu, Founder - Dairy Guru Ji
+                Himanshu, Founder - Dairy Guruji
               </span>
             </div>
           </div>
@@ -325,6 +207,33 @@ const AboutPage = () => {
             </p>
             <p className="mt-4 text-white/85">
               “हाँ, यह ब्रांड हमारे साथ खड़ा है।”
+            </p>
+          </div>
+        </div>
+      </section>
+      <section className="py-24 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 className="text-3xl md:text-5xl font-black mb-8 text-text-dark">
+              🧪 Quality & Ethics{" "}
+              <span className="text-primary">(गुणवत्ता और ईमानदारी)</span>
+            </h2>
+            <div className="space-y-4">
+              {qualityPoints.map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <ShieldCheck className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                  <p className="text-text-dark/75">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="bg-bg-light p-10 rounded-3xl border border-primary/10">
+            <h3 className="text-2xl font-black mb-4 text-text-dark">
+              What this means on farm
+            </h3>
+            <p className="text-text-dark/75 leading-relaxed">
+              Consistent health, better milk quality, and safer outcomes for
+              animals, farmers, and milk consumers.
             </p>
           </div>
         </div>

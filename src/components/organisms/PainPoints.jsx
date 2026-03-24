@@ -29,31 +29,18 @@ const accentStyles = [
 export default function PainPoints() {
   return (
     <section className="relative overflow-hidden px-4 py-16 sm:px-6 lg:py-24">
-      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-primary/[0.06] to-transparent" />
-      <div className="absolute -left-24 top-24 h-64 w-64 rounded-full bg-secondary/15 blur-3xl" />
-      <div className="absolute -right-24 bottom-10 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
-
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.25fr)] lg:items-start">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="lg:sticky lg:top-24"
-          >
+          <div className="lg:sticky lg:top-24">
             <div className="relative overflow-hidden rounded-[2rem] border border-primary/10 bg-[linear-gradient(160deg,rgba(255,255,255,0.98),rgba(245,242,232,0.9))] p-8 shadow-[0_20px_60px_rgba(23,36,50,0.08)] sm:p-10">
-              <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-secondary/20 blur-3xl" />
-              <div className="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-primary/15 blur-3xl" />
-
               <div className="relative">
                 <div className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-primary">
                   <Sparkles className="h-4 w-4" />
                   Solving Farm Challenges
                 </div>
 
-                <h2 className="mt-6 max-w-xl text-4xl font-black leading-tight tracking-tight text-text-dark sm:text-5xl lg:text-6xl">
-                  Real dairy problems need{" "}
+                <h2 className="mt-6 max-w-xl text-2xl font-black leading-tight tracking-tight text-text-dark sm:text-3xl lg:text-6xl">
+                  Real dairy problems need
                   <span className="text-primary">practical solutions</span>
                 </h2>
 
@@ -106,7 +93,7 @@ export default function PainPoints() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-2">
             {farmerPainPoints.map((point, index) => {

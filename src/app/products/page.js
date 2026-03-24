@@ -111,7 +111,6 @@ export default function ProductsPage() {
           </div>
         </div>
       </section>
-
       <section className="relative mx-auto mt-8 max-w-6xl px-4 sm:px-6">
         {filteredProducts.length ? (
           <div className="space-y-4">
@@ -175,7 +174,8 @@ export default function ProductsPage() {
 
                   <div className="mt-5 flex flex-col gap-3 border-t border-primary/10 pt-4 sm:flex-row sm:items-center sm:justify-between">
                     <div className="text-sm text-text-dark/65">
-                      {product.dosage ?? "Detailed usage guidance available on product page"}
+                      {product.dosage ??
+                        "Detailed usage guidance available on product page"}
                     </div>
 
                     <div className="flex flex-col gap-3 sm:flex-row">

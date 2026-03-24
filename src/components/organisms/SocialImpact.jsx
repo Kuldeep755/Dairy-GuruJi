@@ -14,12 +14,10 @@ const iconMap = {
 
 export default function SocialImpact() {
   return (
-    <section className="relative overflow-hidden px-4 sm:px-6 py-24 md:py-32 bg-white">
+    <section className="relative overflow-hidden px-4 sm:px-6 py-12 bg-white">
       {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="mx-auto max-w-7xl relative z-10">
+      <div className="mx-auto max-w-7xl relative z-10 ">
         <div className="text-center mb-16 md:mb-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -41,10 +39,10 @@ export default function SocialImpact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-black text-text-dark tracking-tight mb-6"
+            className="text-3xl md:text-3xl font-black text-text-dark tracking-tight mb-6"
           >
-            Growing Together, <br />
-            <span className="text-primary italic">Giving Back.</span>
+            We are not just building a company, we are building a new future for
+            Indian dairy farmers.
           </motion.h2>
 
           <motion.p
@@ -54,21 +52,16 @@ export default function SocialImpact() {
             transition={{ delay: 0.2 }}
             className="max-w-2xl mx-auto text-lg text-text-dark/70"
           >
-            Our mission goes beyond business. We are dedicated to creating a self-sustaining
-            dairy ecosystem that empowers farmers and protects our local environment.
+            क्योंकि जब किसान आगे बढ़ता है, तभी उसका परिवार खुशहाल बनता है और देश
+            का भविष्य मजबूत होता है — और हम इसी बदलाव का हिस्सा बनना चाहते हैं।
           </motion.p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {socialImpact.map((item, index) => {
-            const Icon = iconMap[item.icon];
             return (
-              <motion.div
+              <div
                 key={item.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
                 className="group relative flex flex-col h-full bg-surface border border-gray-100 rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500"
               >
                 {/* Image Section */}
@@ -80,29 +73,26 @@ export default function SocialImpact() {
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
-                  
-                  <div className={`absolute top-6 left-6 p-3 rounded-2xl bg-white/90 backdrop-blur-sm shadow-lg ${item.textColor}`}>
-                    <Icon size={24} />
-                  </div>
                 </div>
 
                 {/* Content Section */}
                 <div className="p-8 flex flex-col flex-1">
-                  <span className={`text-xs font-bold uppercase tracking-widest mb-3 ${item.textColor}`}>
-                    {item.subtitle}
-                  </span>
-                  <h3 className="text-2xl font-black text-text-dark mb-4">
+                  <h3 className="text-2xl font-black text-text-dark mb-4 ">
                     {item.title}
                   </h3>
-                  <p className="text-text-dark/70 leading-relaxed mb-8">
+                  <p className="text-text-dark/70 leading-relaxed mb-8 font-bold">
                     {item.desc}
                   </p>
 
                   <div className="mt-auto">
-                    <div className={`inline-flex items-center gap-2 font-bold text-sm group/btn cursor-default`}>
+                    <div
+                      className={`inline-flex items-center gap-2 font-bold text-sm group/btn cursor-default`}
+                    >
                       <span className={item.textColor}>Impact in Progress</span>
-                      <div className={`h-1 w-12 rounded-full bg-gray-100 relative overflow-hidden`}>
-                        <motion.div 
+                      <div
+                        className={`h-1 w-12 rounded-full bg-gray-100 relative overflow-hidden`}
+                      >
+                        <motion.div
                           className={`absolute inset-0 bg-primary`}
                           initial={{ x: "-100%" }}
                           whileInView={{ x: "0%" }}
@@ -113,7 +103,7 @@ export default function SocialImpact() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

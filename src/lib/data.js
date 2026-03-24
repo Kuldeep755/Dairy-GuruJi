@@ -150,8 +150,7 @@ export const categories = [
 export const heroSlides = [
   {
     image: "/images/hero/slide4.jpeg",
-    title:
-      "Helping Indian Dairy Farmers To Grow.",
+    title: "Helping Indian Dairy Farmers To Grow.",
     subtitle:
       "सही जानकारी, अच्छे पोषण और नए तरीकों से मेरे भारतीय पशुपालन को जयादा मुनाफे का बनाना",
     cta: "Become a Dealer",
@@ -159,8 +158,7 @@ export const heroSlides = [
   },
   {
     image: "/images/hero/slide5.jpeg",
-    title:
-      "Dairy Farm Adoption",
+    title: "Dairy Farm Adoption",
     subtitle:
       "हम आपके डेयरी फ़ार्म को गोद लेकर उसे ज्यादा मुनाफ़े वाला बनाएंगे – ज्यादा दूध, स्वस्थ पशु, बेहतर नस्ल और कम खर्च के साथ",
     cta: "Start With Us",
@@ -169,10 +167,10 @@ export const heroSlides = [
 ];
 
 export const aboutHero = {
-  image: "/images/about/hero.png",
+  image: "/images/about/hero1.jpeg",
   title: "About Dairy Guru Ji",
   subtitle:
-    "More than just nutrition—a movement for scientific dairy farming in India.",
+    "मेरा सपना है मेरे भारत देश में दूसरी श्वेत क्रांति लाना, ताकि मेरे सभी पशुपालक भाई सफल बने और उनकी आय कई गुना बढ़े।",
 };
 
 export const manufacturingHero = {
@@ -354,7 +352,7 @@ export const teamMembers = [
     name: "Dr. Arvind Kumar",
     role: "Chief Nutrition Scientist",
     bio: "With over 20 years in bovine nutrition, Dr. Kumar leads our R&D, ensuring every product is scientifically balanced for Indian breeds.",
-    image: "/images/team/member1.jpg", // Placeholder until specific member images are provided
+    image: "/images/team/member1.jpg",
   },
   {
     name: "Himanshu",
@@ -407,31 +405,25 @@ export const csrInitiatives = [
 export const socialImpact = [
   {
     id: "environment",
-    title: "Green Planet",
-    subtitle: "Sustainability",
-    desc: "Beyond feed, we focus on the ecosystem. We're investing in greener dairy farms by promoting manure management and solar-ready cattle sheds to reduce carbon footprints.",
-    image: "/images/impact/impact_green.png",
-    icon: "Leaf",
+    title: "We Adopt Dairy Farms. ",
+    desc: "हम सिर्फ सलाह नहीं देते — जिम्मेदारी लेते हैं। डेयरी गुरुजी आपके फार्म को अपनाकर, सही पोषण और मार्गदर्शन से दूध बढ़ाते हैं, खर्च घटाते हैं और मुनाफा बढ़ाते हैं। हम हर हफ्ते पशुओं की जांच करते हैं, ताकि बीमारी आने से पहले ही रोकथाम हो और उत्पादन बना रहे।.",
+    image: "/images/impact/farms-adopt.jpeg",
     color: "from-green-500/20 to-emerald-500/20",
     textColor: "text-emerald-700",
   },
   {
     id: "health",
-    title: "Health & Happiness",
-    subtitle: "Farmer Wellness",
-    desc: "A healthy farm starts with a healthy farmer. Our 'Netra Jyoti' initiative provides free eye checkups and general health camps for our farmer families.",
-    image: "/images/impact/impact_health.png",
-    icon: "HeartPulse",
+    title: "Creating Opportunities in Villages",
+    desc: "हम सिर्फ सलाह नहीं देते, पशुपालक परिवारों के युवाओं को रोजगार भी देते हैं। अब तक 200+ युवाओं को काम देकर हम उनके परिवार की आमदनी बढ़ा रहे हैं — ताकि हर परिवार अपने गांव में ही आत्मनिर्भर बन सके।.",
+    image: "/images/impact/opportunities.jpeg",
     color: "from-yellow-400/20 to-orange-400/20",
     textColor: "text-orange-700",
   },
   {
     id: "education",
-    title: "Digital Dairy Hubs",
-    subtitle: "Rural Education",
-    desc: "Empowering the next generation with technology. We provide digital training on cattle health monitoring and farm management software to rural youth.",
-    image: "/images/impact/impact_education.png",
-    icon: "GraduationCap",
+    title: "Farmer Education",
+    desc: "हम सिर्फ Instagram या facebook पर नहीं सिखाते , बल्कि पशुपालकों के डेयरी फ़ार्म पर जाकर उन्हें सिखाते हैं। हमारी 200+ टीम, डॉक्टर और LSA गांव-गांव जाकर डेयरी किसानों को नए तरीके और सही ज्ञान दे रहे हैं। खुद हिमांशु जी भी हर साल पशुपालक जागरूकता अभियान चलाते ह, गांव-गांव जाकर पशुपालकों से मिलते हैं और उन्हें आगे बढ़ने की हिम्मत और रास्ता देते हैं।",
+    image: "/images/impact/education.jpeg",
     color: "from-blue-500/20 to-indigo-500/20",
     textColor: "text-indigo-700",
   },

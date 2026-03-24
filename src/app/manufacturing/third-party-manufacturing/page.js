@@ -16,21 +16,16 @@ import {
   Scale,
   ShieldCheck,
   PackageOpen,
-  Users,
   ArrowRight,
-  Sparkles,
   Lightbulb,
   Workflow,
   ClipboardCheck,
-  Truck,
-  Building2,
   Lock,
   Globe2,
   Sprout,
 } from "lucide-react";
 
-import { Input, Textarea, Select, FormField } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Input, Textarea, FormField } from "@/components/ui/input";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -185,9 +180,7 @@ export default function ThirdPartyManufacturingPage() {
     "Companies wanting regional private label products",
   ];
 
-  const manufacturingVideoEmbedUrl = getYoutubeEmbedUrl(
-    manufacturingVideo.url
-  );
+  const manufacturingVideoEmbedUrl = getYoutubeEmbedUrl(manufacturingVideo.url);
 
   return (
     <div className="relative min-h-screen bg-[#fcfdfd] overflow-hidden pt-20">

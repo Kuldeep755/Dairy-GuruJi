@@ -16,13 +16,14 @@ export default function Home() {
     <main className="relative min-h-screen">
       <HeroCarousel />
       <AboutFounder />
-      <Stats />
-      <PainPoints />
-      <ProductRange />
-      <BreedFocus />
       <SocialImpact />
-      <WhyChooseUs />
-      <DealerOpportunity />
+
+      {/* <Stats /> */}
+      {/* <PainPoints /> */}
+      <ProductRange />
+      {/* <BreedFocus /> */}
+      {/* <WhyChooseUs /> */}
+      {/* <DealerOpportunity /> */}
       <CareersSection />
     </main>
   );
