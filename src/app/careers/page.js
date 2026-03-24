@@ -158,6 +158,8 @@ const CareersPage = () => {
                   onChange={handleChange}
                   className="w-full rounded-lg border border-primary/15 bg-bg-light px-4 py-3 text-sm text-text-dark focus:outline-none focus:ring-2 focus:ring-primary/35"
                 >
+                  <option value="Select an option">Select an option</option>
+                  <option value="No">No</option>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
                 </select>
