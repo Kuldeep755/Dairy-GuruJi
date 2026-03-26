@@ -28,6 +28,7 @@ const AboutPage = () => {
 
   const qualityPoints = [
     "ISO 9001:2015 Certified Manufacturing",
+    "Fssai Certified & Lab Tested",
     "Carefully sourced raw materials",
     "Balanced vitamins & minerals",
     "No harmful steroids or banned substances",
@@ -161,7 +162,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="py-24 px-4 sm:px-6">
+      {/* <section className="py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-5xl font-black text-text-dark">
@@ -192,31 +193,13 @@ const AboutPage = () => {
               </div>
             ))}
           </div>
-
-          <div className="bg-gradient-to-r from-[#0b3b24] to-[#15613d] text-white rounded-3xl p-10 md:p-14 text-center">
-            <h3 className="text-2xl md:text-4xl font-black leading-snug">
-              🤝 Join the Dairy Guru Ji Family
-            </h3>
-            <p className="mt-5 text-white/90 max-w-4xl mx-auto leading-relaxed">
-              If you are a dairy farmer, distributor, sales professional, or a
-              partner who believes in ethical growth, Dairy Guru Ji welcomes
-              you.
-            </p>
-            <p className="mt-6 text-lg font-semibold text-secondary">
-              👉 Because we don’t build business - we build relationships.
-            </p>
-            <p className="mt-4 text-white/85">
-              “हाँ, यह ब्रांड हमारे साथ खड़ा है।”
-            </p>
-          </div>
         </div>
-      </section>
+      </section> */}
       <section className="py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-3xl md:text-5xl font-black mb-8 text-text-dark">
-              🧪 Quality & Ethics{" "}
-              <span className="text-primary">(गुणवत्ता और ईमानदारी)</span>
+              Quality & Ethics
             </h2>
             <div className="space-y-4">
               {qualityPoints.map((item) => (
@@ -226,15 +209,6 @@ const AboutPage = () => {
                 </div>
               ))}
             </div>
-          </div>
-          <div className="bg-bg-light p-10 rounded-3xl border border-primary/10">
-            <h3 className="text-2xl font-black mb-4 text-text-dark">
-              What this means on farm
-            </h3>
-            <p className="text-text-dark/75 leading-relaxed">
-              Consistent health, better milk quality, and safer outcomes for
-              animals, farmers, and milk consumers.
-            </p>
           </div>
         </div>
       </section>

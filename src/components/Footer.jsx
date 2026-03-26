@@ -97,6 +97,9 @@ const Footer = () => {
                 { name: "Home", href: "/" },
                 { name: "About Us", href: "/about" },
                 { name: "Products", href: "/products" },
+                { name: "Pain Points", href: "/pain-points" },
+                { name: "Breeds", href: "/breeds" },
+                { name: "Why Choose Us", href: "/why-choose-us" },
                 {
                   name: "Manufacturing",
                   href: "/manufacturing/third-party-manufacturing",

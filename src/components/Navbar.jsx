@@ -61,7 +61,7 @@ const Navbar = () => {
       }`}
     >
       <div
-        className="absolute bottom-0 left-0 h-[2px] bg-secondary transition-all duration-300"
+        className="absolute bottom-0 left-0 h-0.5 bg-secondary transition-all duration-300"
         style={{ width: `${scrollProgress}%` }}
       />
 

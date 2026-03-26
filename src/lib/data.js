@@ -177,7 +177,13 @@ export const manufacturingHero = {
   image: "/images/hero/slide2.png",
   title: "Third Party Manufacturing",
   subtitle:
-    "Build your own premium dairy feed brand with our ISO certified facility.",
+    "Fully Automated Manufacturing • Lab Tested Quality • Expert Formulated Nutrition • Field Proven on Real Dairy Farms",
+};
+export const thirdPartyManufacturingHero = {
+  image: "/images/hero/slide2.png",
+  title: "Third Party Manufacturing",
+  subtitle:
+    "Start your Cattle Feed Brand today — without a factory, without large investment.",
 };
 
 export const manufacturingVideo = {
@@ -349,56 +355,128 @@ export const whyChooseUs = [
 
 export const teamMembers = [
   {
-    name: "Dr. Arvind Kumar",
-    role: "Chief Nutrition Scientist",
-    bio: "With over 20 years in bovine nutrition, Dr. Kumar leads our R&D, ensuring every product is scientifically balanced for Indian breeds.",
-    image: "/images/team/member1.jpg",
-  },
-  {
-    name: "Himanshu",
-    role: "Founder & Visionary",
-    bio: "Driven by the mission to empower farmers, Himanshu focuses on building long-term relationships and sustainable farm growth.",
+    name: "Himanshu Choudhary",
+    role: "Founder",
+    bio: "Visionary founder driven by the mission to transform Indian dairy farming. Himanshu focuses on building long-term relationships with farmers and ensuring sustainable growth across rural communities.",
     image: "/images/about/founder.jpg",
+    department: "Leadership",
+    expertise: [
+      "Farmer Relations",
+      "Business Strategy",
+      "Farm Adoption",
+      "Sustainability",
+    ],
+    linkedin: "#",
+    highlight: "Built a community of 5+ lac farmers across 40k+ villages",
+    isFounder: true,
   },
   {
-    name: "Sandeep Singh",
-    role: "Head of Field Operations",
-    bio: "Sandeep manages our 365-day ground support team, bringing practical farm solutions directly to the cattle sheds.",
-  },
-  {
-    name: "Meenakshi Sharma",
-    role: "Lead Quality Controller",
-    bio: "Ensures that every batch of Dairy Guru Ji feed meets our rigorous ISO 9001:2015 standards.",
+    name: "Sunny Choudhary",
+    role: "Chief Operating  Officer",
+    bio: "Strategic leader executing the company vision with operational excellence. Sani drives innovation, market expansion, and ensures Dairy Guru Ji delivers consistent value to every farmer partner.",
+    image: "/images/team/ceo.jpeg",
+    department: "Leadership",
+    expertise: [
+      "Operations Excellence",
+      "Strategic Growth",
+      "Market Expansion",
+      "Team Leadership",
+    ],
+    linkedin: "#",
+    highlight: "Leading company expansion to new markets",
+    isCEO: true,
   },
 ];
 
-export const csrInitiatives = [
+export const csrDetailSections = [
   {
-    id: "green-planet",
-    title: "Project Green Planet",
-    desc: "Our commitment to environmental sustainability through manure management and renewable energy integration in dairy farms.",
-    fullDesc:
-      "We believe that dairy farming should be in harmony with nature. Project Green Planet focuses on educating farmers about efficient waste management, converting manure into bio-fertilizer, and integrating solar energy to power cattle sheds. This reduced carbon footprint ensures a healthier planet for the next generation of farmers.",
-    image: "/images/impact/impact_green.png",
-    stats: "50+ Solar-Ready Sheds Installed",
+    id: "scientific-breed-improvement-program",
+    eyebrow: "Genetic Progress",
+    title: "1. Scientific Breed Improvement Program",
+    headline: "बेहतर नस्ल = ज्यादा दूध = ज्यादा मुनाफा",
+    summary: "बेहतर नस्ल = ज्यादा दूध = ज्यादा मुनाफा",
+    details: [
+      "हम पशुपालक भाईओ को Artificial Insemination (AI) के बारे में जागरूक करते हैं, जिसमें high-quality semen का उपयोग करके बेहतर और high-yielding नस्ल तैयार की जाती है। इससे पशु की दूध देने की क्षमता बढ़ती है और long-term profit सुनिश्चित होता है।",
+      "इसके साथ ही, हम अब Embryo Transfer Technology भी affordable cost पर small dairy farmers तक ला रहे हैं, ताकि पशुपालक भाई कम समय में  अपनी पशुओं की नसल में सुधार कर सके।",
+    ],
+    image: "/images/impact/scientific-breed.jpeg",
   },
   {
-    id: "health-happiness",
-    title: "Netra Jyoti Sewa",
-    desc: "A health-first approach for our farmer partners, providing free eye checkups and general medical camps.",
-    fullDesc:
-      "A healthy farmer is the backbone of a successful farm. Through our 'Health & Happiness' initiative, we organize regular medical camps in rural hubs. We provide free eye screenings, general checkups, and distribute essential medicines. To date, we have supported over 2,000 farmer families through these camps.",
-    image: "/images/impact/impact_health.png",
-    stats: "2,000+ Families Supported",
+    id: "farmer-education",
+    eyebrow: "Digital Movement",
+    title: "2. Farmer Education Traning Camp",
+    summary:
+      "आज का किसान जितना educated होगा, उतना ही profitable होगा। Dairy Guruji हर दिन 1.5 लाख से ज्यादा farmers को Facebook, Instagram और YouTube के माध्यम से practical knowledge दे रहा है। हमारा 365-day education mission किसानों को modern dairy techniques, feeding strategies और real farm solutions सिखा रहा है।",
+    details: [""],
+    image: "/images/impact/education-traning.jpeg",
   },
   {
-    id: "digital-education",
-    title: "Digital Dairy Hubs",
-    desc: "Empowering rural youth with digital tools for modern cattle health monitoring and farm management.",
-    fullDesc:
-      "The future of dairy is digital. Our Digital Dairy Hubs program provides tablets and training to rural youth, teaching them how to track milk yield fluctuations, reproductive cycles, and nutrition schedules using modern software. This empowerment creates tech-savvy leaders in the rural community.",
-    image: "/images/impact/impact_education.png",
-    stats: "15+ Digital Hubs Established",
+    id: "digital-awareness-movement",
+    eyebrow: "Digital Awareness Movement",
+    title: "3. Farmer Digital Awareness",
+    summary:
+      "आज का किसान जितना educated होगा, उतना ही profitable होगा। इसलिए हम dairy farmers को सिर्फ जानकारी नहीं, बल्कि सही direction देते हैं। Dairy Guruji हर दिन लाखों किसानों तक Facebook, Instagram और YouTube के माध्यम से practical knowledge पहुंचा रहा है—जिसमें feeding, breeding, animal health और farm management जैसे जरूरी topics शामिल हैं।",
+    details: [
+      "हमारा 365-day education mission किसानों को daily सीखने और अपने farm में improvement करने के लिए inspire करता है। लेकिन असली ताकत तब आती है जब knowledge action में बदलता है। इसलिए हम farmers को simple और practical तरीके सिखाते हैं, जिन्हें वे तुरंत अपने farm पर apply कर सकें। हमारा goal clear है — हर किसान smart बने, confident बने और अपनी डेयरी को एक profitable business में बदल सके।",
+    ],
+    image: "/images/impact/education.jpeg",
+    video: "/images/impact/digital-awareness -movement.mp4",
+  },
+
+  {
+    id: "sustainable-low-cost-dairy-farming",
+    eyebrow: "Sustainability",
+    title: "4. Sustainable & Low-Cost Dairy Farming",
+    summary:
+      "डेयरी में profit सिर्फ ज्यादा खर्च करने से नहीं, बल्कि smart farming से आता है। हम farmers को balanced feeding, सही ration planning और waste management के बारे में guide करते हैं, जिससे unnecessary खर्च कम होता है और output बढ़ता है।",
+    details: [
+      "हम सिखाते हैं कि कैसे कम cost में ज्यादा production लिया जा सकता है—बिना quality compromise किए। सही nutrition, proper shed management और efficient practices से आपके animals healthy रहते हैं और long-term productivity बढ़ती है।",
+      "हम sustainable dairy farming को promote करते हैं, ताकि आपका farm सालों तक stable और profitable बना रहे।",
+      "हमारा goal है — “कम खर्च, ज्यादा उत्पादन, और लंबी अवधि का मुनाफा।”",
+    ],
+    image: "/images/impact/sustainable.jpeg",
+  },
+
+  {
+    id: "employment-rural-growth",
+    eyebrow: "Village Development",
+    title: "5. Employment & Rural Growth",
+    summary:
+      "Dairy Guruji सिर्फ पशुपालन तक सीमित नहीं है, हम गांवों में रोजगार और growth के नए अवसर भी बना रहे हैं। हम dairy background के युवाओं को direct और indirect employment दे रहे हैं—चाहे वो field support हो, training हो या dairy-related services।",
+    details: [
+      "हम चाहते हैं कि गांव का युवा शहर जाने के बजाय अपने गांव में ही stable career बना सके।",
+      "जब एक farmer grow करता है, तो उसके साथ पूरा गांव grow करता है।",
+      "हमारा mission है — गांव को मजबूत बनाना, youth को empower करना और dairy के जरिए rural economy को आगे बढ़ाना।",
+    ],
+    image: "/images/impact/employment.jpeg",
+  },
+
+  {
+    id: "empowering-entrepreneurship",
+    eyebrow: "Business Opportunity",
+    title: "6. Empowering Entrepreneurship",
+    summary:
+      "हम छोटे businessmen और farmers को सिर्फ buyer नहीं, बल्कि brand owner बनाना चाहते हैं। Dairy Guruji आपको मौका देता है कि आप अपना खुद का cattle feed brand शुरू करें—बिना बड़ी investment और factory के।",
+    details: [
+      "हम अपने plant पर third-party cattle feed manufacturing के जरिए आपका ख़ुद का Brand का पशु आहार तैयार करते हैं, और साथ में guidance भी देते हैं—formula, branding, market strategy और sales support तक।",
+      "इससे आप local market में अपनी पहचान बना सकते हैं और एक stable business खड़ा कर सकते हैं।",
+      "हमारा goal है — “हर गांव से एक successful dairy entrepreneur निकले।”",
+      "आप सिर्फ किसान नहीं, एक businessman बन सकते हैं—और हम इस सफर में आपके साथ खड़े हैं।",
+    ],
+    video: "/images/impact/empowering.mp4",
+  },
+  {
+    id: "We Adopt Farms",
+    eyebrow: "We-Adopt-Farms",
+    title: "7. We Adopt Farms",
+    summary:
+      "हम आपके farm को गहराई से समझते हैं—feeding pattern, breed quality, milk production, animal health और hidden खर्च—ताकि सही problem identify हो सके। इसके बाद हम कोई generic advice नहीं, बल्कि आपके farm के हिसाब से practical और result-oriented plan बनाते हैं।",
+    details: [
+      "हम यहीं नहीं रुकते—हर हफ्ते monitoring, regular guidance और continuous support के साथ हम improvement track करते हैं।",
+      "हमारा focus simple है: दूध बढ़ाना, खर्च कम करना और आपका profit stable बनाना",
+      "हम आपके साथ ground पर खड़े रहते हैं—ताकि आपकी डेयरी सिर्फ चले नहीं, बल्कि एक strong, profitable business बने।",
+    ],
+    image: "/images/impact/adopt-farm.jpeg",
   },
 ];
 
