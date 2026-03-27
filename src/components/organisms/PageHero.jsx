@@ -3,12 +3,14 @@
 import Image from "next/image";
 
 export default function PageHero({ image, title, subtitle }) {
+  const imageAlt = title || subtitle || "Dairy Guru Ji hero banner";
+
   return (
     <div className="relative h-[59vh] min-h-95 md:h-[60vh] md:min-h-0 w-full overflow-hidden">
       {/* Background Image */}
       <Image
         src={image}
-        alt={title}
+        alt={imageAlt}
         fill
         priority
         className="object-cover duration-10000 object-"
