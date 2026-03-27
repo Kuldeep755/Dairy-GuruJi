@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { motion } from "framer-motion";
 import {
   DollarSign,
   TrendingUp,
@@ -29,15 +28,7 @@ import {
 import { Input, Textarea, Select, FormField } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
-};
 
-const popIn = {
-  hidden: { opacity: 0, scale: 0.96 },
-  visible: { opacity: 1, scale: 1 },
-};
 
 export default function DealerPage() {
   const [formData, setFormData] = useState({
@@ -131,11 +122,7 @@ export default function DealerPage() {
 
       {/* Hero Section */}
       <section className="relative max-w-7xl mx-auto px-4 sm:px-6 pt-24 pb-16">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          transition={{ duration: 0.65 }}
+        <div
           className="text-center"
         >
           <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-5 py-2 text-xs font-extrabold uppercase tracking-[0.22em] text-primary shadow-sm mb-6">
@@ -177,20 +164,14 @@ export default function DealerPage() {
               Chat on WhatsApp
             </a>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* The Real Opportunity */}
       <section className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16">
         <div className="bg-white/80 backdrop-blur-xl border border-primary/10 rounded-3xl p-8 md:p-12 shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              transition={{ duration: 0.6 }}
-            >
+            <div>
               <h2 className="text-3xl md:text-4xl font-extrabold text-text-dark mb-6">
                 Why Dealers Choose Dairy Guru Ji
               </h2>
@@ -214,14 +195,10 @@ export default function DealerPage() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              transition={{ duration: 0.6, delay: 0.2 }}
+            <div
+           
               className="bg-primary/5 rounded-2xl p-8 border border-primary/10"
             >
               <h3 className="text-2xl font-bold text-text-dark mb-4">The Real Opportunity</h3>
@@ -246,35 +223,25 @@ export default function DealerPage() {
                   This creates repeat customers and stable long-term income.
                 </p>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* What makes us different */}
       <section className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          transition={{ duration: 0.6 }}
+        <div
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-black text-text-dark">
             What Makes Dairy Guru Ji Different?
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {differences.map((diff, index) => (
-            <motion.div
+            <div
               key={index}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={popIn}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
               className="rounded-3xl border border-gray-200 bg-white p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
             >
               <div className={`h-16 w-16 rounded-2xl ${diff.bg} ${diff.color} flex items-center justify-center mb-6`}>
@@ -286,19 +253,14 @@ export default function DealerPage() {
               <p className="text-text-dark/70 leading-relaxed font-medium text-base">
                 {diff.desc}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
 
       {/* Story / A day in the life */}
       <section className="relative max-w-5xl mx-auto px-4 sm:px-6 py-16">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          transition={{ duration: 0.6 }}
+        <div
           className="bg-primary text-white rounded-[2.5rem] p-10 md:p-16 text-center shadow-2xl relative overflow-hidden"
         >
           {/* Decorative shapes inside the card */}
@@ -326,33 +288,23 @@ export default function DealerPage() {
           </div>
           
           <p className="mt-8 text-2xl font-bold text-white uppercase tracking-wider">This is the difference.</p>
-        </motion.div>
+        </div>
       </section>
 
       {/* Benefits in Detail */}
       <section className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          transition={{ duration: 0.6 }}
+        <div
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-black text-text-dark">
             Dealer Benefits in Detail
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {benefitsDetail.map((benefit, index) => (
-            <motion.div
+            <div
               key={index}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={popIn}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group bg-white rounded-3xl p-8 border border-primary/10 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300"
             >
               <div className="h-14 w-14 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
@@ -364,7 +316,7 @@ export default function DealerPage() {
               <p className="text-text-dark/70 leading-relaxed font-medium">
                 {benefit.desc}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
@@ -373,12 +325,7 @@ export default function DealerPage() {
       <section className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Who we are looking for */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            transition={{ duration: 0.6 }}
+          <div
             className="bg-white rounded-3xl p-8 md:p-12 border border-gray-200 shadow-xl"
           >
             <h2 className="text-3xl font-extrabold text-text-dark mb-8 flex items-center gap-3">
@@ -400,15 +347,10 @@ export default function DealerPage() {
                 If you believe business is about trust <br/>— you are the right partner.
               </p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Investment & Growth Potential */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            transition={{ duration: 0.6, delay: 0.2 }}
+          <div
             className="bg-text-dark text-white rounded-3xl p-8 md:p-12 shadow-xl relative overflow-hidden"
           >
             <div className="absolute -top-32 -right-32 h-64 w-64 rounded-full bg-white/5 blur-3xl" />
@@ -437,34 +379,24 @@ export default function DealerPage() {
                 <span className="text-primary font-black text-2xl block mt-2">This is continuous demand.</span>
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Process Section */}
       <section className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 bg-white/50 backdrop-blur rounded-[3rem] my-16 border border-white">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          transition={{ duration: 0.6 }}
+        <div
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-black text-text-dark">
             Dealer Partnership Process
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {processSteps.map((step, index) => (
-            <motion.div
+            <div
               key={index}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={popIn}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
               className="text-center relative"
             >
               {index !== processSteps.length - 1 && (
@@ -479,7 +411,7 @@ export default function DealerPage() {
               <p className="text-text-dark/70 leading-relaxed font-medium px-4">
                 {step.desc}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
@@ -489,12 +421,7 @@ export default function DealerPage() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           
           {/* Form */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            transition={{ duration: 0.6 }}
+          <div
             className="lg:col-span-3 rounded-[2.5rem] bg-white p-8 md:p-12 shadow-2xl border border-gray-100 relative z-10"
           >
             <div className="mb-10">
@@ -590,26 +517,19 @@ export default function DealerPage() {
                 </FormField>
               </div>
               <div className="md:col-span-2 mt-4">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                <button
                   type="submit" 
                   className="w-full inline-flex items-center justify-center rounded-xl bg-primary px-8 py-5 text-lg font-extrabold text-white shadow-lg shadow-primary/30 transition-all hover:bg-primary-dark"
                 >
                   Submit Application
                   <ArrowRight className="ml-2 h-5 w-5" />
-                </motion.button>
+                </button>
               </div>
             </form>
-          </motion.div>
+          </div>
 
           {/* Vision */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            transition={{ duration: 0.6, delay: 0.2 }}
+          <div
             className="lg:col-span-2 flex flex-col justify-center"
           >
             <div className="bg-primary/5 rounded-3xl p-8 md:p-10 border border-primary/20 h-full flex flex-col justify-center">
@@ -644,7 +564,7 @@ export default function DealerPage() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 

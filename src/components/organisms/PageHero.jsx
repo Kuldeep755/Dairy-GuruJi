@@ -20,9 +20,9 @@ export default function PageHero({ image, title, subtitle }) {
 
       {/* Content */}
       <div className="absolute inset-0 flex items-center">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 text-white w-full">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 text-white w-full mb-60">
           <p
-            className="text-xl sm:text-5xl md:text-5xl font-black space-[1em] leading-15
+            className="text-xl sm:text-5xl md:text-5xl font-black space-[1em] leading-12
 "
           >
             {subtitle}

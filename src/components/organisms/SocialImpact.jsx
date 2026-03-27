@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { Leaf, HeartPulse, GraduationCap, ArrowRight } from "lucide-react";
 import { socialImpact } from "@/lib/data";
 
@@ -19,12 +18,8 @@ export default function SocialImpact() {
 
       <div className="mx-auto max-w-7xl relative z-10 ">
         <div className="text-center mb-16 md:mb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-5 py-2 mb-6"
-          >
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-5 py-2 mb-6"
+            >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
@@ -32,29 +27,21 @@ export default function SocialImpact() {
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
               Our Commitment
             </span>
-          </motion.div>
+          </div>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+          <h2
             className="text-3xl md:text-3xl font-black text-text-dark tracking-tight mb-6"
           >
             We are not just building a company, we are building a new future for
             Indian dairy farmers.
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+          <p
             className="max-w-2xl mx-auto text-lg text-text-dark/70"
           >
             क्योंकि जब किसान आगे बढ़ता है, तभी उसका परिवार खुशहाल बनता है और देश
             का भविष्य मजबूत होता है — और हम इसी बदलाव का हिस्सा बनना चाहते हैं।
-          </motion.p>
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -92,12 +79,8 @@ export default function SocialImpact() {
                       <div
                         className={`h-1 w-12 rounded-full bg-gray-100 relative overflow-hidden`}
                       >
-                        <motion.div
+                        <div
                           className={`absolute inset-0 bg-primary`}
-                          initial={{ x: "-100%" }}
-                          whileInView={{ x: "0%" }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1.5, delay: 0.5 }}
                         />
                       </div>
                     </div>

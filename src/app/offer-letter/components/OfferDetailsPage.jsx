@@ -23,7 +23,7 @@ export default function OfferDetailsPage({ formData, rd, role }) {
             {formData.candidateName || "_________________________"}
           </p>
           <p className="text-gray-700">
-            Aadhar No.{" "}
+            Aadhaar No.{" "}
             <span className="font-medium text-gray-900">
               {formData.aadharNo || "_________________________"}
             </span>
@@ -60,7 +60,7 @@ export default function OfferDetailsPage({ formData, rd, role }) {
           We are pleased to offer you the position of{" "}
           <span className="font-bold underline">{rd.postBody}</span> at{" "}
           <strong>Dairy Guruji</strong>. The details of your compensation,
-          benefits, and terms & conditions are mentioned below:
+          benefits, and terms and conditions are mentioned below:
         </p>
       </div>
 
@@ -74,15 +74,22 @@ export default function OfferDetailsPage({ formData, rd, role }) {
             <span>₹{rd.baseSalary}/- per month (all inclusive)</span>
           </div>
           <div className="flex gap-2">
+            <span className="font-bold min-w-[140px]">Activity Allowance:</span>{" "}
+            <span>₹{rd.activityAllowance}</span>
+          </div>
+          <div className="flex gap-2">
             <span className="font-bold min-w-[140px]">Fuel Allowance:</span>{" "}
-            <span>₹{rd.fuelAllowance}/km (up to 2500 km/mo, 24 days only)</span>
+            <span>
+              ₹{rd.fuelAllowance}/km (up to 2,500 km/month, for 24 working days
+              only)
+            </span>
           </div>
 
           {rd.homeAllowance !== "0" && (
             <div className="flex gap-2">
               <span className="font-bold min-w-[140px]">Home Allowance:</span>{" "}
               <span>
-                ₹{rd.homeAllowance}/- per month (if worked {">"}22 days)
+                ₹{rd.homeAllowance}/- per month (if you work more than 22 days)
               </span>
             </div>
           )}
@@ -90,7 +97,7 @@ export default function OfferDetailsPage({ formData, rd, role }) {
             <div className="flex gap-2">
               <span className="font-bold min-w-[140px]">Daily Allowance:</span>{" "}
               <span>
-                ₹{rd.dailyAllowance}/- per day (if worked {">"}22 days)
+                ₹{rd.dailyAllowance}/- per day (if you work more than 22 days)
               </span>
             </div>
           )}
@@ -99,14 +106,17 @@ export default function OfferDetailsPage({ formData, rd, role }) {
               <span className="font-bold min-w-[140px]">
                 Bike/Car EMI Support:
               </span>{" "}
-              <span>Upto ₹{rd.bikeEMI}/- (if used for business purpose)</span>
+              <span>
+                Up to ₹{rd.bikeEMI}/- (if a vehicle is provided by the company
+                for business purposes)
+              </span>
             </div>
           )}
           {rd.phoneAllowance !== "0" && (
             <div className="flex gap-2">
               <span className="font-bold min-w-[140px]">Phone Allowance:</span>{" "}
               <span>
-                ₹{rd.phoneAllowance}/- (if sales achieve {">"}60%)
+                ₹{rd.phoneAllowance}/- (if sales achievement exceeds 60%)
               </span>
             </div>
           )}
@@ -124,6 +134,11 @@ export default function OfferDetailsPage({ formData, rd, role }) {
                 Achievement Level
               </th>
               <th className="border border-gray-300 p-2">Incentive Payout</th>
+              {["SO", "SE", "SSO"].includes(role) && (
+                <th className="border border-gray-300 p-2">
+                  Mandatory Supplement
+                </th>
+              )}
             </tr>
           </thead>
           <tbody>
@@ -137,17 +152,9 @@ export default function OfferDetailsPage({ formData, rd, role }) {
                     Fixed Base Salary (₹8,000 + Fuel)
                   </td>
                 </tr>
-                <tr>
-                  <td className="border border-gray-300 px-2 py-1.5">
-                    61% - 70% achievement
-                  </td>
-                  <td className="border border-gray-300 px-2 py-1.5">
-                    ₹2,000/-
-                  </td>
-                </tr>
                 <tr className="bg-gray-50">
                   <td className="border border-gray-300 px-2 py-1.5">
-                    71% - 75% above achievement
+                    71% - 75% achievement
                   </td>
                   <td className="border border-gray-300 px-2 py-1.5">
                     ₹3,000/-
@@ -155,7 +162,7 @@ export default function OfferDetailsPage({ formData, rd, role }) {
                 </tr>
                 <tr>
                   <td className="border border-gray-300 px-2 py-1.5">
-                    76% - 80% above achievement
+                    76% - 80% achievement
                   </td>
                   <td className="border border-gray-300 px-2 py-1.5">
                     ₹5,000/-
@@ -163,48 +170,43 @@ export default function OfferDetailsPage({ formData, rd, role }) {
                 </tr>
                 <tr className="bg-gray-50">
                   <td className="border border-gray-300 px-2 py-1.5">
-                    81% - 90% above achievement
+                    81% - 90% achievement
+                  </td>
+                  <td className="border border-gray-300 px-2 py-1.5">
+                    ₹7,000/-
+                  </td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 px-2 py-1.5">
+                    91% - 100% achievement
                   </td>
                   <td className="border border-gray-300 px-2 py-1.5">
                     ₹10,000/-
                   </td>
                 </tr>
-                <tr>
+                <tr className="bg-gray-50">
                   <td className="border border-gray-300 px-2 py-1.5">
-                    91% - 100% above achievement
+                    101% - 110% achievement
                   </td>
                   <td className="border border-gray-300 px-2 py-1.5">
                     ₹15,000/-
                   </td>
                 </tr>
-                <tr className="bg-gray-50">
-                  <td className="border border-gray-300 px-2 py-1.5">
-                    101% - 110% above achievement
-                  </td>
-                  <td className="border border-gray-300 px-2 py-1.5">
-                    ₹20,000/-
-                  </td>
-                </tr>
                 <tr>
                   <td className="border border-gray-300 px-2 py-1.5">
-                    111% - 120% above achievement
+                    111% - 120% achievement
                   </td>
                   <td className="border border-gray-300 px-2 py-1.5">
-                    ₹25,000/-
+                    ₹17,000/-
                   </td>
                 </tr>
+
                 <tr className="bg-green-100 font-bold text-green-900">
                   <td className="border border-gray-300 px-2 py-2">
-                    Above 120% + ₹15,000/- Supplement minimum individually
-                  </td>
-                  <td className="border border-gray-300 px-2 py-2">₹30,000</td>
-                </tr>
-                <tr className="bg-green-100 font-bold text-green-900">
-                  <td className="border border-gray-300 px-2 py-2">
-                    Above 150% + ₹1.20 lac /- Supplement
+                    Above 150% achievement
                   </td>
                   <td className="border border-gray-300 px-2 py-2">
-                    ₹1 lac Include Every Things
+                    ₹1 lakh, inclusive of all components
                   </td>
                 </tr>
               </>
@@ -222,16 +224,14 @@ export default function OfferDetailsPage({ formData, rd, role }) {
                   <td className="border border-gray-300 px-2 py-1.5">
                     71% - 80% achievement
                   </td>
-                  <td className="border border-gray-300 px-2 py-1.5">
-                    ₹45,000 + EMI + Fuel + HA (₹6,000) + DA (₹200)
-                  </td>
+                  <td className="border border-gray-300 px-2 py-1.5">₹8,000</td>
                 </tr>
                 <tr>
                   <td className="border border-gray-300 px-2 py-1.5">
                     81% - 90% achievement
                   </td>
                   <td className="border border-gray-300 px-2 py-1.5">
-                    ₹30,000
+                    ₹20,000
                   </td>
                 </tr>
                 <tr className="bg-gray-50">
@@ -239,7 +239,7 @@ export default function OfferDetailsPage({ formData, rd, role }) {
                     91% - 100% achievement
                   </td>
                   <td className="border border-gray-300 px-2 py-1.5">
-                    ₹50,000
+                    ₹25,000
                   </td>
                 </tr>
                 <tr>
@@ -247,14 +247,14 @@ export default function OfferDetailsPage({ formData, rd, role }) {
                     101% - 120% achievement
                   </td>
                   <td className="border border-gray-300 px-2 py-1.5">
-                    ₹60,000
+                    ₹35,000
                   </td>
                 </tr>
                 <tr className="bg-green-100 font-bold text-green-900">
                   <td className="border border-gray-300 px-2 py-2">
                     121%+ achievement
                   </td>
-                  <td className="border border-gray-300 px-2 py-2">₹70,000</td>
+                  <td className="border border-gray-300 px-2 py-2">₹40,000</td>
                 </tr>
               </>
             ) : (
@@ -263,37 +263,70 @@ export default function OfferDetailsPage({ formData, rd, role }) {
                   <td className="border border-gray-300 px-2 py-1.5">
                     50% - 55% achievement
                   </td>
+                  <td className="border border-gray-300 px-2 py-1.5">₹500/-</td>
                   <td className="border border-gray-300 px-2 py-1.5">
-                    ₹2,500/-
+                    ₹1000/-
                   </td>
                 </tr>
                 <tr className="bg-gray-50">
                   <td className="border border-gray-300 px-2 py-1.5">
                     56% - 60% achievement
                   </td>
+                  <td className="border border-gray-300 px-2 py-1.5">₹750/-</td>
                   <td className="border border-gray-300 px-2 py-1.5">
-                    ₹5,000/-
+                    ₹1500/-
                   </td>
                 </tr>
                 <tr>
                   <td className="border border-gray-300 px-2 py-1.5">
-                    61% - 65% above achievement
+                    61% - 65% achievement
                   </td>
                   <td className="border border-gray-300 px-2 py-1.5">
-                    ₹7,000/-
+                    ₹1000/-
+                  </td>
+                  <td className="border border-gray-300 px-2 py-1.5">
+                    ₹2000/-
                   </td>
                 </tr>
                 <tr className="bg-gray-50">
                   <td className="border border-gray-300 px-2 py-1.5">
-                    66% - 70% above achievement
+                    66% - 70% achievement
                   </td>
                   <td className="border border-gray-300 px-2 py-1.5">
-                    ₹8,000/-
+                    ₹2,500/-
+                  </td>
+                  <td className="border border-gray-300 px-2 py-1.5">
+                    ₹4000/-
                   </td>
                 </tr>
                 <tr>
                   <td className="border border-gray-300 px-2 py-1.5">
-                    71% - 80% above achievement
+                    71% - 80% achievement
+                  </td>
+                  <td className="border border-gray-300 px-2 py-1.5">
+                    ₹5,000/-
+                  </td>
+                  <td className="border border-gray-300 px-2 py-1.5">
+                    ₹6000/-
+                  </td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="border border-gray-300 px-2 py-1.5">
+                    81% - 90% achievement
+                  </td>
+                  <td className="border border-gray-300 px-2 py-1.5">
+                    ₹7,500/-
+                  </td>
+                  <td className="border border-gray-300 px-2 py-1.5">
+                    ₹8000/-
+                  </td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 px-2 py-1.5">
+                    91% - 100% achievement
+                  </td>
+                  <td className="border border-gray-300 px-2 py-1.5">
+                    ₹12,000/-
                   </td>
                   <td className="border border-gray-300 px-2 py-1.5">
                     ₹10,000/-
@@ -301,31 +334,18 @@ export default function OfferDetailsPage({ formData, rd, role }) {
                 </tr>
                 <tr className="bg-gray-50">
                   <td className="border border-gray-300 px-2 py-1.5">
-                    81% - 90% above achievement
-                  </td>
-                  <td className="border border-gray-300 px-2 py-1.5">
-                    ₹15,000/-
-                  </td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-2 py-1.5">
-                    91% - 100% above achievement
-                  </td>
-                  <td className="border border-gray-300 px-2 py-1.5">
-                    ₹20,000/-
-                  </td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="border border-gray-300 px-2 py-1.5">
-                    101% - 120% above achievement
+                    101% - 120% achievement
                   </td>
                   <td className="border border-gray-300 px-2 py-1.5">
                     ₹{rd.inc101to120}/-
                   </td>
+                  <td className="border border-gray-300 px-2 py-1.5">
+                    ₹12,000/-
+                  </td>
                 </tr>
                 <tr className="bg-green-100 font-bold text-green-900">
                   <td className="border border-gray-300 px-2 py-2">
-                    Above 150%+ achievement {rd.incUltSuppl}
+                    Above 150% achievement with {rd.incUltSuppl}
                   </td>
                   <td className="border border-gray-300 px-2 py-2">
                     {rd.incUltTotal}

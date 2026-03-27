@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { whyChooseUs } from "@/lib/data";
 
@@ -54,12 +53,8 @@ export default function WhyChooseUs() {
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {whyChooseUs.map((item, index) => (
-            <motion.div
+            <div
               key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: index * 0.08 }}
               className="group relative rounded-[2rem] border border-primary/10 bg-white p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_18px_45px_rgba(23,36,50,0.08)]"
             >
               <div className="absolute right-6 top-6 text-5xl font-black text-primary/10">
@@ -76,7 +71,7 @@ export default function WhyChooseUs() {
               <p className="text-base font-medium leading-relaxed text-text-dark/75">
                 {item.desc}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
 

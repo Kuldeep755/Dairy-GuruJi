@@ -2,12 +2,13 @@
 
 import React from "react";
 import Image from "next/image";
-
 import { csrDetailSections } from "@/lib/data";
+import PageHero from "@/components/organisms/PageHero";
 
 export default function CSRPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#fffdf8] pt-20">
+    <main className="relative min-h-screen overflow-hidden bg-[#fffdf8]">
+      <PageHero image={"/images/hero/slide7.jpeg"} />
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -24,7 +25,6 @@ export default function CSRPage() {
       <section className="px-4 py-20 sm:px-6">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 max-w-3xl">
-            
             <h2 className="mt-4 text-3xl font-black md:text-5xl text-primary">
               A closer look at the social impact we create on the ground
             </h2>

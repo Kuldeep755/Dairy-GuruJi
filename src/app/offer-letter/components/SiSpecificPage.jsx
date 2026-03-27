@@ -26,6 +26,13 @@ export default function SiSpecificPage() {
                 onboarding, stability, and overall performance of all ASMs and
                 their teams.
               </li>
+              <li>
+                You must maintain a team of at least 24 Sales Officers (SOs)
+                and 4 Area Sales Managers (ASMs). If the team strength falls
+                below this level, a deduction of ₹2,000 per month will apply
+                for each shortage in SO count, and ₹5,000 per month for each
+                shortage in ASM count.
+              </li>
             </ul>
           </div>
 
@@ -36,7 +43,7 @@ export default function SiSpecificPage() {
             <div className="text-red-800 bg-red-50 p-2.5 rounded border border-red-200 shadow-sm leading-snug mt-1">
               <strong>⚠️ Penalty Clause:</strong> If any Area Sales Manager
               (ASM) or the overall state team performs{" "}
-              <strong>below 30% of the assigned target</strong>, a{" "}
+              <strong>below 50% of the assigned target</strong>, a{" "}
               <strong>deduction of ₹1,000 per underperforming ASM</strong> will
               be applied to the responsible senior (State Incharge).
             </div>
@@ -69,8 +76,8 @@ export default function SiSpecificPage() {
               <li>
                 All state team members (ASMs, SOs) are required to maintain
                 proper discipline and professional conduct at all times,
-                including: Proper dress code (professional appearance), Regular
-                field reporting, and Daily activity submission.
+                including proper dress code, professional appearance, regular
+                field reporting, and daily activity submission.
               </li>
             </ul>
             <div className="text-red-800 bg-red-50 p-2.5 rounded border border-red-200 mt-2 shadow-sm leading-snug">
@@ -80,8 +87,6 @@ export default function SiSpecificPage() {
               will be applied to the responsible State Incharge.
             </div>
           </div>
-
-  
 
           <div className="mt-8 flex justify-between items-end border-t border-gray-300 pt-8 w-full mt-auto">
             <div className="text-sm">

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Link from "next/link";
 import { faqs } from "@/lib/data";
 
 export default function FAQ() {
@@ -27,12 +27,8 @@ export default function FAQ() {
 
         <div className="space-y-8">
           {faqs.map((item, index) => (
-            <motion.div
+            <div
               key={item.q}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group rounded-[2.5rem] border border-primary/10 bg-white/50 p-8 sm:p-12 shadow-md backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:bg-white hover:-translate-y-1"
             >
               <h3 className="text-xl md:text-2xl font-black text-text-dark mb-6 flex items-start gap-6">
@@ -46,7 +42,7 @@ export default function FAQ() {
                   {item.a}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
         

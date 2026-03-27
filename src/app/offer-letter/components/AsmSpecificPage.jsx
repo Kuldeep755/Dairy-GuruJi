@@ -16,11 +16,11 @@ export default function AsmSpecificPage() {
             <ul className="list-disc pl-5 space-y-1 text-justify">
               <li>
                 Every Area Sales Manager (ASM) must maintain a minimum team size
-                of <strong>5 active Sales Officers (SOs) at all times</strong>.
+                of <strong>6 active Sales Officers (SOs) at all times</strong>.
               </li>
               <li>
                 This requirement will remain applicable until new joinings are
-                completed and stabilized.
+                completed and the team is stabilized.
               </li>
               <li>
                 The ASM will be fully responsible for recruitment, onboarding,
@@ -28,7 +28,7 @@ export default function AsmSpecificPage() {
               </li>
             </ul>
             <div className="text-red-800 bg-red-50 p-2.5 rounded border border-red-200 mt-2 shadow-sm leading-snug">
-              <strong>⚠️ Penalty Clause:</strong> If the team size falls below 5
+              <strong>⚠️ Penalty Clause:</strong> If the team size falls below 6
               members at any time, a{" "}
               <strong>deduction of ₹5,000 per month</strong> will be applied
               until the required team strength is restored. Continuous failure
@@ -78,8 +78,8 @@ export default function AsmSpecificPage() {
             <ul className="list-disc pl-5 space-y-1 text-justify">
               <li>
                 All team members are required to maintain proper discipline and
-                professional conduct at all times, including: Proper dress code
-                (professional appearance), Regular field reporting, and Daily
+                professional conduct at all times, including proper dress code,
+                professional appearance, regular field reporting, and daily
                 activity submission.
               </li>
             </ul>

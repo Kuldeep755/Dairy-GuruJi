@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { motion } from "framer-motion";
 import {
   ArrowRight,
   BadgeCheck,
@@ -49,11 +48,7 @@ export default function ProductsPage() {
       <div className="pointer-events-none absolute right-[-10%] top-20 h-80 w-80 rounded-full bg-secondary/10 blur-3xl" />
 
       <section className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          transition={{ duration: 0.45 }}
+        <div
           className="rounded-[2rem] border border-primary/10 bg-white px-6 py-8 shadow-[0_16px_45px_rgba(20,33,45,0.06)] md:px-8 md:py-10"
         >
           <p className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">
@@ -66,7 +61,7 @@ export default function ProductsPage() {
             Find the right product by problem, category, or name. Open the
             detail page to see dosage, pack size, benefits, and enquiry options.
           </p>
-        </motion.div>
+        </div>
       </section>
 
       <section className="relative mx-auto mt-8 max-w-6xl px-4 sm:px-6">
@@ -115,13 +110,8 @@ export default function ProductsPage() {
         {filteredProducts.length ? (
           <div className="space-y-4">
             {filteredProducts.map((product, index) => (
-              <motion.article
+              <article
                 key={product.id}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.15 }}
-                variants={fadeUp}
-                transition={{ duration: 0.4, delay: index * 0.03 }}
                 className="grid gap-5 rounded-[1.75rem] border border-primary/10 bg-white p-5 shadow-[0_14px_40px_rgba(20,33,45,0.05)] md:grid-cols-[220px_minmax(0,1fr)] md:p-6"
               >
                 <Link
@@ -196,7 +186,7 @@ export default function ProductsPage() {
                     </div>
                   </div>
                 </div>
-              </motion.article>
+              </article>
             ))}
           </div>
         ) : (

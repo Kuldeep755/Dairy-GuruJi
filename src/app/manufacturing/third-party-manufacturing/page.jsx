@@ -5,32 +5,10 @@ import { manufacturingVideo, thirdPartyManufacturingHero } from "@/lib/data";
 
 import Image from "next/image";
 import { useState } from "react";
-import { motion } from "framer-motion";
-import {
-  Factory,
-  CheckCircle,
-  TrendingUp,
-  Target,
-  FlaskConical,
-  Scale,
-  ShieldCheck,
-  PackageOpen,
-  ArrowRight,
-  Lightbulb,
-  Workflow,
-  ClipboardCheck,
-  Lock,
-  Globe2,
-  Sprout,
-} from "lucide-react";
+import { ArrowRight, Lightbulb, Globe2, Sprout } from "lucide-react";
 
 import { Input, Textarea, FormField } from "@/components/ui/input";
-import { desc } from "framer-motion/client";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
-};
 const getYoutubeEmbedUrl = (url) => {
   if (!url) return "";
 
@@ -126,44 +104,6 @@ export default function ThirdPartyManufacturingPage() {
       title: "Field-Tested Products",
       explanation:
         "We test our products on real dairy farms to ensure proven performance. This guarantees visible results for farmers and helps your brand grow with strong trust.",
-    },
-  ];
-
-  const infrastructureFeatures = [
-    {
-      icon: <Factory className="h-8 w-8" />,
-      title: "Modern Production Infrastructure",
-      desc: "Automated mixing systems, precision batching, controlled blending, and standardized pellet/granule production ensure uniformity and consistent nutritional value.",
-      color: "text-blue-600",
-      bg: "bg-blue-50",
-    },
-    {
-      icon: <FlaskConical className="h-8 w-8" />,
-      title: "Strict Raw Material Selection",
-      desc: "We procure high-quality protein sources, tested mineral blends, and verified grain ingredients. Every raw material is checked before entering production.",
-      color: "text-emerald-600",
-      bg: "bg-emerald-50",
-    },
-    {
-      icon: <ShieldCheck className="h-8 w-8" />,
-      title: "Multi-Level Quality Control",
-      desc: "Raw material inspection, in-process monitoring, batch testing, and final product verification reduces rejection, complaints, and market risk.",
-      color: "text-orange-600",
-      bg: "bg-orange-50",
-    },
-    {
-      icon: <PackageOpen className="h-8 w-8" />,
-      title: "Hygienic & Controlled Storage",
-      desc: "Moisture-controlled areas, proper ventilation, and organized inventory management protect product integrity and shelf life.",
-      color: "text-purple-600",
-      bg: "bg-purple-50",
-    },
-    {
-      icon: <Scale className="h-8 w-8" />,
-      title: "Scalable Production Capacity",
-      desc: "Whether you require small batches for a regional launch or bulk national supply, our facility scales production based on your growth.",
-      color: "text-rose-600",
-      bg: "bg-rose-50",
     },
   ];
 
@@ -266,7 +206,7 @@ export default function ThirdPartyManufacturingPage() {
   ];
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[linear-gradient(180deg,#f8fbfa_0%,#ffffff_28%,#f8fbfa_100%)] pt-20">
+    <div className="relative min-h-screen overflow-hidden bg-[linear-gradient(180deg,#f8fbfa_0%,#ffffff_28%,#f8fbfa_100%)] ">
       <PageHero
         image={thirdPartyManufacturingHero.image}
         title={thirdPartyManufacturingHero.title}
@@ -527,15 +467,13 @@ export default function ThirdPartyManufacturingPage() {
                   />
                 </FormField>
                 <div className="pt-4">
-                  <motion.button
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
+                  <button
                     type="submit"
                     className="inline-flex w-full items-center justify-center rounded-2xl bg-primary px-8 py-5 text-xl font-black text-white shadow-2xl shadow-primary/40 transition-all hover:bg-primary-dark"
                   >
                     Send Inquiry
                     <ArrowRight className="ml-2 h-6 w-6" />
-                  </motion.button>
+                  </button>
                 </div>
               </form>
             </div>

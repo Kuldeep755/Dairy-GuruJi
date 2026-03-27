@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { farmerPainPoints } from "@/lib/data";
 
@@ -100,12 +99,8 @@ export default function PainPoints() {
               const accent = accentStyles[index % accentStyles.length];
 
               return (
-                <motion.article
+                <article
                   key={point.problem}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.55, delay: index * 0.06 }}
                   className={`group relative min-h-[340px] overflow-hidden rounded-[2rem] border shadow-[0_20px_60px_rgba(23,36,50,0.14)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_28px_80px_rgba(23,36,50,0.2)] ${accent.shell}`}
                 >
                   <Image
@@ -135,7 +130,7 @@ export default function PainPoints() {
                       </p>
                     </div>
                   </div>
-                </motion.article>
+                </article>
               );
             })}
           </div>

@@ -2,19 +2,13 @@
 
 import Link from "next/link";
 import { ArrowRight, Mail, Phone } from "lucide-react";
-import { motion } from "framer-motion";
 
 export default function CareersSection() {
   return (
     <section className="w-full relative py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <div>
             <span className="text-sm font-semibold uppercase tracking-widest text-primary">
               Careers
             </span>
@@ -38,16 +32,8 @@ export default function CareersSection() {
                 <ArrowRight size={18} />
               </Link>
             </div>
-          </motion.div>
-
-          {/* RIGHT CONTACT CARD */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-gray-50 rounded-2xl p-10 border"
-          >
+          </div>
+          <div className="bg-gray-50 rounded-2xl p-10 border">
             <h3 className="text-2xl font-semibold text-gray-900 mb-6">
               We're Hiring
             </h3>
@@ -73,7 +59,7 @@ export default function CareersSection() {
                 <span className="font-medium">dairyguruji@gmail.com</span>
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

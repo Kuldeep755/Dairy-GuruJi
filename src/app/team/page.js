@@ -1,419 +1,138 @@
 "use client";
 
-import React, { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import {
-  Users,
-  GraduationCap,
-  Microscope,
-  ShieldCheck,
-  Linkedin,
-  Award,
-  Sparkles,
-  CheckCircle2,
-} from "lucide-react";
+import { CheckCircle2, Linkedin, Sparkles } from "lucide-react";
 import { teamMembers } from "@/lib/data";
 
-const departmentColors = {
-  Leadership: {
-    bg: "bg-blue-50",
-    border: "border-blue-200",
-    badge: "bg-blue-100 text-blue-700",
-    icon: Users,
+const ringStyles = [
+  {
+    ring: "from-primary to-primary/70",
+    role: "text-primary",
+    chip: "bg-primary/10 text-primary border-primary/15",
+    icon: "text-primary",
   },
-  "Science & R&D": {
-    bg: "bg-purple-50",
-    border: "border-purple-200",
-    badge: "bg-purple-100 text-purple-700",
-    icon: Microscope,
+  {
+    ring: "from-secondary to-secondary/70",
+    role: "text-[#9b6a00]",
+    chip: "bg-secondary/15 text-text-dark border-secondary/30",
+    icon: "text-[#9b6a00]",
   },
-  Operations: {
-    bg: "bg-green-50",
-    border: "border-green-200",
-    badge: "bg-green-100 text-green-700",
-    icon: ShieldCheck,
+  {
+    ring: "from-accent to-primary/80",
+    role: "text-primary",
+    chip: "bg-accent/15 text-primary border-primary/15",
+    icon: "text-primary",
   },
-  "Marketing & Education": {
-    bg: "bg-orange-50",
-    border: "border-orange-200",
-    badge: "bg-orange-100 text-orange-700",
-    icon: GraduationCap,
-  },
-  "Quality & Safety": {
-    bg: "bg-red-50",
-    border: "border-red-200",
-    badge: "bg-red-100 text-red-700",
-    icon: ShieldCheck,
-  },
-};
+];
 
 export default function TeamPage() {
-  const [selectedDept, setSelectedDept] = useState(null);
-
-  const founder = teamMembers.find((m) => m.isFounder);
-  const ceo = teamMembers.find((m) => m.isCEO);
-  const otherTeamMembers = teamMembers.filter((m) => !m.isFounder && !m.isCEO);
-
-  const departments = Array.from(
-    new Set(otherTeamMembers.map((m) => m.department)),
+  const founder = teamMembers.find((member) => member.isFounder);
+  const ceo = teamMembers.find((member) => member.isCEO);
+  const remainingMembers = teamMembers.filter(
+    (member) => !member.isFounder && !member.isCEO,
   );
-  const filteredTeam = selectedDept
-    ? otherTeamMembers.filter((m) => m.department === selectedDept)
-    : otherTeamMembers;
+
+  const showcaseMembers = [founder, ceo, ...remainingMembers].filter(Boolean);
 
   return (
-    <main className="relative min-h-screen pt-20 bg-surface">
-      {/* Hero Section */}
-      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
+    <main className="relative overflow-hidden ">
+      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden w-full ">
         <Image
-          src="/images/team/team_hero.png"
+          src="/images/team/team.jpeg"
           alt="Dairy Guru Ji Team Hero"
           fill
-          className="object-cover"
+          className="object-cover w-full "
           priority
         />
-        <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px]" />
-
-        <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-7xl font-black text-white mb-6 uppercase tracking-tight"
-          >
-            Meet The <span className="text-secondary italic">Experts</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-xl md:text-2xl text-white/90 font-medium"
-          >
-            The passionate team behind Dairy Guru Ji innovation and farmer-first
-            support.
-          </motion.p>
-        </div>
       </section>
-
-      {/* Leadership Section - Founder & CEO */}
-      {(founder || ceo) && (
-        <section className="py-20 px-4 sm:px-6 bg-white">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2">
-                <Sparkles size={16} className="text-primary" />
-                <span className="text-xs font-bold uppercase tracking-widest text-primary">
-                  Leadership
-                </span>
-              </div>
-              <h2 className="text-3xl md:text-5xl font-black text-text-dark mb-4">
-                Visionary <span className="text-primary">Leaders</span>
-              </h2>
-              <p className="max-w-3xl mx-auto text-lg text-text-dark/70">
-                Guiding Dairy Guru Ji mission to transform Indian dairy farming
-              </p>
+      <section className="relative px-4 py-16 sm:px-6 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-white/80 px-4 py-2 shadow-sm backdrop-blur">
+              <span className="text-xs font-black uppercase tracking-[0.25em] text-primary">
+                Dairy Guru Ji Team
+              </span>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-              {/* Founder */}
-              {founder && (
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  className="flex flex-col"
-                >
-                  <div className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden bg-gray-100 shadow-xl mb-8">
-                    <Image
-                      src={founder.image}
-                      alt={founder.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <span className="text-xs font-bold uppercase tracking-widest text-primary">
-                      Founder
-                    </span>
-                    <h3 className="text-3xl font-black text-text-dark mb-2 mt-2">
-                      {founder.name}
-                    </h3>
-                    <p className="text-lg font-bold text-primary uppercase tracking-widest mb-6">
-                      {founder.role}
-                    </p>
+            <h1 className="mt-6 text-4xl font-black uppercase leading-none text-text-dark md:text-6xl">
+              Meet The Team
+              <span className="mt-3 block text-primary">Our Professionals</span>
+            </h1>
 
-                    <p className="text-base text-text-dark/80 leading-relaxed mb-8">
-                      {founder.bio}
-                    </p>
-
-                    {/* Achievements */}
-                    <div className="space-y-4 mb-8">
-                      {founder.expertise.map((item) => (
-                        <div key={item} className="flex items-start gap-3">
-                          <CheckCircle2
-                            size={20}
-                            className="text-secondary shrink-0 mt-1"
-                          />
-                          <span className="text-text-dark/80 font-medium">
-                            {item}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Highlight */}
-                    {founder.highlight && (
-                      <div className="bg-primary/5 border-l-4 border-primary pl-6 py-4">
-                        <p className="font-bold text-text-dark mb-1">
-                          Key Achievement
-                        </p>
-                        <p className="text-text-dark/70">{founder.highlight}</p>
-                      </div>
-                    )}
-                  </div>
-                </motion.div>
-              )}
-
-              {/* CEO */}
-              {ceo && (
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  className="flex flex-col"
-                >
-                  <div className="relative w-full aspect-3/4 rounded-3xl overflow-hidden bg-gray-100 shadow-xl mb-8">
-                    <Image
-                      src={ceo.image}
-                      alt={ceo.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <span className="text-xs font-bold uppercase tracking-widest text-primary">
-                      Chief Executive Officer
-                    </span>
-                    <h3 className="text-3xl font-black text-text-dark mb-2 mt-2">
-                      {ceo.name}
-                    </h3>
-                    <p className="text-lg font-bold text-primary uppercase tracking-widest mb-6">
-                      {ceo.role}
-                    </p>
-
-                    <p className="text-base text-text-dark/80 leading-relaxed mb-8">
-                      {ceo.bio}
-                    </p>
-
-                    <div className="space-y-4 mb-8">
-                      {ceo.expertise.map((item) => (
-                        <div key={item} className="flex items-start gap-3">
-                          <CheckCircle2
-                            size={20}
-                            className="text-secondary shrink-0 mt-1"
-                          />
-                          <span className="text-text-dark/80 font-medium">
-                            {item}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {ceo.highlight && (
-                      <div className="bg-primary/5 border-l-4 border-primary pl-6 py-4">
-                        <p className="font-bold text-text-dark mb-1">
-                          Key Achievement
-                        </p>
-                        <p className="text-text-dark/70">{ceo.highlight}</p>
-                      </div>
-                    )}
-                  </div>
-                </motion.div>
-              )}
-            </div>
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-text-dark/70 md:text-lg">
+              The people behind Dairy Guru Ji who turn field knowledge,
+              practical nutrition, and farmer-first support into daily action.
+            </p>
           </div>
-        </section>
-      )}
 
-      <section className="">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {filteredTeam.map((member, index) => {
-              const deptConfig = departmentColors[member.department];
-              const DeptIcon = deptConfig?.icon || Users;
+          <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {showcaseMembers.map((member, index) => {
+              const style = ringStyles[index % ringStyles.length];
 
               return (
-                <motion.div
+                <article
                   key={member.name}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className={`group flex flex-col h-full rounded-[2.5rem] border transition-all duration-500 overflow-hidden hover:shadow-2xl ${deptConfig?.border} ${deptConfig?.bg}`}
+                  className="group mx-auto flex h-full w-full max-w-[22rem] flex-col rounded-[1.6rem] border border-primary/10 bg-white/80 px-5 py-6 text-center shadow-[0_14px_40px_rgba(23,36,50,0.07)] backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1.5"
                 >
-                  {/* Image Container */}
-                  <div className="relative w-full aspect-[4/5] overflow-hidden">
-                    <Image
-                      src={member.image || "/images/about/hero.jpeg"}
-                      alt={member.name}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                    {/* Department Badge */}
-                    <div className="absolute top-4 right-4">
-                      <motion.div
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: 1 }}
-                        className={`flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-sm ${deptConfig?.badge}`}
-                      >
-                        <DeptIcon size={14} />
-                        <span className="text-xs font-bold uppercase">
-                          {member.department}
-                        </span>
-                      </motion.div>
-                    </div>
-
-                    {/* Achievement highlight on hover */}
-                    {member.highlight && (
-                      <div className="absolute bottom-0 left-0 w-full translate-y-full group-hover:translate-y-0 transition-transform duration-500 p-4 bg-gradient-to-t from-black to-transparent">
-                        <div className="flex items-start gap-2 text-white">
-                          <Award
-                            size={16}
-                            className="mt-0.5 shrink-0 text-secondary"
-                          />
-                          <p className="text-xs font-medium leading-tight">
-                            {member.highlight}
-                          </p>
-                        </div>
+                  <div className="mx-auto flex w-full max-w-[15rem] justify-center">
+                    <div
+                      className={`relative h-48 w-48 rounded-full bg-gradient-to-br p-[6px] shadow-[0_14px_28px_rgba(31,125,70,0.12)] ${style.ring}`}
+                    >
+                      <div className="relative h-full w-full overflow-hidden rounded-full border-[8px] border-white bg-[#f3efe4]">
+                        <Image
+                          src={member.image || "/images/about/hero.jpeg"}
+                          alt={member.name}
+                          fill
+                          className="object-cover object-top"
+                        />
                       </div>
-                    )}
+                    </div>
                   </div>
 
-                  {/* Info Container */}
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="text-xl font-black text-text-dark mb-1">
+                  <div className="mt-6 flex flex-1 flex-col">
+                    <p className="text-xs font-black uppercase tracking-[0.35em] text-text-dark/45">
+                      {member.department}
+                    </p>
+                    <h2 className="mt-3 text-2xl font-black uppercase tracking-tight text-text-dark">
                       {member.name}
-                    </h3>
-                    <p className="text-primary font-bold uppercase tracking-widest text-xs mb-4">
+                    </h2>
+                    <p
+                      className={`mt-3 text-sm font-black uppercase tracking-[0.22em] ${style.role}`}
+                    >
                       {member.role}
                     </p>
 
-                    <p className="text-text-dark/70 text-sm leading-relaxed mb-6 flex-grow">
+                    <p className="mt-5 text-sm leading-7 text-text-dark/72">
                       {member.bio}
                     </p>
 
-                    {/* Expertise Badges */}
-                    {member.expertise && (
-                      <div className="mb-6 flex flex-wrap gap-2">
-                        {member.expertise.map((exp) => (
+                    {member.expertise?.length > 0 && (
+                      <div className="mt-6 flex flex-wrap justify-center gap-2">
+                        {member.expertise.slice(0, 4).map((item) => (
                           <span
-                            key={exp}
-                            className="px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full"
+                            key={item}
+                            className={`rounded-full border px-3 py-1 text-[11px] font-bold ${style.chip}`}
                           >
-                            {exp}
+                            {item}
                           </span>
                         ))}
                       </div>
                     )}
 
-                    {/* Social Links */}
-                    <div className="flex items-center gap-3 pt-4 border-t border-gray-200">
-                      <motion.a
+                    {/* <div className="mt-6 flex items-center justify-center border-t border-primary/10 pt-4">
+                      <a
                         href={member.linkedin}
-                        whileHover={{ scale: 1.1 }}
-                        className="p-2 rounded-lg hover:bg-primary/10 text-primary transition-colors"
-                        title="LinkedIn"
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-primary/15 bg-white text-primary transition hover:-translate-y-0.5 hover:bg-primary hover:text-white"
+                        title={`${member.name} on LinkedIn`}
                       >
-                        <Linkedin size={18} />
-                      </motion.a>
-                    </div>
+                        <Linkedin size={16} />
+                      </a>
+                    </div> */}
                   </div>
-                </motion.div>
+                </article>
               );
             })}
           </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="py-24 px-4 sm:px-6 bg-white border-t border-gray-100">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl md:text-5xl font-black text-text-dark mb-8 leading-tight">
-                Our Shared <span className="text-primary italic">Values</span>
-              </h2>
-              <p className="text-lg text-text-dark/70 leading-relaxed max-w-xl">
-                Our team isn&apos;t just composed of experts; we are people who
-                believe in the growth of Indian rural communities. We operate on
-                a foundation of trust, scientific rigor, and farmer-first
-                empathy.
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 gap-8">
-              {[
-                {
-                  title: "Trust",
-                  icon: Users,
-                  desc: "Building long-term on-field partnerships.",
-                },
-                {
-                  title: "Science",
-                  icon: Microscope,
-                  desc: "Evidence-backed nutritional formulations.",
-                },
-                {
-                  title: "Integrity",
-                  icon: ShieldCheck,
-                  desc: "Never taking shortcuts with cattle health.",
-                },
-                {
-                  title: "Growth",
-                  icon: GraduationCap,
-                  desc: "Empowering farmers for higher profitability.",
-                },
-              ].map((value) => (
-                <motion.div
-                  key={value.title}
-                  whileHover={{ y: -5 }}
-                  className="p-8 rounded-[2rem] bg-surface border border-gray-100 shadow-sm hover:shadow-lg transition-shadow"
-                >
-                  <div className="text-primary mb-4">
-                    <value.icon size={32} />
-                  </div>
-                  <h4 className="text-xl font-bold text-text-dark mb-2">
-                    {value.title}
-                  </h4>
-                  <p className="text-sm text-text-dark/70">{value.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 bg-gradient-to-r from-primary/10 via-secondary/5 to-primary/10 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-text-dark mb-4">
-            Join Our Mission
-          </h2>
-          <p className="text-lg text-text-dark/70 mb-8">
-            Are you passionate about transforming Indian dairy farming?
-            We&apos;re always looking for talented individuals to join our team.
-          </p>
-          <motion.a
-            href="/careers"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-bold uppercase rounded-full hover:shadow-lg transition-shadow"
-          >
-            <CheckCircle2 size={20} />
-            Explore Careers
-          </motion.a>
         </div>
       </section>
     </main>

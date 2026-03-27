@@ -24,8 +24,18 @@ import {
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/manufacturing/third-party-manufacturing", label: "Manufacturing" },
   { href: "/csr", label: "CSR" },
+
+  {
+    label: "Production",
+    children: [
+      { href: "/manufacturing", label: "Manufacturing" },
+      {
+        href: "/manufacturing/third-party-manufacturing",
+        label: "Third Party Manufacturing",
+      },
+    ],
+  },
   { href: "/careers", label: "Careers" },
   { href: "/contact", label: "Contact" },
   { href: "/products", label: "Products" },
@@ -35,45 +45,65 @@ const Navbar = () => {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [mobileOpenItem, setMobileOpenItem] = useState(null);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 20);
 
-      const totalHeight =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
+          const totalHeight =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
 
-      const progress = (window.scrollY / totalHeight) * 100;
-      setScrollProgress(progress);
+          const progress = (window.scrollY / totalHeight) * 100;
+          setScrollProgress(progress);
+
+          ticking = false;
+        });
+
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isNavItemActive = (item) => {
+    if (item.children) {
+      return item.children.some((child) => pathname.startsWith(child.href));
+    }
+
+    return pathname === item.href || pathname.startsWith(item.href);
+  };
+
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-black/60 backdrop-blur-2xl border-b border-white/10 py-2"
+          ? "bg-black/70 backdrop-blur-xl border-b border-white/10 py-2"
           : "bg-gradient-to-b from-black/80 to-transparent py-4"
       }`}
     >
+      {/* Scroll Progress */}
       <div
-        className="absolute bottom-0 left-0 h-0.5 bg-secondary transition-all duration-300"
+        className="absolute bottom-0 left-0 h-0.5 bg-secondary"
         style={{ width: `${scrollProgress}%` }}
       />
 
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center group">
           <Image
             src="/images/logo-dairy-guruji.png"
             alt="Dairy Guru Ji logo"
             width={60}
             height={60}
-            className="h-14 w-auto object-contain drop-shadow-lg transition-transform group-hover:scale-105"
+            className="h-14 w-auto transition-transform group-hover:scale-105"
             priority
           />
         </Link>
@@ -83,20 +113,49 @@ const Navbar = () => {
           <NavigationMenu>
             <NavigationMenuList className="flex gap-2">
               {navItems.map((item) => {
-                const isActive =
-                  pathname === item.href ||
-                  (item.href !== "/" && pathname?.startsWith(item.href));
+                // Dropdown item
+                if (item.children) {
+                  return (
+                    <NavigationMenuItem
+                      key={item.label}
+                      className="relative group"
+                    >
+                      <div
+                        className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm cursor-pointer transitio`}
+                      >
+                        <h className="text-white font-bold uppercase">
+                          {item.label}
+                        </h>
+                        <ChevronDown className="h-4 w-4 transition group-hover:rotate-180 text-white" />
+                      </div>
 
+                      {/* Dropdown */}
+                      <div className="absolute left-0 top-full pt-3 opacity-0 invisible group-hover:visible group-hover:opacity-100 transition">
+                        <div className="min-w-60 bg-black/95 border border-white/10 rounded-2xl p-2 backdrop-blur-xl shadow-xl">
+                          {item.children.map((child) => {
+                            return (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                className={`block px-4 py-3 rounded-xl text-sm transition text-white `}
+                              >
+                                {child.label}
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </NavigationMenuItem>
+                  );
+                }
+
+                // Normal item
                 return (
                   <NavigationMenuItem key={item.href}>
                     <NavigationMenuLink asChild>
                       <Link
                         href={item.href}
-                        className={`px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full hover:-translate-y-0.5 ${
-                          isActive
-                            ? "bg-secondary/20 text-secondary"
-                            : "text-white/80 hover:text-white"
-                        }`}
+                        className={`px-4 py-2 rounded-full text-sm transition `}
                       >
                         {item.label}
                       </Link>
@@ -109,7 +168,7 @@ const Navbar = () => {
 
           {/* CTA */}
           <Link href="/dealer">
-            <Button className="bg-secondary text-black font-semibold px-5 hover:scale-105 transition-transform">
+            <Button className="bg-secondary text-black px-5 font-semibold hover:scale-105 transition">
               Become Dealer
             </Button>
           </Link>
@@ -121,21 +180,18 @@ const Navbar = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="lg:hidden text-white mr-6"
+              className="lg:hidden text-white"
             >
               <Menu />
             </Button>
           </SheetTrigger>
 
-          <SheetContent
-            side="right"
-            className="w-[88vw] max-w-[320px] bg-black/95 border-l border-white/10"
-          >
-            <SheetHeader className="border-b border-white/10 pb-4">
-              <SheetTitle className="flex items-center gap-3 text-white">
+          <SheetContent className="bg-black/95 border-l border-white/10">
+            <SheetHeader>
+              <SheetTitle className="flex items-center gap-2 text-white">
                 <Image
                   src="/images/logo-dairy-guruji.png"
-                  alt="Dairy Guru Ji"
+                  alt="logo"
                   width={40}
                   height={40}
                 />
@@ -144,16 +200,45 @@ const Navbar = () => {
             </SheetHeader>
 
             <div className="mt-6 flex flex-col gap-2">
-              {[...navItems].map((item) => {
-                const isActive =
-                  pathname === item.href ||
-                  (item.href !== "/" && pathname?.startsWith(item.href));
+              {navItems.map((item) => {
+                const isActive = isNavItemActive(item);
+                const isOpen = mobileOpenItem === item.label;
+
+                if (item.children) {
+                  return (
+                    <div key={item.label} className="bg-white/5 rounded-lg">
+                      <button
+                        onClick={() =>
+                          setMobileOpenItem(isOpen ? null : item.label)
+                        }
+                        className="flex justify-between w-full px-4 py-3 text-sm text-white"
+                      >
+                        {item.label}
+                        <ChevronDown
+                          className={`transition ${isOpen ? "rotate-180" : ""}`}
+                        />
+                      </button>
+
+                      {isOpen &&
+                        item.children.map((child) => (
+                          <SheetClose asChild key={child.href}>
+                            <Link
+                              href={child.href}
+                              className="block px-6 py-2 text-sm text-white/70 hover:text-white"
+                            >
+                              {child.label}
+                            </Link>
+                          </SheetClose>
+                        ))}
+                    </div>
+                  );
+                }
 
                 return (
                   <SheetClose asChild key={item.href}>
                     <Link
                       href={item.href}
-                      className={`px-4 py-3 rounded-lg text-sm font-semibold transition-all ${
+                      className={`px-4 py-3 rounded-lg ${
                         isActive
                           ? "bg-secondary/20 text-secondary"
                           : "text-white/80 hover:bg-white/10 hover:text-white"

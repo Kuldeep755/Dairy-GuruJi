@@ -105,7 +105,7 @@ const Footer = () => {
                   href: "/manufacturing/third-party-manufacturing",
                 },
                 { name: "CSR", href: "/csr" },
-                // { name: "Our Team", href: "/team" },
+                { name: "Our Team", href: "/team" },
                 { name: "Become a Dealer", href: "/dealer" },
                 { name: "Careers", href: "/careers" },
               ].map((link) => (

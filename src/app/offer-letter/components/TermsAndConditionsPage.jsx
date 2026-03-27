@@ -14,13 +14,13 @@ export default function TermsAndConditionsPage({ role, rd }) {
                 <strong>Qualification for Incentive:</strong> To qualify for any
                 sales target incentive (Feed category), the following minimum
                 supplement targets must be achieved: The ASM must achieve a
-                minimum individual supplement business of ₹15,000
+                minimum individual supplement business of ₹15,000.
               </li>
             ) : (
               <li>
-                <strong>Qualification for Incentive:</strong> To qualify for any
-                sales target incentive (for feed), the minimum supplements target
-                for a {rd.postHeader} must be {rd.minSupplement}.
+                <strong>Qualification for Incentive:</strong> You will be
+                eligible for the incentive only if you achieve both the feed
+                target and the minimum mandatory supplement sale.
               </li>
             )}
             {role !== "ASM" && role !== "SI" && (
@@ -76,14 +76,10 @@ export default function TermsAndConditionsPage({ role, rd }) {
           </li>
           <li>
             The official email communication must be sent by HR{" "}
-            <strong>dairyguruji.hrd@gmail.com</strong> and approved by{" "}
-            <strong>bijenderagroupofficial@gmail.com</strong>.
+            <strong>hr@dairyguruji.com</strong> and approved by{" "}
+            <strong>bijenderagroupofficial@dairyguruji.com</strong>.
           </li>
-          <li>
-            All delivery-related concerns will be handled only by Hansul. Please
-            do not approach your Reporting Manager regarding delivery issues
-            such as 4 points, 5 points, or similar matters.
-          </li>
+
           <li>
             You will be reporting to the Company State Incharge / State Head,
             and to the Dairy Guruji (Bijendera Group) Management.
@@ -99,10 +95,21 @@ export default function TermsAndConditionsPage({ role, rd }) {
             structures.
           </li>
           <li>
+            No extra payment (overtime) will be given for additional working
+            hours. The salary already includes payment for such extra work.
+          </li>
+          <li>
             Strictly no engagement with any other third-party companies during
             your employment.
           </li>
           <li>
+            Either the Company or the Employee must give 4 weeks (28 days)
+            notice to terminate employment. The Company may choose to pay basic
+            salary in lieu of notice and relieve the employee immediately. The
+            Employee may also leave early by paying salary for the remaining
+            notice period, subject to Company approval.
+          </li>
+          <li>manufacturing
             Any violation of company policy or misconduct will result in
             immediate termination of employment.
           </li>
@@ -119,16 +126,16 @@ export default function TermsAndConditionsPage({ role, rd }) {
 
           {rd.hasTeamLogic && (
             <li>
-              When you have a 5 Member fully working team, your individual
-              target will be removed. Your team target will be your target
-              until you have to work on an individual target.
+              When you have a fully active team of 5 members, your individual
+              target will be removed. In that case, your team target will be
+              treated as your target until an individual target is assigned
+              again.
             </li>
           )}
 
           <li className="font-bold underline">
-            You have to work for 24 days in a month excluding holidays until you
-            get confirmation in the next 3 months. If it is less than this,
-            then your salary will be deducted.
+            You must work for 24 days in a month, excluding holidays. If you
+            work fewer than 24 days, your salary will be deducted accordingly.
           </li>
           <li>
             All legal disputes, if any, shall be resolved under the Gohana
@@ -145,8 +152,8 @@ export default function TermsAndConditionsPage({ role, rd }) {
 
           {rd.hasTeamLogic && (
             <li>
-              Company may change your Target as a team target even on less than
-              5 Employees.
+              The Company may assign you a team target even if the team has
+              fewer than 5 employees.
             </li>
           )}
         </ul>
@@ -161,28 +168,29 @@ export default function TermsAndConditionsPage({ role, rd }) {
                 Each employee must complete the following daily:{" "}
                 <strong>
                   Minimum 8 farmer visits, Minimum 2 dealer visits, DPO visit
-                  (if applicable), and Hourly activity updates (mandatory)
+                  (if applicable), and hourly activity updates (mandatory)
                 </strong>
                 .
               </li>
               <li>
                 All reports must be accurate and genuine. Submission of
-                fake/incorrect reports is strictly prohibited.
+                fake or incorrect reports is strictly prohibited. If you are
+                found responsible for this, whether intentionally or
+                unintentionally, you will not receive salary for that month.
               </li>
               <li>
                 Any leave taken before 2:00 PM will not be considered as a
                 half-day. In case of a half-day leave, the employee must
-                complete a minimum of{" "}
-                <strong>4 activities per hour</strong> during their working
-                time.
+                complete a minimum of <strong>4 activities per hour</strong>{" "}
+                during their working time.
               </li>
             </ul>
             <div className="text-red-800 bg-red-50 p-2.5 rounded border border-red-200 mt-2 shadow-sm leading-snug mb-2">
-              <strong>⚠️ Penalty Clause:</strong> Any instance of
-              fake/incorrect reporting, incomplete field activity, or failure
-              in hourly updates will attract a{" "}
-              <strong>penalty of ₹100 per employee (per head/day)</strong>{" "}
-              along with possible strict disciplinary action in repeated cases.
+              <strong>⚠️ Penalty Clause:</strong> Any instance of fake/incorrect
+              reporting, incomplete field activity, or failure in hourly updates
+              will attract a{" "}
+              <strong>penalty of ₹100 per employee (per head/day)</strong> along
+              with possible strict disciplinary action in repeated cases.
             </div>
           </>
         )}
@@ -222,7 +230,6 @@ export default function TermsAndConditionsPage({ role, rd }) {
           </div>
         </div>
       )}
-
     </div>
   );
 }

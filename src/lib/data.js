@@ -169,18 +169,16 @@ export const heroSlides = [
 export const aboutHero = {
   image: "/images/about/hero1.jpeg",
   title: "About Dairy Guru Ji",
-  subtitle:
-    "मेरा सपना है मेरे भारत देश में दूसरी श्वेत क्रांति लाना, ताकि मेरे सभी पशुपालक भाई सफल बने और उनकी आय कई गुना बढ़े।",
+  subtitle: "",
 };
 
 export const manufacturingHero = {
-  image: "/images/hero/slide2.png",
+  image: "/images/hero/slide6.jpeg",
   title: "Third Party Manufacturing",
-  subtitle:
-    "Fully Automated Manufacturing • Lab Tested Quality • Expert Formulated Nutrition • Field Proven on Real Dairy Farms",
+  subtitle: "Fully Automated Manufacturing ",
 };
 export const thirdPartyManufacturingHero = {
-  image: "/images/hero/slide2.png",
+  image: "/images/hero/slide6.jpeg",
   title: "Third Party Manufacturing",
   subtitle:
     "Start your Cattle Feed Brand today — without a factory, without large investment.",
@@ -367,7 +365,6 @@ export const teamMembers = [
       "Sustainability",
     ],
     linkedin: "#",
-    highlight: "Built a community of 5+ lac farmers across 40k+ villages",
     isFounder: true,
   },
   {

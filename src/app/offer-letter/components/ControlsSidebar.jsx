@@ -33,7 +33,7 @@ export default function ControlsSidebar({
       <div className="flex flex-col gap-5">
         <div className="bg-green-50 p-4 border border-green-200 rounded-lg shadow-sm">
           <label className="block text-sm font-bold text-green-800 mb-2">
-            Select Role / Position (Auto-fills Template)
+            Select Role / Position (Auto-fills the Template)
           </label>
           <select
             value={role}
@@ -49,7 +49,7 @@ export default function ControlsSidebar({
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Date (Auto-formats on Print)
+            Date (Auto-formatted on Print)
           </label>
           <input
             type="date"
@@ -74,7 +74,7 @@ export default function ControlsSidebar({
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Aadhar No.
+            Aadhaar No.
           </label>
           <input
             type="text"

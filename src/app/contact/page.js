@@ -18,7 +18,6 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Input, Textarea, Select, FormField } from "@/components/ui/input";
-import { motion } from "framer-motion";
 import Link from "next/link";
 
 const ContactPage = () => {
@@ -263,14 +262,12 @@ const ContactPage = () => {
                 </FormField>
               </div>
               <div className="md:col-span-2">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                <button
                   type="submit" 
                   className="w-full btn-primary uppercase tracking-widest"
                 >
                   Submit Enquiry
-                </motion.button>
+                </button>
               </div>
             </form>
           </div>
