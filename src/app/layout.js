@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyButtons from "@/components/StickyButtons";
+import Chatbot from "@/components/Chatbot";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
         <main>{children}</main>
         <Footer />
         <StickyButtons />
+        <Chatbot />
       </body>
     </html>
   );
