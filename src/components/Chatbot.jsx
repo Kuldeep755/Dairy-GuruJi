@@ -46,6 +46,7 @@ const Chatbot = () => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
   const copy = languageCopy[language];
+  const mobileOffsetClass = "bottom-24 right-6 md:bottom-6";
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -134,7 +135,7 @@ const Chatbot = () => {
         setIsOpen(true);
         setIsMinimized(false);
       }}
-      className="fixed bottom-6 right-6 z-50 bg-secondary hover:bg-secondary/90 text-black p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group"
+      className={`fixed ${mobileOffsetClass} z-50 bg-secondary hover:bg-secondary/90 text-black p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group`}
       aria-label="Open Chat"
     >
       <MessageCircle className="w-7 h-7" />
@@ -149,7 +150,7 @@ const Chatbot = () => {
     return (
       <>
         <ChatButton />
-        <div className="fixed bottom-24 right-6 z-50 bg-black/95 border border-white/10 rounded-2xl shadow-2xl p-4 w-80 backdrop-blur-xl">
+        <div className="fixed bottom-40 right-6 z-50 bg-black/95 border border-white/10 rounded-2xl shadow-2xl p-4 w-80 backdrop-blur-xl md:bottom-24">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2 text-white">
               <Bot className="w-5 h-5 text-secondary" />
@@ -189,7 +190,7 @@ const Chatbot = () => {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 w-96 max-w-[calc(100vw-2rem)]">
+    <div className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-2rem)] md:bottom-6">
       {/* Header */}
       <div className="bg-gradient-to-r from-secondary to-secondary/80 text-black rounded-t-2xl p-4 flex items-center justify-between shadow-xl">
         <div className="flex items-center gap-3">
