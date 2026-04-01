@@ -48,9 +48,9 @@ import {
 
 const agenda = [
   { id: 1, icon: Target, title: "Aim of Meeting" },
-  { id: 2, icon: Users, title: "Get Together & Welcome" },
-  { id: 3, icon: Award, title: "Founder & CEO Introduction" },
-  { id: 4, icon: Building2, title: "Management Team Intro" },
+  { id: 2, icon: Award, title: "Founder & CEO Introduction" },
+  { id: 3, icon: Building2, title: "Management Team Intro" },
+  { id: 4, icon: Users, title: "Get Together & Welcome" },
   { id: 5, icon: Users, title: "Existing ASM Introduction" },
   { id: 6, icon: TrendingUp, title: "New ASM Promotion" },
   { id: 7, icon: Briefcase, title: "All SO Introduction" },
@@ -83,22 +83,6 @@ const slides = [
   },
   {
     id: 2,
-    title: "Get Together & Welcome",
-    subtitle: "Not Just a Team — A Family with a Mission",
-    icon: Users,
-    gradient: "from-amber-500 to-orange-400",
-    points: [
-      "A Warm Welcome to Every New Member",
-      "Every Individual Matters & Creates Impact",
-      "We Grow by Supporting Each Other",
-      "Together, We Achieve What Seems Impossible",
-      "जो हमने इतने कम समय में हासिल किया, वो बाकी कंपनियों को सालों की मेहनत के बाद भी नहीं मिल पाता",
-    ],
-    description:
-      "This is not just a workplace — this is where people grow, support each other, and create real impact that will change the future of dairy farming in India.",
-  },
-  {
-    id: 3,
     title: "Founder & Leadership Introduction",
     subtitle: "Vision, Systems, and Win-Win Growth",
     icon: Award,
@@ -115,7 +99,7 @@ const slides = [
       "हिमांशु जी और सनी जी की सोच है कि हम win-win situation पर काम करें, जिसमें सभी का फायदा हो।",
   },
   {
-    id: 4,
+    id: 3,
     title: "Management Team",
     subtitle: "The Backbone of Dairy Guruji",
     icon: Building2,
@@ -167,6 +151,22 @@ const slides = [
     },
     description:
       "We are not just a team, we are a family. Every member's success is our success.",
+  },
+  {
+    id: 4,
+    title: "Get Together & Welcome",
+    subtitle: "Not Just a Team — A Family with a Mission",
+    icon: Users,
+    gradient: "from-amber-500 to-orange-400",
+    points: [
+      "A Warm Welcome to Every New Member",
+      "Every Individual Matters & Creates Impact",
+      "We Grow by Supporting Each Other",
+      "Together, We Achieve What Seems Impossible",
+      "जो हमने इतने कम समय में हासिल किया, वो बाकी कंपनियों को सालों की मेहनत के बाद भी नहीं मिल पाता",
+    ],
+    description:
+      "This is not just a workplace — this is where people grow, support each other, and create real impact that will change the future of dairy farming in India.",
   },
   {
     id: 5,
