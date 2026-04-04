@@ -185,8 +185,8 @@ export default function TermsAndConditionsPage({ role, rd }) {
                 during their working time.
               </li>
             </ul>
-            <div className="text-red-800 bg-red-50 p-2.5 rounded border border-red-200 mt-2 shadow-sm leading-snug mb-2">
-              <strong>⚠️ Penalty Clause:</strong> Any instance of fake/incorrect
+            <div className=" p-2.5  mt-2 leading-snug mb-2">
+              <strong>Penalty Clause:</strong> Any instance of fake/incorrect
               reporting, incomplete field activity, or failure in hourly updates
               will attract a{" "}
               <strong>penalty of ₹100 per employee (per head/day)</strong> along

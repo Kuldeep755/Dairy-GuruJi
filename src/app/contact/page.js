@@ -17,10 +17,66 @@ import {
   Star,
   ArrowRight,
 } from "lucide-react";
-import { Input, Textarea, Select, FormField } from "@/components/ui/input";
+import { Input, Textarea, FormField } from "@/components/ui/input";
 import Link from "next/link";
+import { backendFetch } from "@/lib/api";
 
 const ContactPage = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    business_type: "Dairy Farmer",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitState, setSubmitState] = useState({
+    type: "",
+    message: "",
+  });
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setSubmitState({ type: "", message: "" });
+
+    try {
+      const response = await backendFetch("/api/forms/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Unable to submit enquiry right now.");
+      }
+
+      setSubmitState({
+        type: "success",
+        message: result.message || "Enquiry submitted successfully.",
+      });
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        business_type: "Dairy Farmer",
+        message: "",
+      });
+    } catch (error) {
+      setSubmitState({
+        type: "error",
+        message:
+          error.message || "Something went wrong while submitting enquiry.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="relative min-h-screen bg-bg-light pt-32 pb-20">
       <div className="pointer-events-none absolute inset-0">
@@ -204,45 +260,67 @@ const ContactPage = () => {
               Fill in your details and our team will connect with you shortly.
             </p>
 
-            <form 
-              action="https://formsubmit.co/dairygurujiindia@gmail.com" 
-              method="POST"
+            <form
+              onSubmit={handleSubmit}
               className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5"
             >
-              <input type="hidden" name="_form" value="contact-form" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_autoresponse" value="Thank you for your enquiry! We will get back to you shortly." />
-              <input type="hidden" name="_next" value="https://www.dairyguruji.com/contact?success=true" />
-
               <FormField label="Your Name">
-                <Input 
-                  type="text" 
+                <Input
+                  type="text"
                   name="name"
-                  placeholder="Enter full name" 
+                  placeholder="Enter full name"
+                  value={formData.name}
+                  onChange={(event) =>
+                    setFormData((current) => ({
+                      ...current,
+                      name: event.target.value,
+                    }))
+                  }
                   required
                 />
               </FormField>
               <FormField label="Phone Number">
-                <Input 
-                  type="tel" 
+                <Input
+                  type="tel"
                   name="phone"
-                  placeholder="Enter mobile number" 
+                  placeholder="Enter mobile number"
+                  value={formData.phone}
+                  onChange={(event) =>
+                    setFormData((current) => ({
+                      ...current,
+                      phone: event.target.value,
+                    }))
+                  }
                   required
                 />
               </FormField>
               <div className="md:col-span-2">
                 <FormField label="Email Address">
-                  <Input 
-                    type="email" 
+                  <Input
+                    type="email"
                     name="email"
                     placeholder="Enter your email"
+                    value={formData.email}
+                    onChange={(event) =>
+                      setFormData((current) => ({
+                        ...current,
+                        email: event.target.value,
+                      }))
+                    }
                   />
                 </FormField>
               </div>
               <div className="md:col-span-2">
                 <FormField label="I Am A...">
-                  <select 
+                  <select
                     name="business_type"
+                    value={formData.business_type}
+                    onChange={(event) =>
+                      setFormData((current) => ({
+                        ...current,
+                        business_type: event.target.value,
+                      }))
+                    }
                     className="w-full rounded-lg border border-primary/15 bg-bg-light px-4 py-3 text-sm placeholder:text-text-dark/45 focus:outline-none focus:ring-2 focus:ring-primary/35"
                   >
                     <option value="Dairy Farmer">Dairy Farmer</option>
@@ -255,18 +333,37 @@ const ContactPage = () => {
               </div>
               <div className="md:col-span-2">
                 <FormField label="Your Message">
-                  <Textarea 
+                  <Textarea
                     name="message"
-                    placeholder="Tell us how we can help you..." 
+                    placeholder="Tell us how we can help you..."
+                    value={formData.message}
+                    onChange={(event) =>
+                      setFormData((current) => ({
+                        ...current,
+                        message: event.target.value,
+                      }))
+                    }
                   />
                 </FormField>
               </div>
+              {submitState.message ? (
+                <div
+                  className={`md:col-span-2 rounded-lg px-4 py-3 text-sm font-medium ${
+                    submitState.type === "success"
+                      ? "bg-green-50 text-green-700"
+                      : "bg-red-50 text-red-700"
+                  }`}
+                >
+                  {submitState.message}
+                </div>
+              ) : null}
               <div className="md:col-span-2">
                 <button
-                  type="submit" 
+                  type="submit"
+                  disabled={isSubmitting}
                   className="w-full btn-primary uppercase tracking-widest"
                 >
-                  Submit Enquiry
+                  {isSubmitting ? "Submitting..." : "Submit Enquiry"}
                 </button>
               </div>
             </form>

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { backendApiUrl } from "@/lib/api";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -47,6 +48,48 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mobileOpenItem, setMobileOpenItem] = useState(null);
+  const [authState, setAuthState] = useState({
+    checked: false,
+    isAuthenticated: false,
+  });
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const fetchSession = async () => {
+      try {
+        const response = await fetch(backendApiUrl("/api/auth/session"), {
+          cache: "no-store",
+          credentials: "include",
+        });
+        const data = await response.json();
+
+        if (!isMounted) {
+          return;
+        }
+
+        setAuthState({
+          checked: true,
+          isAuthenticated: Boolean(data?.authenticated),
+        });
+      } catch {
+        if (!isMounted) {
+          return;
+        }
+
+        setAuthState({
+          checked: true,
+          isAuthenticated: false,
+        });
+      }
+    };
+
+    fetchSession();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [pathname]);
 
   useEffect(() => {
     let ticking = false;
@@ -173,6 +216,29 @@ const Navbar = () => {
               Become Dealer
             </Button>
           </Link>
+
+          {authState.checked && authState.isAuthenticated ? (
+            <>
+              <Link href="/admin">
+                <Button variant="ghost" className="border border-white/20">
+                  Admin
+                </Button>
+              </Link>
+              <Link href="/logout">
+                <Button variant="ghost" className="border border-white/20">
+                  Logout
+                </Button>
+              </Link>
+            </>
+          ) : null}
+
+          {authState.checked && !authState.isAuthenticated ? (
+            <Link href="/login">
+              <Button variant="ghost" className="border border-white/20">
+                Login
+              </Button>
+            </Link>
+          ) : null}
         </div>
 
         {/* Mobile Menu */}
@@ -259,6 +325,38 @@ const Navbar = () => {
                   </Button>
                 </Link>
               </SheetClose>
+
+              {authState.checked && authState.isAuthenticated ? (
+                <>
+                  <SheetClose asChild>
+                    <Link
+                      href="/admin"
+                      className="px-4 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white"
+                    >
+                      Admin Panel
+                    </Link>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <Link
+                      href="/logout"
+                      className="px-4 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white"
+                    >
+                      Logout
+                    </Link>
+                  </SheetClose>
+                </>
+              ) : null}
+
+              {authState.checked && !authState.isAuthenticated ? (
+                <SheetClose asChild>
+                  <Link
+                    href="/login"
+                    className="px-4 py-3 rounded-lg text-white/80 hover:bg-white/10 hover:text-white"
+                  >
+                    Login
+                  </Link>
+                </SheetClose>
+              ) : null}
             </div>
           </SheetContent>
         </Sheet>

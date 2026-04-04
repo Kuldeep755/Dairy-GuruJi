@@ -2,18 +2,26 @@
 
 import React, { useState } from "react";
 import { ArrowRight, BriefcaseBusiness } from "lucide-react";
+import { CitySelect, StateSelect } from "react-country-state-city";
+import { backendFetch } from "@/lib/api";
 
 const initialFormState = {
   name: "",
   email: "",
   phoneNumber: "",
   address: "",
-  lsa: "Yes",
+  state: "",
+  city: "",
+  lsa: "",
   experience: "",
 };
 
+const INDIA_COUNTRY_ID = 101;
+
 const CareersPage = () => {
   const [formData, setFormData] = useState(initialFormState);
+  const [selectedStateId, setSelectedStateId] = useState(0);
+  const [selectResetKey, setSelectResetKey] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitState, setSubmitState] = useState({
     type: "",
@@ -31,11 +39,20 @@ const CareersPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (!formData.state || !formData.city) {
+      setSubmitState({
+        type: "error",
+        message: "Please fill state and city.",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitState({ type: "", message: "" });
 
     try {
-      const response = await fetch("/api/careers", {
+      const response = await backendFetch("/api/forms/careers", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,6 +72,8 @@ const CareersPage = () => {
           "Application submitted successfully. Your details have been saved.",
       });
       setFormData(initialFormState);
+      setSelectedStateId(0);
+      setSelectResetKey((current) => current + 1);
     } catch (error) {
       setSubmitState({
         type: "error",
@@ -150,18 +169,60 @@ const CareersPage = () => {
 
               <div>
                 <label className="mb-2 block text-xs font-black uppercase tracking-widest text-text-dark/50">
+                  State *
+                </label>
+                <StateSelect
+                  key={`state-${selectResetKey}`}
+                  countryid={INDIA_COUNTRY_ID}
+                  value={formData.state}
+                  placeHolder="Select state"
+                  onChange={(value) => {
+                    setSelectedStateId(value?.id || 0);
+                    setFormData((current) => ({
+                      ...current,
+                      state: value?.name || "",
+                      city: "",
+                    }));
+                  }}
+                  inputClassName="w-full rounded-lg border border-primary/15 bg-bg-light px-4 py-3 text-sm text-text-dark placeholder:text-text-dark/45 focus:outline-none focus:ring-2 focus:ring-primary/35"
+                />
+              </div>
+
+              <div>
+                <label className="mb-2 block text-xs font-black uppercase tracking-widest text-text-dark/50">
+                  City *
+                </label>
+                <CitySelect
+                  key={`city-${selectedStateId}-${selectResetKey}`}
+                  countryid={INDIA_COUNTRY_ID}
+                  stateid={selectedStateId}
+                  value={formData.city}
+                  placeHolder={selectedStateId ? "Select city" : "Select state first"}
+                  disabled={!selectedStateId}
+                  onChange={(value) => {
+                    setFormData((current) => ({
+                      ...current,
+                      city: value?.name || "",
+                    }));
+                  }}
+                  inputClassName="w-full rounded-lg border border-primary/15 bg-bg-light px-4 py-3 text-sm text-text-dark placeholder:text-text-dark/45 focus:outline-none focus:ring-2 focus:ring-primary/35 disabled:cursor-not-allowed disabled:opacity-70"
+                />
+              </div>
+
+              <div>
+                <label className="mb-2 block text-xs font-black uppercase tracking-widest text-text-dark/50">
                   LSA
                 </label>
                 <select
                   name="lsa"
                   value={formData.lsa}
                   onChange={handleChange}
+                  required
                   className="w-full rounded-lg border border-primary/15 bg-bg-light px-4 py-3 text-sm text-text-dark focus:outline-none focus:ring-2 focus:ring-primary/35"
                 >
-                  <option value="Select an option">Select an option</option>
+                  <option value="">Select an option</option>
                   <option value="No">No</option>
                   <option value="Yes">Yes</option>
-                  <option value="No">No</option>
                 </select>
               </div>
 

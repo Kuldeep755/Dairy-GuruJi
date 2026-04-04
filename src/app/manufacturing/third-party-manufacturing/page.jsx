@@ -8,6 +8,7 @@ import { useState } from "react";
 import { ArrowRight, Lightbulb, Globe2, Sprout } from "lucide-react";
 
 import { Input, Textarea, FormField } from "@/components/ui/input";
+import { backendFetch } from "@/lib/api";
 
 const getYoutubeEmbedUrl = (url) => {
   if (!url) return "";
@@ -64,9 +65,56 @@ export default function ThirdPartyManufacturingPage() {
     volume: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitState, setSubmitState] = useState({
+    type: "",
+    message: "",
+  });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitState({ type: "", message: "" });
+
+    try {
+      const response = await backendFetch("/api/forms/manufacturing", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          result.error || "Unable to submit manufacturing inquiry.",
+        );
+      }
+
+      setSubmitState({
+        type: "success",
+        message:
+          result.message || "Manufacturing inquiry submitted successfully.",
+      });
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        volume: "",
+        message: "",
+      });
+    } catch (error) {
+      setSubmitState({
+        type: "error",
+        message:
+          error.message ||
+          "Something went wrong while submitting manufacturing inquiry.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const whatWeDo = [
@@ -467,11 +515,23 @@ export default function ThirdPartyManufacturingPage() {
                   />
                 </FormField>
                 <div className="pt-4">
+                  {submitState.message ? (
+                    <div
+                      className={`mb-4 rounded-lg px-4 py-3 text-sm font-medium ${
+                        submitState.type === "success"
+                          ? "bg-green-50 text-green-700"
+                          : "bg-red-50 text-red-700"
+                      }`}
+                    >
+                      {submitState.message}
+                    </div>
+                  ) : null}
                   <button
                     type="submit"
+                    disabled={isSubmitting}
                     className="inline-flex w-full items-center justify-center rounded-2xl bg-primary px-8 py-5 text-xl font-black text-white shadow-2xl shadow-primary/40 transition-all hover:bg-primary-dark"
                   >
-                    Send Inquiry
+                    {isSubmitting ? "Sending..." : "Send Inquiry"}
                     <ArrowRight className="ml-2 h-6 w-6" />
                   </button>
                 </div>

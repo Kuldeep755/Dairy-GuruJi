@@ -27,6 +27,7 @@ import {
 
 import { Input, Textarea, Select, FormField } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { backendFetch } from "@/lib/api";
 
 
 
@@ -41,10 +42,55 @@ export default function DealerPage() {
     investment: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitState, setSubmitState] = useState({
+    type: "",
+    message: "",
+  });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // In production, this would be handled by FormSubmit or an API
+    setIsSubmitting(true);
+    setSubmitState({ type: "", message: "" });
+
+    try {
+      const response = await backendFetch("/api/forms/dealer", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Unable to submit dealer application.");
+      }
+
+      setSubmitState({
+        type: "success",
+        message: result.message || "Dealer application submitted successfully.",
+      });
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        businessType: "",
+        territory: "",
+        experience: "",
+        investment: "",
+        message: "",
+      });
+    } catch (error) {
+      setSubmitState({
+        type: "error",
+        message:
+          error.message || "Something went wrong while submitting application.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const differences = [
@@ -433,17 +479,10 @@ export default function DealerPage() {
               </p>
             </div>
 
-            <form 
-              action="https://formsubmit.co/dairygurujindia@gmail.com" 
-              method="POST"
-              onSubmit={handleSubmit} 
+            <form
+              onSubmit={handleSubmit}
               className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8"
             >
-              <input type="hidden" name="_form" value="dealer-application" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_autoresponse" value="Thank you for your dealer application! We will review your details and contact you within 24-48 hours." />
-              <input type="hidden" name="_next" value="https://www.dairyguruji.com/dealer?success=true" />
-
               <FormField label="Full Name">
                 <Input 
                   type="text" 
@@ -516,12 +555,24 @@ export default function DealerPage() {
                   />
                 </FormField>
               </div>
+              {submitState.message ? (
+                <div
+                  className={`md:col-span-2 rounded-lg px-4 py-3 text-sm font-medium ${
+                    submitState.type === "success"
+                      ? "bg-green-50 text-green-700"
+                      : "bg-red-50 text-red-700"
+                  }`}
+                >
+                  {submitState.message}
+                </div>
+              ) : null}
               <div className="md:col-span-2 mt-4">
                 <button
-                  type="submit" 
+                  type="submit"
+                  disabled={isSubmitting}
                   className="w-full inline-flex items-center justify-center rounded-xl bg-primary px-8 py-5 text-lg font-extrabold text-white shadow-lg shadow-primary/30 transition-all hover:bg-primary-dark"
                 >
-                  Submit Application
+                  {isSubmitting ? "Submitting..." : "Submit Application"}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </button>
               </div>

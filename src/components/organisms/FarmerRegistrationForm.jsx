@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { backendFetch } from "@/lib/api";
 
 import FarmerRegistrationStepOne from "@/components/organisms/farmer-registration/FarmerRegistrationStepOne";
 import FarmerRegistrationStepTwo from "@/components/organisms/farmer-registration/FarmerRegistrationStepTwo";
@@ -120,7 +121,7 @@ export default function FarmerRegistrationForm() {
     setRegistrationData(payload);
 
     try {
-      const response = await fetch("/api/farmer-registration", {
+      const response = await backendFetch("/api/forms/farmer-registration", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

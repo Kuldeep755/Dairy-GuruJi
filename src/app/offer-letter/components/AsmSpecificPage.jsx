@@ -27,8 +27,8 @@ export default function AsmSpecificPage() {
                 and team stability.
               </li>
             </ul>
-            <div className="text-red-800 bg-red-50 p-2.5 rounded border border-red-200 mt-2 shadow-sm leading-snug">
-              <strong>⚠️ Penalty Clause:</strong> If the team size falls below 6
+            <div className="p-2.5  mt-2 leading-snug ">
+              <strong> Penalty Clause:</strong> If the team size falls below 6
               members at any time, a{" "}
               <strong>deduction of ₹5,000 per month</strong> will be applied
               until the required team strength is restored. Continuous failure
@@ -41,8 +41,8 @@ export default function AsmSpecificPage() {
             <h4 className="font-bold text-green-700 text-[14px] mb-1">
               2. SO Performance Management
             </h4>
-            <div className="text-red-800 bg-red-50 p-2.5 rounded border border-red-200 shadow-sm leading-snug mt-1">
-              <strong>⚠️ Penalty Clause:</strong> If any Sales Officer (SO) in
+            <div className="p-2.5  leading-snug  mt-1">
+              <strong>Penalty Clause:</strong> If any Sales Officer (SO) in
               the team performs{" "}
               <strong>below 30% of the assigned target</strong>, a{" "}
               <strong>
@@ -83,8 +83,8 @@ export default function AsmSpecificPage() {
                 activity submission.
               </li>
             </ul>
-            <div className="text-red-800 bg-red-50 p-2.5 rounded border border-red-200 mt-2 shadow-sm leading-snug">
-              <strong>⚠️ Penalty Clause:</strong> If any of the above
+            <div className=" p-2.5  mt-2 leading-snug">
+              <strong> Penalty Clause:</strong> If any of the above
               responsibilities are not followed by any team member, a{" "}
               <strong>penalty of ₹250 per employee (per instance)</strong> will
               be applied to the responsible ASM.
@@ -102,8 +102,8 @@ export default function AsmSpecificPage() {
                 per week for field visits.
               </li>
             </ul>
-            <div className="text-red-800 bg-red-50 p-2.5 rounded border border-red-200 mt-2 shadow-sm leading-snug mb-4">
-              <strong>⚠️ Penalty Clause:</strong> If the weekly visit is not
+            <div className=" p-2.5  mt-2 leading-snug mb-4">
+              <strong> Penalty Clause:</strong> If the weekly visit is not
               completed, a{" "}
               <strong>deduction of ₹2,000 per missed visit</strong> will be
               applied.

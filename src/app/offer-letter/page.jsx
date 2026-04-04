@@ -94,13 +94,6 @@ export default function OfferLetterPage() {
       </div>
 
       <style jsx global>{`
-        /* Hide layout elements on this specific page */
-        header,
-        nav,
-        footer,
-        .fixed.bottom-6.right-6 {
-          display: none !important;
-        }
         .offer-letter-print-root,
         .offer-letter-print-root * {
           box-sizing: border-box;

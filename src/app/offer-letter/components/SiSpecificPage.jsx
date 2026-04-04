@@ -40,8 +40,8 @@ export default function SiSpecificPage() {
             <h4 className="font-bold text-green-700 text-[14px] mb-1">
               2. State-Wide Performance Management
             </h4>
-            <div className="text-red-800 bg-red-50 p-2.5 rounded border border-red-200 shadow-sm leading-snug mt-1">
-              <strong>⚠️ Penalty Clause:</strong> If any Area Sales Manager
+            <div className="p-2.5  mt-1 leading-snug">
+              <strong> Penalty Clause:</strong> If any Area Sales Manager
               (ASM) or the overall state team performs{" "}
               <strong>below 50% of the assigned target</strong>, a{" "}
               <strong>deduction of ₹1,000 per underperforming ASM</strong> will
@@ -80,8 +80,8 @@ export default function SiSpecificPage() {
                 field reporting, and daily activity submission.
               </li>
             </ul>
-            <div className="text-red-800 bg-red-50 p-2.5 rounded border border-red-200 mt-2 shadow-sm leading-snug">
-              <strong>⚠️ Penalty Clause:</strong> If any of the above
+            <div className=" p-2.5  mt-2 leading-snug">
+              <strong>Penalty Clause:</strong> If any of the above
               responsibilities are not followed by any ASM or state team member,
               a <strong>penalty of ₹250 per employee (per instance)</strong>{" "}
               will be applied to the responsible State Incharge.
