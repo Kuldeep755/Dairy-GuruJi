@@ -212,7 +212,7 @@ const Navbar = () => {
 
           {/* CTA */}
           <Link href="/dealer">
-            <Button className="bg-secondary text-black px-5 font-semibold hover:scale-105 transition">
+            <Button className="bg-secondary text-black !px-5 font-semibold hover:scale-105 transition p-5">
               Become Dealer
             </Button>
           </Link>
