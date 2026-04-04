@@ -21,7 +21,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { backendApiUrl } from "@/lib/api";
 
 function formatDateTime(value) {
   if (!value) return "-";
@@ -86,13 +85,13 @@ export default function CareersTable() {
           sortOrder,
         });
 
-        const res = await fetch(backendApiUrl(`/api/forms/admin/careers?${queryParams.toString()}`), {
-          credentials: "include"
+        const res = await fetch(`/api/admin/careers?${queryParams.toString()}`, {
+          cache: "no-store",
         });
         const data = await res.json();
 
         if (!res.ok) {
-          throw new Error(data.error || "Failed to load data");
+          throw new Error(data?.error || data?.message || "Failed to load data");
         }
 
         setApplications(data.applications || []);
