@@ -1,4 +1,5 @@
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import { backendApiUrl } from "@/lib/api";
 import EmployeeDataTable from "./EmployeeDataTable";
 
@@ -17,6 +18,10 @@ export default async function AdminEmployeeDataPage() {
     });
 
     const data = await response.json();
+
+    if (response.status === 401) {
+      redirect("/login?next=/admin/employee-data-form");
+    }
 
     if (response.ok) {
       employees = Array.isArray(data?.employees) ? data.employees : [];

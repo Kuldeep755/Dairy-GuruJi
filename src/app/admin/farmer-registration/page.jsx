@@ -1,6 +1,7 @@
-import { cookies, headers } from "next/headers";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { FileText } from "lucide-react";
+import { backendApiUrl } from "@/lib/api";
 
 function formatDateTime(value) {
   if (!value) {
@@ -22,19 +23,14 @@ function formatDateTime(value) {
 
 export default async function AdminFarmerRegistrationPage() {
   const cookieStore = await cookies();
-  const headersList = await headers();
   const cookieHeader = cookieStore.toString();
-  const protocol = headersList.get("x-forwarded-proto") || "http";
-  const host =
-    headersList.get("x-forwarded-host") || headersList.get("host") || "localhost:3000";
-  const appOrigin = `${protocol}://${host}`;
 
   let registrations = [];
   let total = 0;
   let fetchError = "";
 
   try {
-    const response = await fetch(`${appOrigin}/api/admin/farmer-registration`, {
+    const response = await fetch(backendApiUrl("/api/forms/admin/farmer-registration"), {
       headers: { cookie: cookieHeader },
       cache: "no-store",
     });
