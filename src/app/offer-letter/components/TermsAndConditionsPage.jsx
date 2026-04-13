@@ -109,7 +109,7 @@ export default function TermsAndConditionsPage({ role, rd }) {
             Employee may also leave early by paying salary for the remaining
             notice period, subject to Company approval.
           </li>
-          <li>manufacturing
+          <li>
             Any violation of company policy or misconduct will result in
             immediate termination of employment.
           </li>
@@ -126,7 +126,7 @@ export default function TermsAndConditionsPage({ role, rd }) {
 
           {rd.hasTeamLogic && (
             <li>
-              When you have a fully active team of 5 members, your individual
+              When you have a fully active team of 6 members, your individual
               target will be removed. In that case, your team target will be
               treated as your target until an individual target is assigned
               again.
@@ -173,10 +173,10 @@ export default function TermsAndConditionsPage({ role, rd }) {
                 .
               </li>
               <li>
-                All reports must be accurate and genuine. Submission of
-                fake or incorrect reports is strictly prohibited. If you are
-                found responsible for this, whether intentionally or
-                unintentionally, you will not receive salary for that month.
+                All reports must be accurate and genuine. Submission of fake or
+                incorrect reports is strictly prohibited. If you are found
+                responsible for this, whether intentionally or unintentionally,
+                you will not receive salary for that month.
               </li>
               <li>
                 Any leave taken before 2:00 PM will not be considered as a

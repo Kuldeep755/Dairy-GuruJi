@@ -993,11 +993,87 @@ const detailByProduct = {
   },
 };
 
-export const products = baseProducts.map((product) => ({
-  ...defaultDetails,
-  ...product,
-  ...(detailByProduct[product.id] ?? {}),
-}));
+const productPricing = {
+  mld: {
+    price: 1099,
+    mrp: 1299,
+    variants: [{ label: "1 Ltr", price: 1099, mrp: 1299, isDefault: true }]
+  },
+  "mineral-mixture": {
+    price: 1189,
+    mrp: 1299,
+    variants: [
+      { label: "1 Kg", price: 349, mrp: 399 },
+      { label: "5 Kg", price: 1189, mrp: 1299, isDefault: true }
+    ]
+  },
+  "calf-supplement": {
+    price: 450,
+    mrp: 599,
+    variants: [{ label: "1 Kg", price: 450, mrp: 599, isDefault: true }]
+  },
+  "dairy-guruji-h": {
+    price: 699,
+    mrp: 1240,
+    variants: [{ label: "500 ML", price: 699, mrp: 1240, isDefault: true }]
+  },
+  "bypass-fat": {
+    price: 1999,
+    mrp: 2999,
+    variants: [{ label: "10 Kg", price: 1999, mrp: 2999, isDefault: true }]
+  },
+  "dairy-guruji-gel": {
+    price: 399,
+    mrp: 699,
+    variants: [{ label: "350 ML", price: 399, mrp: 699, isDefault: true }]
+  },
+  "calcium": {
+    price: 999,
+    mrp: 1699,
+    variants: [
+      { label: "5 Lt", price: 999, mrp: 1699, isDefault: true },
+      { label: "20 Lt Bucket", price: 3799, mrp: 5999 },
+      { label: "20 Lt Can", price: 3999, mrp: 6499 }
+    ]
+  },
+  "liver-tonic": {
+    price: 549,
+    mrp: 699,
+    variants: [{ label: "500 ML", price: 549, mrp: 699, isDefault: true }]
+  },
+  "deworming-bolus": {
+    price: 799,
+    mrp: 1690,
+    variants: [{ label: "10 Bolus", price: 799, mrp: 1690, isDefault: true }]
+  },
+  "feed-6000-plus": {
+    price: 1500,
+    mrp: 1500,
+    variants: [{ label: "50 Kg", price: 1500, mrp: 1500, isDefault: true }]
+  },
+  "feed-8000-plus": {
+    price: 1700,
+    mrp: 1700,
+    variants: [{ label: "45 Kg", price: 1700, mrp: 1700, isDefault: true }]
+  }
+};
+
+export const products = baseProducts.map((product) => {
+  const pricing = productPricing[product.id] || { price: 1099, mrp: 1299, variants: [] };
+  return {
+    ...defaultDetails,
+    ...product,
+    ...(detailByProduct[product.id] ?? {}),
+    price: pricing.price,
+    mrp: pricing.mrp,
+    discount: pricing.mrp > pricing.price ? `-${Math.round(((pricing.mrp - pricing.price) / pricing.mrp) * 100)}%` : "0%",
+    brand: "DAIRY GURUJI",
+    stock: 12,
+    rating: 4.5,
+    reviewCount: 128,
+    variants: pricing.variants,
+  };
+});
 
 export const getProductById = (id) =>
   products.find((product) => product.id === id);

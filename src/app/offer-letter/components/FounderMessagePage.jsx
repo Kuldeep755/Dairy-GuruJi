@@ -26,6 +26,9 @@ export default function FounderMessagePage() {
               src="/images/about/founder.jpg"
               alt="Himanshu - Founder"
               className="w-full h-auto object-cover aspect-[4/5]"
+              data-print-optimize="image"
+              loading="eager"
+              decoding="sync"
             />
           </div>
           <div className="mt-4 text-center">

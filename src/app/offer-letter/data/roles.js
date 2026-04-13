@@ -15,7 +15,7 @@ export const rolesData = {
     minSupplement:
       "₹15,000 for each Sales Officer (SO) working under you. If working individually, the minimum supplement must be ₹30,000.",
     probationText:
-      "The first six (6) months shall be treated as your probationary period. During probation, if your individual sales achievement is less than 61% of the target, or if your team target is considered your target and the achievement is below 61%, you will be eligible only for a fixed consolidated pay of ₹8,000 per month plus bike fuel allowance (all inclusive). Upon completion of probation, your performance will be reviewed and your salary may be revised accordingly.",
+      "The first six (6) months shall be treated as your probationary period. During probation, if your individual sales achievement is less than 60% of the target, or if your team target is considered your target and the achievement is below 60%, you will be eligible only for a fixed consolidated pay of ₹35,000 (all inclusive). Upon completion of probation, your performance will be reviewed and your salary may be revised accordingly.",
     hasTeamLogic: true,
   },
   SI: {
@@ -50,7 +50,7 @@ export const rolesData = {
     incUltTotal: "₹70,000 inclusive of all components",
     minSupplement: "₹8,000",
     probationText:
-      "The first six (6) months shall be treated as your probationary period. During probation, if your sales achievement is less than 30% of the target, you will be eligible only for a fixed consolidated pay of ₹8,000 per month (all inclusive). Upon completion of probation, your performance will be reviewed and your salary may be revised accordingly.",
+      "The first six (6) months shall be treated as your probationary period. During probation, if your sales achievement is less than 100 bags of the target, you will be eligible only for a fixed consolidated pay of ₹8,000 per month (all inclusive) + fuel allowance. Upon completion of probation, your performance will be reviewed and your salary may be revised accordingly.",
     hasTeamLogic: false,
   },
   SO: {
@@ -68,7 +68,7 @@ export const rolesData = {
     incUltTotal: "₹1,00,000 inclusive of all components",
     minSupplement: "₹13,000",
     probationText:
-      "The first six (6) months shall be treated as your probationary period. During probation, if your sales achievement is less than 30% of the target, you will be eligible only for a fixed consolidated pay of ₹8,000 per month (all inclusive). Upon completion of probation, your performance will be reviewed and your salary may be revised accordingly.",
+      "The first six (6) months shall be treated as your probationary period. During probation, if your sales achievement is less than 110 bags of the target, you will be eligible only for a fixed consolidated pay of ₹8,000 per month (all inclusive) + fuel allowance up to ₹5,000 only. Upon completion of probation, your performance will be reviewed and your salary may be revised accordingly.",
     hasTeamLogic: false,
   },
   SSO: {
@@ -86,7 +86,7 @@ export const rolesData = {
     incUltTotal: "₹1,10,000 inclusive of all components",
     minSupplement: "₹15,000",
     probationText:
-      "The first six (6) months shall be treated as your probationary period. During probation, if your sales achievement is less than 30% of the target, you will be eligible only for a fixed consolidated pay of ₹8,000 per month (all inclusive). Upon completion of probation, your performance will be reviewed and your salary may be revised accordingly.",
+      "The first six (6) months shall be treated as your probationary period. During probation, if your sales achievement is less than 100 bags of the target, you will be eligible only for a fixed consolidated pay of ₹8,000 per month (all inclusive) + fuel allowance. Upon completion of probation, your performance will be reviewed and your salary may be revised accordingly.",
     hasTeamLogic: false,
   },
 };

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { rolesData } from "./data/roles";
 import ControlsSidebar from "./components/ControlsSidebar";
 import FounderMessagePage from "./components/FounderMessagePage";
@@ -22,6 +22,7 @@ export default function OfferLetterPage() {
     aadharNo: "9120 - 9656 - 8101",
     hq: "NASIRABAD",
   });
+  const optimizedPrintImagesRef = useRef(new Map());
 
   const rd = rolesData[role];
 
@@ -33,7 +34,25 @@ export default function OfferLetterPage() {
     setRole(e.target.value);
   };
 
+  const getPdfFileName = () => {
+    const candidateName =
+      formData.candidateName
+        ?.trim()
+        .replace(/[<>:"/\\|?*\x00-\x1F]/g, " ")
+        .replace(/\s+/g, " ") || "Candidate";
+
+    return `${candidateName}-offer-letter`;
+  };
+
   const handlePrint = () => {
+    const originalTitle = document.title;
+    document.title = getPdfFileName();
+
+    const restoreTitle = () => {
+      document.title = originalTitle;
+    };
+
+    window.addEventListener("afterprint", restoreTitle, { once: true });
     window.print();
   };
 
@@ -49,7 +68,72 @@ export default function OfferLetterPage() {
       });
     };
 
+    const optimizeImagesForPrint = () => {
+      const images = document.querySelectorAll(
+        '.offer-letter-pages img[data-print-optimize="image"]'
+      );
+
+      images.forEach((img) => {
+        if (!(img instanceof HTMLImageElement)) return;
+        const originalSrc = img.getAttribute("src");
+        if (!originalSrc) return;
+
+        const naturalWidth = img.naturalWidth;
+        const naturalHeight = img.naturalHeight;
+        if (!naturalWidth || !naturalHeight) return;
+
+        if (!img.dataset.originalSrc) {
+          img.dataset.originalSrc = originalSrc;
+        }
+
+        const cached = optimizedPrintImagesRef.current.get(originalSrc);
+        if (cached) {
+          img.src = cached;
+          img.dataset.printOptimized = "true";
+          return;
+        }
+
+        const maxWidth = 900;
+        const targetWidth = Math.min(naturalWidth, maxWidth);
+        const targetHeight = Math.max(
+          1,
+          Math.round((naturalHeight * targetWidth) / naturalWidth)
+        );
+
+        const canvas = document.createElement("canvas");
+        canvas.width = targetWidth;
+        canvas.height = targetHeight;
+        const context = canvas.getContext("2d");
+        if (!context) return;
+
+        context.drawImage(img, 0, 0, targetWidth, targetHeight);
+        const optimizedSrc = canvas.toDataURL("image/jpeg", 0.62);
+
+        optimizedPrintImagesRef.current.set(originalSrc, optimizedSrc);
+        img.src = optimizedSrc;
+        img.dataset.printOptimized = "true";
+      });
+    };
+
+    const resetImagesAfterPrint = () => {
+      const images = document.querySelectorAll(
+        '.offer-letter-pages img[data-print-optimize="image"]'
+      );
+
+      images.forEach((img) => {
+        if (!(img instanceof HTMLImageElement)) return;
+        const originalSrc = img.dataset.originalSrc;
+        if (!originalSrc) return;
+        if (img.getAttribute("src") !== originalSrc) {
+          img.src = originalSrc;
+        }
+        delete img.dataset.printOptimized;
+      });
+    };
+
     const applyPrintScale = () => {
+      optimizeImagesForPrint();
+
       const pages = document.querySelectorAll(".offer-letter-pages .pdf-page");
       pages.forEach((page) => {
         page.style.setProperty("--print-scale", "1");
@@ -64,12 +148,17 @@ export default function OfferLetterPage() {
       });
     };
 
+    const handleAfterPrint = () => {
+      resetPrintScale();
+      resetImagesAfterPrint();
+    };
+
     window.addEventListener("beforeprint", applyPrintScale);
-    window.addEventListener("afterprint", resetPrintScale);
+    window.addEventListener("afterprint", handleAfterPrint);
 
     return () => {
       window.removeEventListener("beforeprint", applyPrintScale);
-      window.removeEventListener("afterprint", resetPrintScale);
+      window.removeEventListener("afterprint", handleAfterPrint);
     };
   }, []);
 
@@ -138,8 +227,8 @@ export default function OfferLetterPage() {
         @media print {
           body {
             background-color: white !important;
-            -webkit-print-color-adjust: exact !important;
-            print-color-adjust: exact !important;
+            -webkit-print-color-adjust: economy !important;
+            print-color-adjust: economy !important;
             margin: 0;
             padding: 0;
           }
@@ -171,11 +260,6 @@ export default function OfferLetterPage() {
           .print\\:py-0 {
             padding-top: 0 !important;
             padding-bottom: 0 !important;
-          }
-          /* Ensure backgrounds and borders print correctly */
-          * {
-            -webkit-print-color-adjust: exact !important;
-            print-color-adjust: exact !important;
           }
         }
       `}</style>

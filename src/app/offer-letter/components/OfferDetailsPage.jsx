@@ -22,12 +22,12 @@ export default function OfferDetailsPage({ formData, rd, role }) {
           <p className="font-bold text-base text-gray-900">
             {formData.candidateName || "_________________________"}
           </p>
-          <p className="text-gray-700">
+          {/* <p className="text-gray-700">
             Aadhaar No.{" "}
             <span className="font-medium text-gray-900">
               {formData.aadharNo || "_________________________"}
             </span>
-          </p>
+          </p> */}
           <p className="text-gray-700">
             H.Q.{" "}
             <span className="font-medium text-gray-900">
@@ -149,7 +149,7 @@ export default function OfferDetailsPage({ formData, rd, role }) {
                     Less than 60% achievement
                   </td>
                   <td className="border border-gray-300 px-2 py-1.5">
-                    Fixed Base Salary (₹8,000 + Fuel)
+                    Fixed Salary ₹35,000 only (all inclusive) 
                   </td>
                 </tr>
                 <tr className="bg-gray-50">
