@@ -6,13 +6,13 @@ export function getBackendApiBaseUrl() {
     process.env.NEXT_PUBLIC_API_BASE_URL ||
     (process.env.NODE_ENV === "development" ? defaultApiBaseUrl : "");
 
-  if (!rawBaseUrl) {
-    throw new Error(
-      "Missing backend API base URL. Set BACKEND_API_BASE_URL (server) or NEXT_PUBLIC_API_BASE_URL (client).",
+  if (!rawBaseUrl && typeof window === "undefined") {
+    console.warn(
+      "Missing backend API base URL on the server. Set BACKEND_API_BASE_URL.",
     );
   }
 
-  return rawBaseUrl.replace(/\/+$/, "");
+  return rawBaseUrl ? rawBaseUrl.replace(/\/+$/, "") : "";
 }
 
 export function backendApiUrl(path) {
