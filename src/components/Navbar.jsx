@@ -4,9 +4,10 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, ChevronDown } from "lucide-react";
+import { Menu, ChevronDown, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { backendApiUrl } from "@/lib/api";
+import { useCart } from "@/context/CartContext";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -45,6 +46,7 @@ const navItems = [
 
 const Navbar = () => {
   const pathname = usePathname();
+  const { cartCount, isHydrated } = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mobileOpenItem, setMobileOpenItem] = useState(null);
@@ -216,6 +218,18 @@ const Navbar = () => {
               Become Dealer
             </Button>
           </Link>
+          <Link
+            href="/cart"
+            className="relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white transition hover:bg-white/10"
+            aria-label="Cart"
+          >
+            <ShoppingCart className="h-5 w-5" />
+            {isHydrated && cartCount > 0 ? (
+              <span className="absolute -right-1 -top-1 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-secondary px-1 text-xs font-bold text-black">
+                {cartCount > 99 ? "99+" : cartCount}
+              </span>
+            ) : null}
+          </Link>
         </div>
 
         {/* Mobile Menu */}
@@ -300,6 +314,14 @@ const Navbar = () => {
                   <Button className="mt-4 w-full bg-secondary text-black font-semibold">
                     Become Dealer
                   </Button>
+                </Link>
+              </SheetClose>
+              <SheetClose asChild>
+                <Link
+                  href="/cart"
+                  className="mt-2 inline-flex w-full items-center justify-center rounded-lg border border-white/20 px-4 py-3 text-white"
+                >
+                  Cart {isHydrated && cartCount > 0 ? `(${cartCount})` : ""}
                 </Link>
               </SheetClose>
             </div>

@@ -1,4 +1,4 @@
-const defaultApiBaseUrl = "http://localhost:4000";
+const defaultApiBaseUrl = "http://localhost:8080";
 
 export function getBackendApiBaseUrl() {
   const rawBaseUrl =

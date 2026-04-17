@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { ArrowRight, BriefcaseBusiness } from "lucide-react";
 import { CitySelect, StateSelect } from "react-country-state-city";
 import { useRouter } from "next/navigation";
-import { backendFetch } from "@/lib/api";
 import FormToast from "@/components/ui/form-toast";
 
 const initialFormState = {
@@ -55,7 +54,7 @@ const CareersPage = () => {
     setSubmitState({ type: "", message: "" });
 
     try {
-      const response = await backendFetch("/api/forms/careers", {
+      const response = await fetch("/api/careers", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

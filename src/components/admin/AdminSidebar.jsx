@@ -4,22 +4,28 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
+  LogOut,
+  LayoutDashboard,
+  ShoppingCart,
+  Briefcase,
+  Package2,
   ChevronLeft,
   ChevronRight,
-  FileText,
-  LayoutDashboard,
-  LogOut,
-  Settings,
   Sprout,
-  Users,
+  FileText,
+  Phone,
+  Building2,
+  UserRound,
 } from "lucide-react";
 
 const sidebarLinks = [
   { label: "Dashboard", icon: LayoutDashboard, href: "/admin", exact: true },
-  { label: "Careers", icon: Users, href: "/admin/careers", exact: false },
-  { label: "Farmer Registration", icon: Sprout, href: "/admin/farmer-registration", exact: false },
+  { label: "Orders", icon: ShoppingCart, href: "/admin/orders", exact: false },
+  { label: "Career Forms", icon: Briefcase, href: "/admin/careers", exact: false },
+  { label: "Contact Forms", icon: Phone, href: "/admin/contact", exact: false },
+  { label: "Dealership Forms", icon: Building2, href: "/admin/dealership", exact: false },
+  { label: "Farmer Forms", icon: Sprout, href: "/admin/farmer-registration", exact: false },
   { label: "Employee Forms", icon: FileText, href: "/admin/employee-data-form", exact: false },
-  { label: "Settings", icon: Settings, href: "#", exact: true },
 ];
 
 export default function AdminSidebar({ session }) {
@@ -28,77 +34,92 @@ export default function AdminSidebar({ session }) {
 
   return (
     <aside
-      className={`relative shrink-0 rounded-[2rem] border border-white/40 bg-white/60 p-5 shadow-sm backdrop-blur-xl transition-all duration-300 ease-in-out flex flex-col ${
-        isCollapsed ? "w-[104px]" : "w-72"
-      } hidden lg:flex`}
+      className={`relative shrink-0 border-r border-[#dfe7e5] bg-[#f4f8f7] transition-all duration-300 ease-in-out flex flex-col h-screen ${
+        isCollapsed ? "w-[84px]" : "w-[288px]"
+      } hidden md:flex z-50`}
     >
       <button
         onClick={() => setIsCollapsed(!isCollapsed)}
-        className="absolute -right-3 top-10 flex h-6 w-6 items-center justify-center rounded-full border border-primary/20 bg-white text-primary shadow-sm hover:scale-110 hover:bg-slate-50 transition z-20"
+        className="absolute -right-3 top-8 flex h-6 w-6 items-center justify-center rounded-full border border-[#cfd9d6] bg-white text-slate-500 shadow-sm hover:scale-110 hover:text-slate-700 transition z-50"
       >
         {isCollapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
       </button>
 
-      <div className={`mb-6 flex items-center border-b border-primary/10 pb-4 ${isCollapsed ? "justify-center gap-0" : "gap-3"}`}>
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#1f7d46] to-[#1a6539] text-base font-bold text-white shadow-lg shadow-[#1f7d46]/30">
-          DG
-        </div>
-        {!isCollapsed && (
-          <div className="min-w-0 transition-opacity duration-300 opacity-100 whitespace-nowrap overflow-hidden">
-            <p className="text-base font-bold text-[#172432]">Admin Panel</p>
-            <p className="text-xs font-semibold text-primary/70 uppercase tracking-wider">Dairy Guruji</p>
-          </div>
-        )}
-      </div>
-
-      <nav className="flex flex-col gap-1.5 flex-1 overflow-y-auto overflow-x-hidden">
-        {sidebarLinks.map((item) => {
-          const Icon = item.icon;
-          const isActive = item.exact
-            ? pathname === item.href
-            : pathname.startsWith(item.href);
-
-          return (
-            <Link
-              key={item.label}
-              href={item.href}
-              title={isCollapsed ? item.label : undefined}
-              className={`group flex items-center rounded-xl p-3 text-sm font-medium transition-all duration-300 ${
-                isCollapsed ? "justify-center" : "gap-3 px-4"
-              } ${
-                isActive
-                  ? "bg-gradient-to-r from-[#1f7d46] to-[#1a6539] text-white shadow-md shadow-[#1f7d46]/20"
-                  : "text-slate-600 hover:bg-white/50 hover:text-[#1f7d46] hover:-translate-y-0.5"
-              }`}
-            >
-              <Icon className={`h-5 w-5 shrink-0 ${isActive ? "text-white" : "text-slate-400 group-hover:text-[#1f7d46]"}`} />
-              {!isCollapsed && (
-                <span className="whitespace-nowrap">{item.label}</span>
-              )}
-            </Link>
-          );
-        })}
-      </nav>
-
-      <div className={`mt-auto rounded-2xl border border-white/50 bg-white/40 backdrop-blur-md transition-all duration-300 ${isCollapsed ? "p-2" : "p-4"}`}>
-        <div className={`flex items-center ${isCollapsed ? "justify-center" : "gap-3"} mb-2`}>
-          <div className="h-8 w-8 shrink-0 rounded-full bg-[#f3c24b]/20 flex items-center justify-center border border-[#f3c24b]/30">
-            <Users className="h-4 w-4 text-[#d39a0c]" />
+      <div className={`h-20 flex items-center ${isCollapsed ? "justify-center" : "px-6"} shrink-0`}>
+        <div className="flex items-center gap-3">
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#0f766e] shadow-sm">
+            <Package2 className="h-5 w-5 text-white" />
           </div>
           {!isCollapsed && (
-            <div className="whitespace-nowrap overflow-hidden">
-              <p className="text-[10px] font-bold uppercase tracking-widest text-[#1f7d46]">Logged In</p>
-              <p className="text-sm font-bold text-[#172432] truncate">{session?.username || "Admin"}</p>
+            <div>
+              <p className="text-base font-extrabold text-[#0f172a] leading-tight">Dairy Guruji</p>
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Admin Panel</p>
             </div>
           )}
         </div>
+      </div>
+
+      <div className="flex-1 overflow-y-auto py-4 flex flex-col gap-6">
+        <div>
+          {!isCollapsed && (
+            <div className="px-6 mb-3">
+              <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                Form Management
+              </p>
+            </div>
+          )}
+          <nav className="flex flex-col px-3 gap-1.5">
+            {sidebarLinks.map((item) => {
+              const Icon = item.icon;
+              const isActive = item.exact
+                ? pathname === item.href
+                : pathname.startsWith(item.href);
+
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  title={isCollapsed ? item.label : undefined}
+                  className={`group flex items-center rounded-xl px-3 py-2.5 text-[14px] font-semibold transition-all ${
+                    isCollapsed ? "justify-center" : "gap-3"
+                  } ${
+                    isActive
+                      ? "bg-[#e5f4f1] text-[#0f766e]"
+                      : "text-slate-600 hover:bg-[#eaf1ef] hover:text-[#0f172a]"
+                  }`}
+                >
+                  <Icon className={`h-[18px] w-[18px] shrink-0 ${isActive ? "text-[#0f766e]" : "text-slate-500 group-hover:text-slate-700"}`} />
+                  {!isCollapsed && (
+                    <span className="whitespace-nowrap">{item.label}</span>
+                  )}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
+      </div>
+
+      <div className="px-3 pb-6 pt-4 border-t border-[#d9e4e1] mx-3">
+        {!isCollapsed ? (
+          <div className="mb-3 rounded-xl border border-[#d7e4e0] bg-white px-3 py-2.5">
+            <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Signed In</p>
+            <p className="mt-1 text-sm font-bold text-slate-800 truncate">{session?.username || "Admin User"}</p>
+          </div>
+        ) : (
+          <div className="mb-3 flex items-center justify-center">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white border border-[#d7e4e0] text-slate-600">
+              <UserRound className="h-4 w-4" />
+            </div>
+          </div>
+        )}
+
         <Link
           href="/logout"
-          title={isCollapsed ? "Logout" : undefined}
-          className={`mt-3 flex items-center justify-center rounded-lg bg-white/50 py-2 text-sm font-semibold text-red-600 transition hover:bg-red-50 hover:text-red-700 ${isCollapsed ? "gap-0 px-0" : "gap-2"}`}
+          title={isCollapsed ? "Log Out" : undefined}
+          className={`group flex items-center rounded-xl px-3 py-2.5 text-[14px] font-semibold text-slate-600 hover:bg-[#eaf1ef] hover:text-[#0f172a] transition-all ${isCollapsed ? "justify-center" : "gap-3"}`}
         >
-          <LogOut className="h-4 w-4 shrink-0" />
-          {!isCollapsed && <span>Logout</span>}
+          <LogOut className="h-[18px] w-[18px] shrink-0 text-slate-500 group-hover:text-slate-700" />
+          {!isCollapsed && <span>Log Out</span>}
         </Link>
       </div>
     </aside>

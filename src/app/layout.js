@@ -1,6 +1,7 @@
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import RouteChrome from "@/components/RouteChrome";
+import AppProviders from "@/components/providers/AppProviders";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -21,7 +22,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <body className="antialiased">
-        <RouteChrome>{children}</RouteChrome>
+        <AppProviders>
+          <RouteChrome>{children}</RouteChrome>
+        </AppProviders>
       </body>
     </html>
   );

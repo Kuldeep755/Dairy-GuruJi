@@ -30,12 +30,12 @@ export default async function AdminLayout({ children }) {
   }
 
   return (
-    <div className="relative min-h-screen bg-[#f5f2e8] text-slate-900 overflow-hidden font-sans ">
-      <div className="relative z-10 mx-auto flex w-full min-h-screen gap-4 p-3 sm:p-4 lg:p-6 ">
-        <AdminSidebar session={session} />
-
-        <main className="min-w-0 flex-1 flex flex-col gap-4">{children}</main>
-      </div>
+    <div className="relative min-h-screen bg-[#edf3f1] text-slate-900 font-sans flex">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_12%,rgba(15,118,110,0.08),transparent_40%),radial-gradient(circle_at_88%_12%,rgba(14,116,144,0.06),transparent_36%)]" />
+      <AdminSidebar session={session} />
+      <main className="relative min-w-0 flex-1 flex flex-col px-4 sm:px-6 lg:px-8 py-6 h-screen overflow-y-auto">
+        {children}
+      </main>
     </div>
   );
 }

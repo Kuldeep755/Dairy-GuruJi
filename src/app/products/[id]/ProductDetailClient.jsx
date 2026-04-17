@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState, useRef } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
+import { useRouter } from "next/navigation";
 import {
   Star,
   StarHalf,
@@ -14,6 +15,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { products } from "@/lib/productData";
+import { MAX_QUANTITY, useCart } from "@/context/CartContext";
 
 const productGalleryById = {
   mld: [
@@ -104,12 +106,14 @@ function RatingStars({ count }) {
 }
 
 export default function ProductDetailClient({ product }) {
+  const router = useRouter();
+  const { addToCart, setBuyNowItem } = useCart();
   const composition = product.composition || product.nutritionalValue;
   const benefits = product.benefitsHindi ?? product.benefits ?? [];
   const price = product.price || 1099;
   const mrp = product.mrp || 1299;
   const brand = product.brand || "DAIRY GURUJI";
-  const stock = product.stock || 5;
+  const stock = product.stock ?? 5;
   const reviewCount = product.reviewCount || 128;
   const originalVariants = product.variants || [
     { label: "1 Kg", price: 349, mrp: 450 },
@@ -125,6 +129,7 @@ export default function ProductDetailClient({ product }) {
   const [quantity, setQuantity] = useState(1);
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
+  const [toastMessage, setToastMessage] = useState("");
   const imageContainerRef = useRef(null);
 
   const currentPrice = selectedVariant ? selectedVariant.price : price;
@@ -143,8 +148,60 @@ export default function ProductDetailClient({ product }) {
     setZoomPosition({ x, y });
   };
 
-  const buyText = `I'd like to buy ${quantity}x ${product.name} (${selectedVariant?.label || 'Standard'}) now.`;
-  const wpLink = `https://wa.me/918168048260?text=${encodeURIComponent(buyText)}`;
+  const isOutOfStock = stock <= 0;
+  const maxAllowedQty = Math.max(1, Math.min(MAX_QUANTITY, stock || MAX_QUANTITY));
+
+  useEffect(() => {
+    if (!toastMessage) {
+      return undefined;
+    }
+
+    const timer = window.setTimeout(() => {
+      setToastMessage("");
+    }, 2000);
+
+    return () => window.clearTimeout(timer);
+  }, [toastMessage]);
+
+  useEffect(() => {
+    if (quantity > maxAllowedQty) {
+      setQuantity(maxAllowedQty);
+    }
+  }, [maxAllowedQty, quantity]);
+
+  const selectedItem = {
+    productId: product.id,
+    name: product.name,
+    price: currentPrice,
+    quantity,
+    variantLabel: selectedVariant?.label || "",
+    image: mainImage,
+  };
+
+  const handleAddToCart = () => {
+    if (isOutOfStock) {
+      return;
+    }
+
+    addToCart(selectedItem, quantity);
+    setToastMessage("Added to cart");
+  };
+
+  const handleBuyNow = () => {
+    if (isOutOfStock) {
+      return;
+    }
+
+    setBuyNowItem(selectedItem, quantity);
+    router.push("/checkout?source=buy-now");
+  };
+
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const deliveryDate = tomorrow.toLocaleDateString("en-IN", {
+    day: "2-digit",
+    month: "long",
+  });
 
   return (
     <div className="min-h-screen bg-white pb-16 pt-20 md:pb-24">
@@ -344,7 +401,7 @@ export default function ProductDetailClient({ product }) {
               </div>
 
               <div className="text-[14px] mt-3">
-                <span className="text-primary hover:text-primary/80 hover:underline cursor-pointer">FREE delivery</span> <span className="font-bold">Tomorrow, 15 April</span> on orders dispatched by Amazon over ₹499.
+                <span className="text-primary hover:text-primary/80 hover:underline cursor-pointer">FREE delivery</span> <span className="font-bold">Tomorrow, {deliveryDate}</span> on orders over ₹499.
               </div>
 
               <div className="mt-4 flex items-start gap-1 cursor-pointer group">
@@ -355,7 +412,7 @@ export default function ProductDetailClient({ product }) {
               </div>
 
               <div className="mt-4 text-[18px] font-medium text-primary">
-                {stock < 5 ? `Only ${stock} left in stock.` : "In stock"}
+                {stock <= 0 ? "Out of stock" : stock < 5 ? `Only ${stock} left in stock.` : "In stock"}
               </div>
 
               <div className="mt-2 text-[14px] flex flex-col gap-0.5">
@@ -377,30 +434,40 @@ export default function ProductDetailClient({ product }) {
                     value={quantity} 
                     onChange={(e) => setQuantity(Number(e.target.value))} 
                     className="bg-transparent font-medium outline-none cursor-pointer border-none"
+                    disabled={isOutOfStock}
                   >
-                    {[1,2,3,4,5,6,7,8,9,10].map(q => <option key={q} value={q}>{q}</option>)}
+                    {Array.from({ length: maxAllowedQty }, (_, i) => i + 1).map((q) => (
+                      <option key={q} value={q}>
+                        {q}
+                      </option>
+                    ))}
                   </select>
                 </label>
               </div>
 
               <div className="flex flex-col gap-2.5">
-                <a
-                  href={wpLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-secondary hover:bg-secondary/90 active:bg-secondary/80 rounded-full py-2 px-4 text-sm font-bold text-gray-900 text-center shadow-sm"
+                <button
+                  type="button"
+                  onClick={handleAddToCart}
+                  disabled={isOutOfStock}
+                  className="w-full bg-secondary hover:bg-secondary/90 active:bg-secondary/80 rounded-full py-2 px-4 text-sm font-bold text-gray-900 text-center shadow-sm disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   Add to Cart
-                </a>
-                <a
-                  href={wpLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-primary hover:bg-primary/90 active:bg-primary/80 rounded-full py-2 px-4 text-sm font-bold text-white text-center shadow-sm"
+                </button>
+                <button
+                  type="button"
+                  onClick={handleBuyNow}
+                  disabled={isOutOfStock}
+                  className="w-full bg-primary hover:bg-primary/90 active:bg-primary/80 rounded-full py-2 px-4 text-sm font-bold text-white text-center shadow-sm disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   Buy Now
-                </a>
+                </button>
               </div>
+              {toastMessage ? (
+                <p className="mt-3 rounded-md border border-green-100 bg-green-50 px-3 py-2 text-xs font-semibold text-green-700">
+                  {toastMessage}. <Link href="/cart" className="underline">View cart</Link>
+                </p>
+              ) : null}
 
               <div className="mt-4 flex items-center gap-2 cursor-pointer group">
                 <Lock className="h-4 w-4 text-gray-500" />
