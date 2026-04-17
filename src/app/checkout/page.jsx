@@ -2,7 +2,7 @@
 
 import Script from "next/script";
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCart } from "@/context/CartContext";
 import {
@@ -50,7 +50,7 @@ function validateAddressForm(address) {
   return "";
 }
 
-export default function CheckoutPage() {
+function CheckoutPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const source = searchParams.get("source");
@@ -483,5 +483,17 @@ export default function CheckoutPage() {
         </div>
       </div>
     </>
+  );
+}
+
+export default function CheckoutPage() {
+  return (
+    <Suspense fallback={
+      <div className="mx-auto min-h-screen max-w-6xl px-4 pb-16 pt-28 sm:px-6">
+        <p className="text-sm text-text-dark/70">Loading checkout...</p>
+      </div>
+    }>
+      <CheckoutPageContent />
+    </Suspense>
   );
 }
