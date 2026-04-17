@@ -138,6 +138,7 @@ export default function EmployeeDataTable({ initialEmployees = [] }) {
         `/api/admin/employee-data-form/${editingEntry.id}`,
         {
           method: "PUT",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },
@@ -182,6 +183,7 @@ export default function EmployeeDataTable({ initialEmployees = [] }) {
     try {
       const response = await fetch(`/api/admin/employee-data-form/${id}`, {
         method: "DELETE",
+        credentials: "include",
       });
 
       const data = await response.json();

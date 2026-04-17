@@ -86,6 +86,7 @@ export default function CareersTable() {
         });
 
         const res = await fetch(`/api/admin/careers?${queryParams.toString()}`, {
+          credentials: "include",
           cache: "no-store",
         });
         const data = await res.json();
