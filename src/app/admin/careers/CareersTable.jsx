@@ -21,6 +21,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { backendApiUrl } from "@/lib/api";
 
 function formatDateTime(value) {
   if (!value) return "-";
@@ -85,10 +86,13 @@ export default function CareersTable() {
           sortOrder,
         });
 
-        const res = await fetch(`/api/admin/careers?${queryParams.toString()}`, {
-          credentials: "include",
-          cache: "no-store",
-        });
+        const res = await fetch(
+          backendApiUrl(`/api/admin/careers?${queryParams.toString()}`),
+          {
+            credentials: "include",
+            cache: "no-store",
+          },
+        );
         const data = await res.json();
 
         if (!res.ok) {

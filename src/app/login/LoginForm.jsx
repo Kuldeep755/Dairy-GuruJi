@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { backendFetch } from "@/lib/api";
 
 export default function LoginForm({ nextPath = "/admin" }) {
   const router = useRouter();
@@ -18,7 +19,7 @@ export default function LoginForm({ nextPath = "/admin" }) {
     setError("");
 
     try {
-      const response = await fetch("/api/auth/login", {
+      const response = await backendFetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),

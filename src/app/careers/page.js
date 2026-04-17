@@ -5,6 +5,7 @@ import { ArrowRight, BriefcaseBusiness } from "lucide-react";
 import { CitySelect, StateSelect } from "react-country-state-city";
 import { useRouter } from "next/navigation";
 import FormToast from "@/components/ui/form-toast";
+import { backendFetch } from "@/lib/api";
 
 const initialFormState = {
   name: "",
@@ -54,7 +55,7 @@ const CareersPage = () => {
     setSubmitState({ type: "", message: "" });
 
     try {
-      const response = await fetch("/api/careers", {
+      const response = await backendFetch("/api/careers", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

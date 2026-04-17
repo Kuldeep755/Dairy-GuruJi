@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { backendApiUrl, backendFetch } from "@/lib/api";
 
 function formatDateTime(value) {
   if (!value) {
@@ -135,7 +136,7 @@ export default function EmployeeDataTable({ initialEmployees = [] }) {
     setLoadingId(editingEntry.id);
     try {
       const response = await fetch(
-        `/api/admin/employee-data-form/${editingEntry.id}`,
+        backendApiUrl(`/api/admin/employee-data-form/${editingEntry.id}`),
         {
           method: "PUT",
           credentials: "include",
@@ -181,10 +182,13 @@ export default function EmployeeDataTable({ initialEmployees = [] }) {
 
     setLoadingId(id);
     try {
-      const response = await fetch(`/api/admin/employee-data-form/${id}`, {
-        method: "DELETE",
-        credentials: "include",
-      });
+      const response = await fetch(
+        backendApiUrl(`/api/admin/employee-data-form/${id}`),
+        {
+          method: "DELETE",
+          credentials: "include",
+        },
+      );
 
       const data = await response.json();
 
